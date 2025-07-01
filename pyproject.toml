@@ -1,7 +1,7 @@
 [project]
-name = "coalapi"
+name = "retire"
 version = "0.1.0"
-description = "Add your description here"
+description = "A data driven approach to strategizing the retirement of coal plants in the US."
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
