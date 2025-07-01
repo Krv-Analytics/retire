@@ -38,5 +38,16 @@ def load_clean_dataset():
 
 
 def load_projection():
+    """
+    Loads the projected US coal plant dataset from a CSV file.
+
+    Returns:
+        pandas.DataFrame: A DataFrame containing the projected US coal plant data.
+
+    Raises:
+        FileNotFoundError: If the CSV file does not exist at the specified path.
+        pd.errors.EmptyDataError: If the CSV file is empty.
+        pd.errors.ParserError: If the CSV file cannot be parsed.
+    """
     path = files("retire.data").joinpath("resources/projected_us_coalplant_dataset.csv")
     return pd.read_csv(path)
