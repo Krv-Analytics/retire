@@ -12,3 +12,8 @@ dependencies = [
     "tqdm>=4.67.1",
 ]
 
+[tool.setuptools.package-data]
+coalapi = ["resources/*.csv"]
+
+[tool.setuptools]
+include-package-data = true
