@@ -1,1 +1,1 @@
-from .paper_figure import PaperFigure
+from .coal_figure import CoalFigure
