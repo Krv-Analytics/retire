@@ -1,5 +1,6 @@
 # retire/data.py
 
+import ast
 import pandas as pd
 import networkx as nx
 from importlib.resources import files
@@ -57,7 +58,6 @@ def load_graph():
 
     Returns:
         networkx.Graph: A graph object with nodes and edges populated from the CSV files.
-
     """
 
     node_path = files("retire.data").joinpath("resources/graph/graphnode_df.csv")
@@ -70,10 +70,18 @@ def load_graph():
     # Initialize graph
     G = nx.Graph()
 
-    # Add nodes with attributes
+    # Add nodes with attributes (including parsing membership if needed)
     for _, row in node_df.iterrows():
         node_id = row["node"] if "node" in row else row[0]
         attrs = row.drop("node").to_dict() if "node" in row else row[1:].to_dict()
+
+        # Safely parse membership field if it's a string
+        if "membership" in attrs and isinstance(attrs["membership"], str):
+            try:
+                attrs["membership"] = ast.literal_eval(attrs["membership"])
+            except (ValueError, SyntaxError):
+                attrs["membership"] = []  # or raise an error if preferred
+
         G.add_node(node_id, **attrs)
 
     # Add edges with attributes
