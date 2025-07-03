@@ -1,1 +1,1 @@
-from .coal_figure import CoalFigure
+from .plotkit import PlotKit
