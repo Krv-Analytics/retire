@@ -1,6 +1,4 @@
 .qodo
-data/
-
 uv.lock
 __pycache__/
 *.pyc
