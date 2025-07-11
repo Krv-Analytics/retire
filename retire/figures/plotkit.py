@@ -24,6 +24,7 @@ class PlotKit:
         self,
         col: str = None,
         pos: Dict[str, np.ndarray] = None,
+        title: str = None,
         size: tuple = (8, 6),
         show_colorbar: bool = False,
         color_method: str = "average",
@@ -39,6 +40,8 @@ class PlotKit:
             If None, no coloring is applied.
         pos : dict, optional
             Node positions for layout. If None, spring layout is used.
+        title: str, optional
+            Title for the plot. If None, no title is displayed.
         size : tuple, default=(8, 6)
             Figure size in inches.
         show_colorbar : bool, default=False
@@ -64,6 +67,7 @@ class PlotKit:
             show_colorbar=show_colorbar,
             color_method=color_method,
             show_node_labels=show_node_labels,
+            title=title,
         )
 
     def drawComponent(
@@ -71,6 +75,7 @@ class PlotKit:
         component: int,
         col: str = "ret_STATUS",
         pos: Dict[str, np.ndarray] = None,
+        title=None,
         size: tuple = (8, 6),
         show_colorbar: bool = False,
         color_method: str = "average",
@@ -79,23 +84,43 @@ class PlotKit:
         """
         Draws a specific connected component of the graph.
 
-        Parameters:
-            component (int): Index of the connected component to draw.
-            col (str, optional): Node attribute to use for coloring. Defaults to "ret_STATUS".
-            pos (Dict[str, np.ndarray], optional): Dictionary specifying node positions. If None, positions are determined automatically.
-            size (tuple, optional): Size of the figure as (width, height). Defaults to (8, 6).
-            show_colorbar (bool, optional): Whether to display a colorbar. Defaults to False.
-            color_method (str, optional): Method for determining node colors. Defaults to "average".
-            show_node_labels (bool, optional): Whether to display node labels. Defaults to False.
+        Parameters
+        ----------
+        col : str, optional
+            Column in raw data to use for node coloring when `color_method='average'`.
+            If None, no coloring is applied.
+        pos : dict, optional
+            Node positions for layout. If None, spring layout is used.
+        title: str, optional
+            Title for the plot. If None, no title is displayed.
+        size : tuple, default=(8, 6)
+            Figure size in inches.
+        show_colorbar : bool, default=False
+            Whether to display a colorbar (only used if col is provided).
+        color_method : {"average", "community"}, default="average"
+            Method for coloring nodes: by attribute average or by community.
+        show_node_labels : bool, default=False
+            Whether to display node labels.
 
-        Returns:
-            tuple: Matplotlib figure and axes objects (fig, ax) for the drawn component.
+        Returns
+        -------
+        fig : matplotlib.figure.Figure
+            The created matplotlib figure.
+        ax : matplotlib.axes.Axes
+            The created matplotlib axes.
         """
         comp_obj = nx.connected_components(self.G)
         components = [self.G.subgraph(c).copy() for c in comp_obj]
         subGraph = components[component]
         return self.drawGraph_helper(
-            subGraph, col, pos, size, show_colorbar, color_method, show_node_labels
+            G=subGraph,
+            col=col,
+            pos=pos,
+            title=title,
+            size=size,
+            show_colorbar=show_colorbar,
+            color_method=color_method,
+            show_node_labels=show_node_labels,
         )
 
     def drawPathDistance(
@@ -478,6 +503,7 @@ class PlotKit:
         G: nx.Graph,
         col: str = None,
         pos: Dict[str, np.ndarray] = None,
+        title: str = None,
         size: tuple = (8, 6),
         show_colorbar: bool = False,
         color_method: str = "average",
@@ -498,6 +524,8 @@ class PlotKit:
             If None, no coloring is applied.
         pos : dict, optional
             Node positions for layout. If None, spring layout is used.
+        title: str, optional
+            Title for the plot. If None, no title is displayed.
         size : tuple, default=(8, 6)
             Figure size in inches.
         show_colorbar : bool, default=False
@@ -523,7 +551,7 @@ class PlotKit:
         # Get color values if col is provided
         if col is not None:
             color_dict, _ = self.generate_THEMAGrah_labels(
-                col=col, color_method=color_method
+                G=G, col=col, color_method=color_method
             )
             node_values = list(color_dict.values())
 
@@ -594,6 +622,11 @@ class PlotKit:
             cbar.set_label(label)
 
         plt.subplots_adjust(left=-0.3)
+
+        if title:
+            ax.set_title(title)
+            ax.axis("off")
+
         return fig, ax
 
     def get_target_nodes(
@@ -664,6 +697,7 @@ class PlotKit:
 
     def generate_THEMAGrah_labels(
         self,
+        G: nx.Graph,
         col: str = "ret_STATUS",
         color_method: str = "average",
     ):
@@ -676,7 +710,7 @@ class PlotKit:
         -------
         color_dict : dict
             Node -> color value (float for average, int for community ID).
-        labels_dict : dict
+        labels_dict : dictx
             Node -> label (usually the node name).
         """
         labels_dict = {node: node for node in self.G.nodes}
@@ -691,11 +725,11 @@ class PlotKit:
 
         elif color_method == "community":
             # Detect communities and assign a 0-based integer ID to each node
-            communities = list(nx.community.label_propagation_communities(self.G))
+            communities = list(nx.community.label_propagation_communities(G))
             community_id = {
                 node: i for i, comm in enumerate(communities) for node in comm
             }
-            color_dict = {node: community_id[node] for node in self.G.nodes}
+            color_dict = {node: community_id[node] for node in G.nodes}
 
         else:
             raise ValueError(f"Invalid color_method: {color_method}")
