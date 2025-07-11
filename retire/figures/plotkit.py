@@ -5,13 +5,21 @@ import pandas as pd
 import seaborn as sns
 import networkx as nx
 from typing import Dict
+import plotly.express as px
 from matplotlib import rcParams
+import plotly.graph_objects as go
 import matplotlib.pyplot as plt
 import matplotlib.colors as mcolors
 from matplotlib.lines import Line2D
 import matplotlib.patches as patches
 from matplotlib.colors import Normalize
 from sklearn.preprocessing import StandardScaler
+from .utils import (
+    build_group_sankey,
+    prepare_bar_annotations,
+    create_color_mapping,
+    build_index_mappings,
+)
 
 
 class PlotKit:
@@ -493,6 +501,161 @@ class PlotKit:
         plt.tight_layout()
         plt.show()
         return fig, ax
+
+    def drawBar(self, title=None):
+        """
+        Generate stacked bar chart showing plant counts by proximity group.
+
+        Parameters
+        ----------
+        title : str, optional
+            Chart title to display at the top.
+
+        Returns
+        -------
+        fig : plotly.graph_objects.Figure
+            The Plotly figure object.
+        ax : None
+            Always None, for API consistency.
+        """
+
+        rename_map = {
+            "Retiring": "<i>33.33%</i>",
+            "High Proximity": "<i>18.69%</i>",
+            "Mid-Proximity": "<i>14.65%</i>",
+            "Low-Proximity": "<i>6.57%</i>",
+            "Far from Retirement": "<i>22.73%</i>",
+        }
+
+        diverging_colors = [
+            "rgb(103,0,31)",
+            "rgb(214,96,77)",
+            "rgb(244,165,130)",
+            "rgb(253,219,199)",
+            "rgb(209,229,240)",
+            "rgb(146,197,210)",
+            "rgb(67,147,195)",
+            "rgb(5,48,97)",
+        ]
+
+        data = build_group_sankey(self.G, self.raw_df, range(8)).reset_index()
+        data["Target_Percentage"] = data["Target"].map(rename_map)
+        data["group"] = data["Source"].astype(str)
+
+        fig = px.bar(
+            data_frame=data,
+            x="Target",
+            y="Value",
+            color="group",
+            text="Value",
+            barmode="stack",
+            template="simple_white",
+            color_discrete_sequence=diverging_colors,
+        )
+
+        fig.update_layout(
+            title=title or "",
+            height=500,
+            width=800,
+            font=dict(size=13),
+            yaxis_title="Count (Number of Coal Plants)",
+            xaxis_title="",
+            yaxis_showgrid=True,
+            legend_title="Group:",
+            legend=dict(orientation="h", y=-0.1, x=0.5, xanchor="center"),
+            margin=dict(l=40, r=10, t=40, b=10),
+            annotations=prepare_bar_annotations(data, rename_map),
+        )
+
+        fig.update_traces(
+            textposition="inside",
+            insidetextanchor="start",
+            textfont_size=12,
+            textangle=0,
+        )
+
+        fig.show()
+        return fig, None
+
+    def drawSankey(self, title=None):
+        df_clean = build_group_sankey(self.G, self.raw_df, range(8))
+
+        sources = set(df_clean["Source"].unique())
+        targets = set(df_clean["Target"].unique())
+
+        target_color_mapping = {
+            "Far from Retirement": "rgb(178,24,43)",
+            "Low-Proximity": "rgb(244,165,130)",
+            "Mid-Proximity": "rgb(230, 230, 230)",
+            "High Proximity": "rgb(146,197,222)",
+            "Retiring": "rgb(33,102,172)",
+        }
+
+        diverging_colors = [
+            "rgb(103,0,31)",
+            "rgb(214,96,77)",
+            "rgb(244,165,130)",
+            "rgb(253,219,199)",
+            "rgb(209,229,240)",
+            "rgb(146,197,210)",
+            "rgb(67,147,195)",
+            "rgb(5,48,97)",
+        ]
+
+        color_mapping = create_color_mapping(
+            sources, targets, diverging_colors, target_color_mapping
+        )
+        sources_dict, targets_dict = build_index_mappings(sources, targets)
+
+        df_clean["Source"] = df_clean["Source"].map(sources_dict)
+        df_clean["Target"] = df_clean["Target"].map(targets_dict)
+
+        node_labels = [f"<b>{s}</b>" for s in sources] + list(targets)
+        node_colors = [color_mapping[node] for node in list(sources) + list(targets)]
+        link_colors = [color_mapping.get(source) for source in df_clean["Source"]]
+
+        fig = go.Figure(
+            data=[
+                go.Sankey(
+                    node=dict(
+                        pad=40,
+                        thickness=20,
+                        line=dict(color="white", width=0),
+                        label=node_labels,
+                        color=node_colors,
+                    ),
+                    link=dict(
+                        source=df_clean["Source"],
+                        target=df_clean["Target"],
+                        value=df_clean["Value"],
+                        color=link_colors,
+                    ),
+                )
+            ]
+        )
+
+        fig.update_layout(
+            title=title or "",
+            font_size=10,
+            height=500,
+            width=800,
+            template="simple_white",
+            font=dict(size=14, color="black"),
+            margin=dict(l=40, r=10, t=40, b=10),
+            annotations=[
+                dict(
+                    text="Group Number",
+                    x=-0.05,
+                    y=0.5,
+                    showarrow=False,
+                    textangle=-90,
+                    font=dict(size=14),
+                )
+            ],
+        )
+        fig.show()
+
+        return fig, None
 
     # ╭────────────────────────────────╮
     # │   Helper Functions             |

@@ -93,3 +93,19 @@ def load_graph():
     )
 
     return G
+
+
+def load_generator_level_dataset():
+    """
+    Loads the generator-level US coal plants dataset from a CSV file.
+
+    Returns:
+        pandas.DataFrame: A DataFrame containing the generator-level data from 'us_coal_plants_dataset_gen.csv'.
+
+    Raises:
+        FileNotFoundError: If the dataset file does not exist at the specified path.
+        pd.errors.EmptyDataError: If the CSV file is empty.
+        pd.errors.ParserError: If the CSV file cannot be parsed.
+    """
+    path = files("retire.data").joinpath("resources/generator_level_dataset.csv")
+    return pd.read_csv(path)
