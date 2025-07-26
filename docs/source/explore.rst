@@ -1,0 +1,50 @@
+Explore Module
+==============
+
+The ``explore`` module provides comprehensive visualization tools for coal plant network analysis.
+
+.. automodule:: retire.explore.explore
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Main Classes
+------------
+
+.. autoclass:: retire.explore.explore.Explore
+   :members:
+   :special-members: __init__
+   :exclude-members: __weakref__
+
+Visualization Methods
+---------------------
+
+Network Visualizations
+~~~~~~~~~~~~~~~~~~~~~~
+
+.. automethod:: retire.explore.explore.Explore.drawGraph
+.. automethod:: retire.explore.explore.Explore.drawComponent
+.. automethod:: retire.explore.explore.Explore.drawPathDistance
+
+Statistical Visualizations
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. automethod:: retire.explore.explore.Explore.drawHeatMap
+.. automethod:: retire.explore.explore.Explore.drawDotPlot
+.. automethod:: retire.explore.explore.Explore.drawBar
+.. automethod:: retire.explore.explore.Explore.drawSankey
+
+Geographic Visualizations
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. automethod:: retire.explore.explore.Explore.drawMap
+.. automethod:: retire.explore.explore.Explore.drawComponentsMap
+
+Analysis Methods
+----------------
+
+.. automethod:: retire.explore.explore.Explore.get_target_nodes
+.. automethod:: retire.explore.explore.Explore.get_shortest_distances_to_targets
+.. automethod:: retire.explore.explore.Explore.generate_THEMAGrah_labels
+.. automethod:: retire.explore.explore.Explore.assign_group_ids_to_rawdf
+.. automethod:: retire.explore.explore.Explore.assign_group_ids_to_cleandf
