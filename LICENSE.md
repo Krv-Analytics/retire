@@ -1,4 +1,3 @@
-SPDX-License-Identifier: BSD-3-Clause
 BSD 3-Clause License
 
 Copyright 2025 Krv Analytics LLC
