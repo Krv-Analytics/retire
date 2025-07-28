@@ -1,45 +1,18 @@
-````markdown
 # Usage Guide
 
 Welcome to the **RETIRE** usage tutorial! This guide will walk you through the process of using RETIRE to analyze coal plant data, explore network structures, and visualize retirement patterns. Follow the steps below to get started.
 
-### Step 1: Installation
+## Installation
 
 First, install the RETIRE package using pip:
 
-```python
+```bash
 pip install retire
 ```
-````
 
 ## Quick Start
 
-### Step 2: Loading Data
-
-RETIRE provides several data loading functions to access the core datasets:
-
-### Data Sources
-
-RETIRE provides access to several datasets:
-
-- **Raw Coal Data**: Original US coal plants dataset with plant-level and generator-level information
-
-  - Access via: `load_dataset()`
-
-- **Cleaned Dataset**: Scaled, encoded, and imputed version of the dataset suitable for machine learning and statistical analysis
-
-  - Access via: `load_clean_dataset()`
-
-- **UMAP Projection**: Low-dimensional embedding of the cleaned data generated using UMAP for visualization and clustering
-
-  - Access via: `load_projection()`
-
-- **THEMA Graph**: A multiresolution, discrete graph object constructed from the data for community detection and network analysis
-
-  - Access via: `load_graph()`
-
-- **Generator Level Dataset**: More detailed dataset with generator-specific information for coal plants
-  - Access via: `load_generator_level_dataset()`
+## Loading Data
 
 ```python
 from retire.data import load_dataset, load_clean_dataset, load_projection, load_graph
@@ -57,7 +30,9 @@ projection_df = load_projection()
 G = load_graph()
 ```
 
-### Step 3: Initializing the Explorer
+See the [Data Sources](data_sources.md) page for detailed information about each dataset.
+
+## Initializing the Explorer
 
 Create an Explore object to access visualization and analysis methods:
 
@@ -67,7 +42,7 @@ from retire.explore import Explore
 explorer = Explore(G=G, raw_df=raw_df)
 ```
 
-### Step 4: Basic Graph Visualization
+## Basic Graph Visualization
 
 Visualize the THEMA graph with coal plant attributes:
 
@@ -78,7 +53,7 @@ fig, ax = explorer.drawGraph(col="ret_STATUS",
                              color_method="average")
 ```
 
-### Step 5: Component-Level Analysis
+## Component-Level Analysis
 
 Focus on specific connected components for detailed analysis:
 
@@ -90,7 +65,7 @@ fig, ax = explorer.drawComponent(component=3,
                                  title="Group 3 by Age")
 ```
 
-### Step 6: Advanced Visualizations
+## Advanced Visualizations
 
 Create more complex visualizations to analyze patterns:
 
@@ -107,7 +82,7 @@ fig, ax = explorer.drawDotPlot(clean_df, dotplot_config)
 fig, ax = explorer.drawMap()
 ```
 
-### Step 7: Accessing Results and Analysis
+## Accessing Results and Analysis
 
 Access the precomputed results and analyses:
 
@@ -125,7 +100,3 @@ explanations = retire_obj.get_target_explanations()
 ```
 
 With these steps, you can effectively use RETIRE to analyze coal plant data, explore retirement patterns, and reproduce the analyses from our research paper.
-
-```
-
-```

@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Quick Start" href="usage_guide.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Usage Guide" href="usage_guide.html" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
         <title>retire 0.1.0</title>
@@ -202,13 +202,12 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <p class="caption" role="heading"><span class="caption-text">User Guide:</span></p>
+  <p class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration Options</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configuration.html#using-custom-configurations">Using Custom Configurations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage_guide.html">Usage Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_sources.html">Data Sources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="visualization_methods.html">Visualization Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration Guide</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference:</span></p>
 <ul>
@@ -218,22 +217,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Development:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="development/data.html">Data Sources</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/data.html#implementation-details">Implementation Details</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/data.html#development-guidelines">Development Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/data.html#example-extension">Example Extension</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/explorer.html">Core Visualization Methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/explorer.html#helper-methods">Helper Methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/explorer.html#development-guidelines">Development Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/explorer.html#example-extension">Example Extension</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/testing.html">Test Structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/testing.html#writing-tests">Writing Tests</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/testing.html#example-test">Example Test</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Additional Resources:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/your-org/retire">GitHub Repository</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://doi.org/your-paper-doi">Nature Energy Paper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development/testing.html">Development &amp; Testing</a></li>
 </ul>
 
 </div>
@@ -283,13 +267,13 @@
 </a>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">retire</span></code> package provides data and analysis tools for understanding and strategizing US coal plant retirement based on contextual vulnerabilities. It implements methods from the research paper <em>“Strategies to Accelerate US Coal Power Phaseout Using Contextual Retirement Vulnerabilities”</em> published in Nature Energy.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">retire</span></code> package provides data and analysis tools for US coal plant retirement analysis based on research published in <em>Nature Energy</em>.</p>
 <p><strong>Key Features:</strong></p>
 <ul class="simple">
-<li><p><strong>Comprehensive Dataset</strong>: Access to detailed coal plant data including operational characteristics, retirement status, and contextual factors</p></li>
-<li><p><strong>Network Analysis</strong>: Tools for analyzing relationships between plants based on similarity metrics</p></li>
-<li><p><strong>Visualization Suite</strong>: Rich plotting capabilities for exploring retirement patterns and strategies</p></li>
-<li><p><strong>Research Reproducibility</strong>: Direct access to manuscript results and analysis outputs</p></li>
+<li><p><strong>Comprehensive Dataset</strong>: Detailed coal plant data with operational and contextual factors</p></li>
+<li><p><strong>Network Analysis</strong>: Analyze plant relationships using similarity metrics</p></li>
+<li><p><strong>Visualization Suite</strong>: Rich plotting capabilities for retirement patterns</p></li>
+<li><p><strong>Research Reproducibility</strong>: Access to manuscript results and analysis</p></li>
 </ul>
 </section>
 <section id="quick-start">
@@ -312,47 +296,32 @@
 </pre></div>
 </div>
 <div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">User Guide:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html">Quick Start</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="usage_guide.html#step-2-loading-data">Step 2: Loading Data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage_guide.html#data-sources">Data Sources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage_guide.html#step-3-initializing-the-explorer">Step 3: Initializing the Explorer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage_guide.html#step-4-basic-graph-visualization">Step 4: Basic Graph Visualization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage_guide.html#step-5-component-level-analysis">Step 5: Component-Level Analysis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage_guide.html#step-6-advanced-visualizations">Step 6: Advanced Visualizations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage_guide.html#step-7-accessing-results-and-analysis">Step 7: Accessing Results and Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage_guide.html">Usage Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage_guide.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage_guide.html#quick-start">Quick Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage_guide.html#loading-data">Loading Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage_guide.html#initializing-the-explorer">Initializing the Explorer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage_guide.html#basic-graph-visualization">Basic Graph Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage_guide.html#component-level-analysis">Component-Level Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage_guide.html#advanced-visualizations">Advanced Visualizations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage_guide.html#accessing-results-and-analysis">Accessing Results and Analysis</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration Options</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html#datasets-section">Datasets Section</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html#visualizations-section">Visualizations Section</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration.html#analysis-section">Analysis Section</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_sources.html">Data Sources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualization_methods.html">Visualization Methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="visualization_methods.html#graph-visualizations">Graph Visualizations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="visualization_methods.html#statistical-visualizations">Statistical Visualizations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="visualization_methods.html#flow-and-distribution-charts">Flow and Distribution Charts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="visualization_methods.html#geospatial-visualizations">Geospatial Visualizations</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="configuration.html#using-custom-configurations">Using Custom Configurations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_sources.html">Data Sources</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="data_sources.html#dataset-description-access-function-raw-coal-data-original-us-coal-plants-dataset-with-load-dataset-plant-level-and-generator-level-information">Dataset              Description                                 Access Function
-———————————————————————————–|
-|                                            |                    |
-Raw Coal Data    | Original US coal plants dataset with       | load_dataset()     |
-| plant-level and generator-level            |                    |
-| information                                |                    |</a></li>
-<li class="toctree-l2"><a class="reference internal" href="data_sources.html#cleaned-dataset-scaled-encoded-and-imputed-version-load-clean-dataset-of-the-dataset-suitable-for-machine-learning-and-statistical-analysis">Cleaned Dataset  | Scaled, encoded, and imputed version       | load_clean_dataset()|
-| of the dataset suitable for machine        |                    |
-| learning and statistical analysis          |                    |</a></li>
-<li class="toctree-l2"><a class="reference internal" href="data_sources.html#umap-projection-low-dimensional-embedding-of-the-load-projection-cleaned-data-generated-using-umap-for-visualization-and-clustering">UMAP Projection  | Low-dimensional embedding of the           | load_projection()  |
-| cleaned data generated using UMAP          |                    |
-| for visualization and clustering           |                    |</a></li>
-<li class="toctree-l2"><a class="reference internal" href="data_sources.html#thema-graph-a-multiresolution-discrete-graph-object-load-graph-constructed-from-the-data-for-community-detection-and-network-analysis">THEMA Graph      | A multiresolution, discrete graph object   | load_graph()       |
-| constructed from the data for              |                    |
-| community detection and network analysis   |                    |</a></li>
-<li class="toctree-l2"><a class="reference internal" href="data_sources.html#generator-level-more-detailed-dataset-with-load-generator-dataset-generator-specific-information-for-level-dataset-coal-plants">Generator Level  | More detailed dataset with                 | load_generator_    |
-Dataset          | generator-specific information for         | level_dataset()    |
-| coal plants                                |                    |</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#configuration-structure">Configuration Structure</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="visualization_methods.html">Visualization Methods</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
@@ -361,6 +330,7 @@ Dataset          | generator-specific information for         | level_dataset() 
 <li class="toctree-l1"><a class="reference internal" href="retire.html">Retire Module</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="retire.html#retire.retire.Retire"><code class="docutils literal notranslate"><span class="pre">Retire</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="retire.html#main-classes">Main Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="retire.html#analysis-methods">Analysis Methods</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="data.html">Data Module</a><ul>
@@ -369,12 +339,14 @@ Dataset          | generator-specific information for         | level_dataset() 
 <li class="toctree-l2"><a class="reference internal" href="data.html#retire.data.data.load_projection"><code class="docutils literal notranslate"><span class="pre">load_projection()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="data.html#retire.data.data.load_graph"><code class="docutils literal notranslate"><span class="pre">load_graph()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="data.html#retire.data.data.load_generator_level_dataset"><code class="docutils literal notranslate"><span class="pre">load_generator_level_dataset()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="data.html#available-functions">Available Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.html#data-loading-functions">Data Loading Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.html#data-utilities">Data Utilities</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="explore.html">Explore Module</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="explore.html#retire.explore.explore.Explore"><code class="docutils literal notranslate"><span class="pre">Explore</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="explore.html#main-classes">Main Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="explore.html#utility-functions">Utility Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="explore.html#visualization-methods">Visualization Methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="explore.html#analysis-methods">Analysis Methods</a></li>
 </ul>
@@ -384,29 +356,7 @@ Dataset          | generator-specific information for         | level_dataset() 
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Development:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="development/data.html">Data Sources</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/data.html#implementation-details">Implementation Details</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="development/data.html#resource-access">Resource Access</a></li>
-<li class="toctree-l2"><a class="reference internal" href="development/data.html#graph-construction">Graph Construction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="development/data.html#data-processing">Data Processing</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="development/data.html#development-guidelines">Development Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/data.html#example-extension">Example Extension</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/explorer.html">Core Visualization Methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/explorer.html#helper-methods">Helper Methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/explorer.html#development-guidelines">Development Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/explorer.html#example-extension">Example Extension</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/testing.html">Test Structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/testing.html#writing-tests">Writing Tests</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/testing.html#example-test">Example Test</a></li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Additional Resources:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/your-org/retire">GitHub Repository</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://doi.org/your-paper-doi">Nature Energy Paper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development/testing.html">Development &amp; Testing</a></li>
 </ul>
 </div>
 </section>
@@ -422,7 +372,7 @@ Dataset          | generator-specific information for         | level_dataset() 
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Quick Start</div>
+                <div class="title">Usage Guide</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>

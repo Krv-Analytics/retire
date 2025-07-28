@@ -14,14 +14,14 @@ Welcome to the documentation for the ``retire`` package, a comprehensive tool fo
 Overview
 --------
 
-The ``retire`` package provides data and analysis tools for understanding and strategizing US coal plant retirement based on contextual vulnerabilities. It implements methods from the research paper *"Strategies to Accelerate US Coal Power Phaseout Using Contextual Retirement Vulnerabilities"* published in Nature Energy.
+The ``retire`` package provides data and analysis tools for US coal plant retirement analysis based on research published in *Nature Energy*.
 
 **Key Features:**
 
-- **Comprehensive Dataset**: Access to detailed coal plant data including operational characteristics, retirement status, and contextual factors
-- **Network Analysis**: Tools for analyzing relationships between plants based on similarity metrics  
-- **Visualization Suite**: Rich plotting capabilities for exploring retirement patterns and strategies
-- **Research Reproducibility**: Direct access to manuscript results and analysis outputs
+- **Comprehensive Dataset**: Detailed coal plant data with operational and contextual factors
+- **Network Analysis**: Analyze plant relationships using similarity metrics  
+- **Visualization Suite**: Rich plotting capabilities for retirement patterns
+- **Research Reproducibility**: Access to manuscript results and analysis
 
 Quick Start
 -----------
@@ -46,12 +46,12 @@ Quick Start
 
 .. toctree::
    :maxdepth: 2
-   :caption: User Guide:
+   :caption: Getting Started:
 
    usage_guide
-   configuration
    data_sources
    visualization_methods
+   configuration
 
 .. toctree::
    :maxdepth: 2
@@ -62,17 +62,9 @@ Quick Start
    explore
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Development:
 
-   development/data
-   development/explorer
    development/testing
 
-.. toctree::
-   :maxdepth: 1
-   :caption: Additional Resources:
-
-   GitHub Repository <https://github.com/your-org/retire>
-   Nature Energy Paper <https://doi.org/your-paper-doi>
 

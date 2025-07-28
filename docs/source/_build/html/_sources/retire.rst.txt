@@ -15,3 +15,11 @@ Main Classes
    :members:
    :special-members: __init__
    :exclude-members: __weakref__
+
+Analysis Methods
+---------------
+
+.. automethod:: retire.retire.Retire.get_group_report
+.. automethod:: retire.retire.Retire.get_target_explanations
+.. automethod:: retire.retire.Retire.get_news_articles
+.. automethod:: retire.retire.Retire.get_metrics

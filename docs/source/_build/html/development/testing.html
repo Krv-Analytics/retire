@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="prev" title="Core Visualization Methods" href="explorer.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="prev" title="Explore Module" href="../explore.html" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
-        <title>Test Structure - retire 0.1.0</title>
+        <title>Development &amp; Testing - retire 0.1.0</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=25af2a20" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
@@ -184,7 +184,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -202,18 +202,12 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <p class="caption" role="heading"><span class="caption-text">User Guide:</span></p>
+  <p class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../usage_guide.html">Step 2: Loading Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../usage_guide.html#step-3-initializing-the-explorer">Step 3: Initializing the Explorer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../usage_guide.html#step-4-basic-graph-visualization">Step 4: Basic Graph Visualization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../usage_guide.html#step-5-component-level-analysis">Step 5: Component-Level Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../usage_guide.html#step-6-advanced-visualizations">Step 6: Advanced Visualizations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../usage_guide.html#step-7-accessing-results-and-analysis">Step 7: Accessing Results and Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration Options</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../configuration.html#using-custom-configurations">Using Custom Configurations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage_guide.html">Usage Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data_sources.html">Data Sources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../visualization_methods.html">Visualization Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuration Guide</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference:</span></p>
 <ul>
@@ -223,22 +217,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Development:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="data.html">Data Sources</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data.html#implementation-details">Implementation Details</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data.html#development-guidelines">Development Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data.html#example-extension">Example Extension</a></li>
-<li class="toctree-l1"><a class="reference internal" href="explorer.html">Core Visualization Methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="explorer.html#helper-methods">Helper Methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="explorer.html#development-guidelines">Development Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="explorer.html#example-extension">Example Extension</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Test Structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#writing-tests">Writing Tests</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#example-test">Example Test</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Additional Resources:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/your-org/retire">GitHub Repository</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://doi.org/your-paper-doi">Nature Energy Paper</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Development &amp; Testing</a></li>
 </ul>
 
 </div>
@@ -273,74 +252,44 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Testing</span>
-
-This document outlines the testing approach and structure for the RETIRE package.
-
-<span class="gu">## Testing Framework</span>
-
-RETIRE uses pytest for testing. The test files are organized in the <span class="sb">`tests`</span> directory and follow the same structure as the source code.
-
-<span class="gu">## Running Tests</span>
-
-To run the tests, navigate to the root directory of the project and run:
-
-```bash
-pytest
+          <section id="development-testing">
+<h1>Development &amp; Testing<a class="headerlink" href="#development-testing" title="Link to this heading">¶</a></h1>
+<section id="running-tests">
+<h2>Running Tests<a class="headerlink" href="#running-tests" title="Link to this heading">¶</a></h2>
+<p>RETIRE uses pytest for testing. To run tests:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest
 </pre></div>
 </div>
-<section id="test-structure">
-<h1>Test Structure<a class="headerlink" href="#test-structure" title="Link to this heading">¶</a></h1>
-<p>The tests are organized into separate modules corresponding to the package structure:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">tests/imputation/</span></code>: Tests for data imputation functionality</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">tests/magic/</span></code>: Tests for auxiliary operations and utilities</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">tests/phil/</span></code>: Tests for the core algorithms and models</p></li>
-</ul>
 </section>
-<section id="writing-tests">
-<h1>Writing Tests<a class="headerlink" href="#writing-tests" title="Link to this heading">¶</a></h1>
-<p>When writing tests for RETIRE, follow these guidelines:</p>
+<section id="contributing">
+<h2>Contributing<a class="headerlink" href="#contributing" title="Link to this heading">¶</a></h2>
+<p>When contributing to RETIRE:</p>
 <ol class="arabic simple">
-<li><p><strong>Test Naming</strong>: Name tests with a <code class="docutils literal notranslate"><span class="pre">test_</span></code> prefix and a descriptive name.</p></li>
-<li><p><strong>Fixtures</strong>: Use pytest fixtures for setup and teardown.</p></li>
-<li><p><strong>Assertions</strong>: Use specific assertions that provide useful error messages.</p></li>
-<li><p><strong>Data</strong>: Use small, representative datasets for testing.</p></li>
-<li><p><strong>Coverage</strong>: Aim for high test coverage of critical functionality.</p></li>
+<li><p><strong>Test Coverage</strong>: Write tests for new functionality</p></li>
+<li><p><strong>Documentation</strong>: Update docs for API changes</p></li>
+<li><p><strong>Code Style</strong>: Follow existing patterns and conventions</p></li>
 </ol>
 </section>
 <section id="example-test">
-<h1>Example Test<a class="headerlink" href="#example-test" title="Link to this heading">¶</a></h1>
-<p>Here’s an example test for the <code class="docutils literal notranslate"><span class="pre">load_dataset</span></code> function:</p>
+<h2>Example Test<a class="headerlink" href="#example-test" title="Link to this heading">¶</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">retire.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_dataset</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">test_load_dataset_structure</span><span class="p">():</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Test that load_dataset returns a DataFrame with the expected structure.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Test that load_dataset returns a DataFrame with expected structure.&quot;&quot;&quot;</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">()</span>
-    
-    <span class="c1"># Check that it&#39;s a DataFrame</span>
     <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span>
-    
-    <span class="c1"># Check that it has the expected columns</span>
-    <span class="n">expected_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ORISPL&#39;</span><span class="p">,</span> <span class="s1">&#39;Plant Name&#39;</span><span class="p">,</span> <span class="s1">&#39;LAT&#39;</span><span class="p">,</span> <span class="s1">&#39;LON&#39;</span><span class="p">,</span> <span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="s1">&#39;ret_STATUS&#39;</span><span class="p">]</span>
-    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">expected_columns</span><span class="p">:</span>
-        <span class="k">assert</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span>
-    
-    <span class="c1"># Check that it has data</span>
     <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
+</section>
 </section>
 
         </article>
@@ -349,14 +298,14 @@ pytest
         
         <div class="related-pages">
           
-          <a class="prev-page" href="explorer.html">
+          <a class="prev-page" href="../explore.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Core Visualization Methods</div>
+                <div class="title">Explore Module</div>
                 
               </div>
             </a>
@@ -378,8 +327,29 @@ pytest
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Development &amp; Testing</a><ul>
+<li><a class="reference internal" href="#running-tests">Running Tests</a></li>
+<li><a class="reference internal" href="#contributing">Contributing</a></li>
+<li><a class="reference internal" href="#example-test">Example Test</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

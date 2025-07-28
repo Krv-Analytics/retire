@@ -1,31 +1,22 @@
 # Data Sources
 
------------------------------------------------------------------------------------
-Dataset              Description                                 Access Function
------------------------------------------------------------------------------------|
-                 |                                            |                    |
-Raw Coal Data    | Original US coal plants dataset with       | load_dataset()     |
-                 | plant-level and generator-level            |                    |
-                 | information                                |                    |
-------------------------------------------------------------------------------------
-                 |                                            |                    |
-Cleaned Dataset  | Scaled, encoded, and imputed version       | load_clean_dataset()|
-                 | of the dataset suitable for machine        |                    |
-                 | learning and statistical analysis          |                    |
--------------------------------------------------------------------------------------
-                 |                                            |                    |
-UMAP Projection  | Low-dimensional embedding of the           | load_projection()  |
-                 | cleaned data generated using UMAP          |                    |
-                 | for visualization and clustering           |                    |
----------------------------------------------------------------------------------------
-                 |                                            |                    |
-THEMA Graph      | A multiresolution, discrete graph object   | load_graph()       |
-                 | constructed from the data for              |                    |
-                 | community detection and network analysis   |                    |
----------------------------------------------------------------------------------------
-                 |                                            |                    |
-Generator Level  | More detailed dataset with                 | load_generator_    |
-Dataset          | generator-specific information for         | level_dataset()    |
-                 | coal plants                                |                    |
----------------------------------------------------------------------------------------
-```
+The RETIRE package provides access to several processed datasets:
+
+- **Raw Coal Data**: Original US coal plants dataset with plant-level and generator-level information
+
+  - Access via: `load_dataset()`
+
+- **Cleaned Dataset**: Scaled, encoded, and imputed version suitable for machine learning and statistical analysis
+
+  - Access via: `load_clean_dataset()`
+
+- **UMAP Projection**: Low-dimensional embedding generated using UMAP for visualization and clustering
+
+  - Access via: `load_projection()`
+
+- **THEMA Graph**: Multiresolution, discrete graph object for community detection and network analysis
+
+  - Access via: `load_graph()`
+
+- **Generator Level Dataset**: Detailed dataset with generator-specific information for coal plants
+  - Access via: `load_generator_level_dataset()`

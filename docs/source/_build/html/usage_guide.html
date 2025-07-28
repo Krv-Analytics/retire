@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Configuration Options" href="configuration.html" /><link rel="prev" title="Retire: Coal Plant Retirement Analysis" href="index.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Data Sources" href="data_sources.html" /><link rel="prev" title="Retire: Coal Plant Retirement Analysis" href="index.html" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
-        <title>Quick Start - retire 0.1.0</title>
+        <title>Usage Guide - retire 0.1.0</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=25af2a20" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=8dab3a3b" />
@@ -202,13 +202,12 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <p class="caption" role="heading"><span class="caption-text">User Guide:</span></p>
+  <p class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
 <ul class="current">
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration Options</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configuration.html#using-custom-configurations">Using Custom Configurations</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Usage Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_sources.html">Data Sources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="visualization_methods.html">Visualization Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration Guide</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference:</span></p>
 <ul>
@@ -218,22 +217,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Development:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="development/data.html">Data Sources</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/data.html#implementation-details">Implementation Details</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/data.html#development-guidelines">Development Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/data.html#example-extension">Example Extension</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/explorer.html">Core Visualization Methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/explorer.html#helper-methods">Helper Methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/explorer.html#development-guidelines">Development Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/explorer.html#example-extension">Example Extension</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/testing.html">Test Structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/testing.html#writing-tests">Writing Tests</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/testing.html#example-test">Example Test</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Additional Resources:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/your-org/retire">GitHub Repository</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://doi.org/your-paper-doi">Nature Energy Paper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development/testing.html">Development &amp; Testing</a></li>
 </ul>
 
 </div>
@@ -274,55 +258,21 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Usage Guide</span>
-
-Welcome to the <span class="gs">**RETIRE**</span> usage tutorial! This guide will walk you through the process of using RETIRE to analyze coal plant data, explore network structures, and visualize retirement patterns. Follow the steps below to get started.
-
-<span class="gu">### Step 1: Installation</span>
-
-First, install the RETIRE package using pip:
-
-<span class="sb">```python</span>
-<span class="n">pip</span> <span class="n">install</span> <span class="n">retire</span>
-<span class="sb">```</span>
+          <section id="usage-guide">
+<h1>Usage Guide<a class="headerlink" href="#usage-guide" title="Link to this heading">¶</a></h1>
+<p>Welcome to the <strong>RETIRE</strong> usage tutorial! This guide will walk you through the process of using RETIRE to analyze coal plant data, explore network structures, and visualize retirement patterns. Follow the steps below to get started.</p>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h2>
+<p>First, install the RETIRE package using pip:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>retire
 </pre></div>
 </div>
-<section id="quick-start">
-<h1>Quick Start<a class="headerlink" href="#quick-start" title="Link to this heading">¶</a></h1>
-<section id="step-2-loading-data">
-<h2>Step 2: Loading Data<a class="headerlink" href="#step-2-loading-data" title="Link to this heading">¶</a></h2>
-<p>RETIRE provides several data loading functions to access the core datasets:</p>
 </section>
-<section id="data-sources">
-<h2>Data Sources<a class="headerlink" href="#data-sources" title="Link to this heading">¶</a></h2>
-<p>RETIRE provides access to several datasets:</p>
-<ul class="simple">
-<li><p><strong>Raw Coal Data</strong>: Original US coal plants dataset with plant-level and generator-level information</p>
-<ul>
-<li><p>Access via: <code class="docutils literal notranslate"><span class="pre">load_dataset()</span></code></p></li>
-</ul>
-</li>
-<li><p><strong>Cleaned Dataset</strong>: Scaled, encoded, and imputed version of the dataset suitable for machine learning and statistical analysis</p>
-<ul>
-<li><p>Access via: <code class="docutils literal notranslate"><span class="pre">load_clean_dataset()</span></code></p></li>
-</ul>
-</li>
-<li><p><strong>UMAP Projection</strong>: Low-dimensional embedding of the cleaned data generated using UMAP for visualization and clustering</p>
-<ul>
-<li><p>Access via: <code class="docutils literal notranslate"><span class="pre">load_projection()</span></code></p></li>
-</ul>
-</li>
-<li><p><strong>THEMA Graph</strong>: A multiresolution, discrete graph object constructed from the data for community detection and network analysis</p>
-<ul>
-<li><p>Access via: <code class="docutils literal notranslate"><span class="pre">load_graph()</span></code></p></li>
-</ul>
-</li>
-<li><p><strong>Generator Level Dataset</strong>: More detailed dataset with generator-specific information for coal plants</p>
-<ul>
-<li><p>Access via: <code class="docutils literal notranslate"><span class="pre">load_generator_level_dataset()</span></code></p></li>
-</ul>
-</li>
-</ul>
+<section id="quick-start">
+<h2>Quick Start<a class="headerlink" href="#quick-start" title="Link to this heading">¶</a></h2>
+</section>
+<section id="loading-data">
+<h2>Loading Data<a class="headerlink" href="#loading-data" title="Link to this heading">¶</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">retire.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_dataset</span><span class="p">,</span> <span class="n">load_clean_dataset</span><span class="p">,</span> <span class="n">load_projection</span><span class="p">,</span> <span class="n">load_graph</span>
 
 <span class="c1"># Load the original coal plant dataset</span>
@@ -338,9 +288,10 @@ First, install the RETIRE package using pip:
 <span class="n">G</span> <span class="o">=</span> <span class="n">load_graph</span><span class="p">()</span>
 </pre></div>
 </div>
+<p>See the <a class="reference internal" href="data_sources.html"><span class="std std-doc">Data Sources</span></a> page for detailed information about each dataset.</p>
 </section>
-<section id="step-3-initializing-the-explorer">
-<h2>Step 3: Initializing the Explorer<a class="headerlink" href="#step-3-initializing-the-explorer" title="Link to this heading">¶</a></h2>
+<section id="initializing-the-explorer">
+<h2>Initializing the Explorer<a class="headerlink" href="#initializing-the-explorer" title="Link to this heading">¶</a></h2>
 <p>Create an Explore object to access visualization and analysis methods:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">retire.explore</span><span class="w"> </span><span class="kn">import</span> <span class="n">Explore</span>
 
@@ -348,8 +299,8 @@ First, install the RETIRE package using pip:
 </pre></div>
 </div>
 </section>
-<section id="step-4-basic-graph-visualization">
-<h2>Step 4: Basic Graph Visualization<a class="headerlink" href="#step-4-basic-graph-visualization" title="Link to this heading">¶</a></h2>
+<section id="basic-graph-visualization">
+<h2>Basic Graph Visualization<a class="headerlink" href="#basic-graph-visualization" title="Link to this heading">¶</a></h2>
 <p>Visualize the THEMA graph with coal plant attributes:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualize the graph colored by retirement status</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">explorer</span><span class="o">.</span><span class="n">drawGraph</span><span class="p">(</span><span class="n">col</span><span class="o">=</span><span class="s2">&quot;ret_STATUS&quot;</span><span class="p">,</span>
@@ -358,8 +309,8 @@ First, install the RETIRE package using pip:
 </pre></div>
 </div>
 </section>
-<section id="step-5-component-level-analysis">
-<h2>Step 5: Component-Level Analysis<a class="headerlink" href="#step-5-component-level-analysis" title="Link to this heading">¶</a></h2>
+<section id="component-level-analysis">
+<h2>Component-Level Analysis<a class="headerlink" href="#component-level-analysis" title="Link to this heading">¶</a></h2>
 <p>Focus on specific connected components for detailed analysis:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualize component 3 colored by plant age</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">explorer</span><span class="o">.</span><span class="n">drawComponent</span><span class="p">(</span><span class="n">component</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
@@ -369,8 +320,8 @@ First, install the RETIRE package using pip:
 </pre></div>
 </div>
 </section>
-<section id="step-6-advanced-visualizations">
-<h2>Step 6: Advanced Visualizations<a class="headerlink" href="#step-6-advanced-visualizations" title="Link to this heading">¶</a></h2>
+<section id="advanced-visualizations">
+<h2>Advanced Visualizations<a class="headerlink" href="#advanced-visualizations" title="Link to this heading">¶</a></h2>
 <p>Create more complex visualizations to analyze patterns:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a heatmap of key metrics across groups</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">retire.examples</span><span class="w"> </span><span class="kn">import</span> <span class="n">heatmap_config</span>
@@ -385,8 +336,8 @@ First, install the RETIRE package using pip:
 </pre></div>
 </div>
 </section>
-<section id="step-7-accessing-results-and-analysis">
-<h2>Step 7: Accessing Results and Analysis<a class="headerlink" href="#step-7-accessing-results-and-analysis" title="Link to this heading">¶</a></h2>
+<section id="accessing-results-and-analysis">
+<h2>Accessing Results and Analysis<a class="headerlink" href="#accessing-results-and-analysis" title="Link to this heading">¶</a></h2>
 <p>Access the precomputed results and analyses:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">retire.retire</span><span class="w"> </span><span class="kn">import</span> <span class="n">Retire</span>
 
@@ -401,9 +352,6 @@ First, install the RETIRE package using pip:
 </pre></div>
 </div>
 <p>With these steps, you can effectively use RETIRE to analyze coal plant data, explore retirement patterns, and reproduce the analyses from our research paper.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </section>
 </section>
 
@@ -412,12 +360,12 @@ First, install the RETIRE package using pip:
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="configuration.html">
+          <a class="next-page" href="data_sources.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Configuration Options</div>
+                <div class="title">Data Sources</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -462,14 +410,15 @@ First, install the RETIRE package using pip:
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Quick Start</a><ul>
-<li><a class="reference internal" href="#step-2-loading-data">Step 2: Loading Data</a></li>
-<li><a class="reference internal" href="#data-sources">Data Sources</a></li>
-<li><a class="reference internal" href="#step-3-initializing-the-explorer">Step 3: Initializing the Explorer</a></li>
-<li><a class="reference internal" href="#step-4-basic-graph-visualization">Step 4: Basic Graph Visualization</a></li>
-<li><a class="reference internal" href="#step-5-component-level-analysis">Step 5: Component-Level Analysis</a></li>
-<li><a class="reference internal" href="#step-6-advanced-visualizations">Step 6: Advanced Visualizations</a></li>
-<li><a class="reference internal" href="#step-7-accessing-results-and-analysis">Step 7: Accessing Results and Analysis</a></li>
+<li><a class="reference internal" href="#">Usage Guide</a><ul>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#quick-start">Quick Start</a></li>
+<li><a class="reference internal" href="#loading-data">Loading Data</a></li>
+<li><a class="reference internal" href="#initializing-the-explorer">Initializing the Explorer</a></li>
+<li><a class="reference internal" href="#basic-graph-visualization">Basic Graph Visualization</a></li>
+<li><a class="reference internal" href="#component-level-analysis">Component-Level Analysis</a></li>
+<li><a class="reference internal" href="#advanced-visualizations">Advanced Visualizations</a></li>
+<li><a class="reference internal" href="#accessing-results-and-analysis">Accessing Results and Analysis</a></li>
 </ul>
 </li>
 </ul>

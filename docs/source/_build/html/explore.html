@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Data Sources" href="development/data.html" /><link rel="prev" title="Data Module" href="data.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Development &amp; Testing" href="development/testing.html" /><link rel="prev" title="Data Module" href="data.html" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
         <title>Explore Module - retire 0.1.0</title>
@@ -202,18 +202,12 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <p class="caption" role="heading"><span class="caption-text">User Guide:</span></p>
+  <p class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html">Step 2: Loading Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html#step-3-initializing-the-explorer">Step 3: Initializing the Explorer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html#step-4-basic-graph-visualization">Step 4: Basic Graph Visualization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html#step-5-component-level-analysis">Step 5: Component-Level Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html#step-6-advanced-visualizations">Step 6: Advanced Visualizations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html#step-7-accessing-results-and-analysis">Step 7: Accessing Results and Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration Options</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configuration.html#using-custom-configurations">Using Custom Configurations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage_guide.html">Usage Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_sources.html">Data Sources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="visualization_methods.html">Visualization Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration Guide</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference:</span></p>
 <ul class="current">
@@ -223,22 +217,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Development:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="development/data.html">Data Sources</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/data.html#implementation-details">Implementation Details</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/data.html#development-guidelines">Development Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/data.html#example-extension">Example Extension</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/explorer.html">Core Visualization Methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/explorer.html#helper-methods">Helper Methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/explorer.html#development-guidelines">Development Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/explorer.html#example-extension">Example Extension</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/testing.html">Test Structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/testing.html#writing-tests">Writing Tests</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/testing.html#example-test">Example Test</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Additional Resources:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/your-org/retire">GitHub Repository</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://doi.org/your-paper-doi">Nature Energy Paper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development/testing.html">Development &amp; Testing</a></li>
 </ul>
 
 </div>
@@ -1060,6 +1039,55 @@ If a node is not connected to any target, its distance will be set to float(‘i
 </dd></dl>
 
 </section>
+<section id="utility-functions">
+<h2>Utility Functions<a class="headerlink" href="#utility-functions" title="Link to this heading">¶</a></h2>
+<dl class="py function" id="module-retire.explore.utils">
+<dt class="sig sig-object py" id="retire.explore.utils.prepare_bar_annotations">
+<span class="sig-prename descclassname"><span class="pre">retire.explore.utils.</span></span><span class="sig-name descname"><span class="pre">prepare_bar_annotations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/explore/utils.html#prepare_bar_annotations"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#retire.explore.utils.prepare_bar_annotations" title="Link to this definition">¶</a></dt>
+<dd><p>Create Plotly-compatible annotations for each bar category.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="retire.explore.utils.get_key_nodes">
+<span class="sig-prename descclassname"><span class="pre">retire.explore.utils.</span></span><span class="sig-name descname"><span class="pre">get_key_nodes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">percent_retiring_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/explore/utils.html#get_key_nodes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#retire.explore.utils.get_key_nodes" title="Link to this definition">¶</a></dt>
+<dd><p>Return nodes with retirement percent above a threshold.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="retire.explore.utils.compute_retirement_by_node">
+<span class="sig-prename descclassname"><span class="pre">retire.explore.utils.</span></span><span class="sig-name descname"><span class="pre">compute_retirement_by_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Percent</span> <span class="pre">Capacity</span> <span class="pre">Retiring'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/explore/utils.html#compute_retirement_by_node"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#retire.explore.utils.compute_retirement_by_node" title="Link to this definition">¶</a></dt>
+<dd><p>For each node in the graph, calculate the average retirement percent
+from the associated plants (via membership indices).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="retire.explore.utils.process_group_sankey_df">
+<span class="sig-prename descclassname"><span class="pre">retire.explore.utils.</span></span><span class="sig-name descname"><span class="pre">process_group_sankey_df</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://networkx.org/documentation/stable/reference/classes/graph.html#networkx.Graph" title="(in NetworkX v3.5)"><span class="pre">Graph</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.3.1)"><span class="pre">DataFrame</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_num</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_all</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.3.1)"><span class="pre">DataFrame</span></a></span></span><a class="reference internal" href="_modules/retire/explore/utils.html#process_group_sankey_df"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#retire.explore.utils.process_group_sankey_df" title="Link to this definition">¶</a></dt>
+<dd><p>Builds Sankey-ready data for one group.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="retire.explore.utils.build_group_sankey">
+<span class="sig-prename descclassname"><span class="pre">retire.explore.utils.</span></span><span class="sig-name descname"><span class="pre">build_group_sankey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://networkx.org/documentation/stable/reference/classes/graph.html#networkx.Graph" title="(in NetworkX v3.5)"><span class="pre">Graph</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.3.1)"><span class="pre">DataFrame</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_range</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#range" title="(in Python v3.13)"><span class="pre">range</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">range(0,</span> <span class="pre">8)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_all</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.3.1)"><span class="pre">DataFrame</span></a></span></span><a class="reference internal" href="_modules/retire/explore/utils.html#build_group_sankey"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#retire.explore.utils.build_group_sankey" title="Link to this definition">¶</a></dt>
+<dd><p>Runs process_group_sankey_df across multiple groups and combines output.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="retire.explore.utils.reduce_opacity">
+<span class="sig-prename descclassname"><span class="pre">retire.explore.utils.</span></span><span class="sig-name descname"><span class="pre">reduce_opacity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">opacity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></span><a class="reference internal" href="_modules/retire/explore/utils.html#reduce_opacity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#retire.explore.utils.reduce_opacity" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="retire.explore.utils.create_color_mapping">
+<span class="sig-prename descclassname"><span class="pre">retire.explore.utils.</span></span><span class="sig-name descname"><span class="pre">create_color_mapping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sources</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color_scale</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_color_mapping</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opacity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.7</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/explore/utils.html#create_color_mapping"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#retire.explore.utils.create_color_mapping" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="retire.explore.utils.build_index_mappings">
+<span class="sig-prename descclassname"><span class="pre">retire.explore.utils.</span></span><span class="sig-name descname"><span class="pre">build_index_mappings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sources</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/explore/utils.html#build_index_mappings"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#retire.explore.utils.build_index_mappings" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
 <section id="visualization-methods">
 <h2>Visualization Methods<a class="headerlink" href="#visualization-methods" title="Link to this heading">¶</a></h2>
 <section id="network-visualizations">
@@ -1372,12 +1400,12 @@ If a node is not connected to any target, its distance will be set to float(‘i
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="development/data.html">
+          <a class="next-page" href="development/testing.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Data Sources</div>
+                <div class="title">Development &amp; Testing</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -1466,6 +1494,17 @@ If a node is not connected to any target, its distance will be set to float(‘i
 <li><a class="reference internal" href="#id18"><code class="docutils literal notranslate"><span class="pre">Explore.assign_group_ids_to_cleandf()</span></code></a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li><a class="reference internal" href="#utility-functions">Utility Functions</a><ul>
+<li><a class="reference internal" href="#retire.explore.utils.prepare_bar_annotations"><code class="docutils literal notranslate"><span class="pre">prepare_bar_annotations()</span></code></a></li>
+<li><a class="reference internal" href="#retire.explore.utils.get_key_nodes"><code class="docutils literal notranslate"><span class="pre">get_key_nodes()</span></code></a></li>
+<li><a class="reference internal" href="#retire.explore.utils.compute_retirement_by_node"><code class="docutils literal notranslate"><span class="pre">compute_retirement_by_node()</span></code></a></li>
+<li><a class="reference internal" href="#retire.explore.utils.process_group_sankey_df"><code class="docutils literal notranslate"><span class="pre">process_group_sankey_df()</span></code></a></li>
+<li><a class="reference internal" href="#retire.explore.utils.build_group_sankey"><code class="docutils literal notranslate"><span class="pre">build_group_sankey()</span></code></a></li>
+<li><a class="reference internal" href="#retire.explore.utils.reduce_opacity"><code class="docutils literal notranslate"><span class="pre">reduce_opacity()</span></code></a></li>
+<li><a class="reference internal" href="#retire.explore.utils.create_color_mapping"><code class="docutils literal notranslate"><span class="pre">create_color_mapping()</span></code></a></li>
+<li><a class="reference internal" href="#retire.explore.utils.build_index_mappings"><code class="docutils literal notranslate"><span class="pre">build_index_mappings()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#visualization-methods">Visualization Methods</a><ul>

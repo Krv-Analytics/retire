@@ -200,13 +200,12 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <p class="caption" role="heading"><span class="caption-text">User Guide:</span></p>
+  <p class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration Options</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configuration.html#using-custom-configurations">Using Custom Configurations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage_guide.html">Usage Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_sources.html">Data Sources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="visualization_methods.html">Visualization Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration Guide</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference:</span></p>
 <ul>
@@ -216,22 +215,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Development:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="development/data.html">Data Sources</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/data.html#implementation-details">Implementation Details</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/data.html#development-guidelines">Development Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/data.html#example-extension">Example Extension</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/explorer.html">Core Visualization Methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/explorer.html#helper-methods">Helper Methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/explorer.html#development-guidelines">Development Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/explorer.html#example-extension">Example Extension</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/testing.html">Test Structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/testing.html#writing-tests">Writing Tests</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/testing.html#example-test">Example Test</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Additional Resources:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/your-org/retire">GitHub Repository</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://doi.org/your-paper-doi">Nature Energy Paper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development/testing.html">Development &amp; Testing</a></li>
 </ul>
 
 </div>
@@ -269,7 +253,7 @@
           
 <section class="genindex-section">
   <h1 id="index">Index</h1>
-  <div class="genindex-jumpbox"><a href="#_"><strong>_</strong></a> | <a href="#A"><strong>A</strong></a> | <a href="#D"><strong>D</strong></a> | <a href="#E"><strong>E</strong></a> | <a href="#G"><strong>G</strong></a> | <a href="#L"><strong>L</strong></a> | <a href="#M"><strong>M</strong></a> | <a href="#R"><strong>R</strong></a></div>
+  <div class="genindex-jumpbox"><a href="#_"><strong>_</strong></a> | <a href="#A"><strong>A</strong></a> | <a href="#B"><strong>B</strong></a> | <a href="#C"><strong>C</strong></a> | <a href="#D"><strong>D</strong></a> | <a href="#E"><strong>E</strong></a> | <a href="#G"><strong>G</strong></a> | <a href="#L"><strong>L</strong></a> | <a href="#M"><strong>M</strong></a> | <a href="#P"><strong>P</strong></a> | <a href="#R"><strong>R</strong></a></div>
 </section>
 <section id="_" class="genindex-section">
   <h2>_</h2>
@@ -294,6 +278,34 @@
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="explore.html#id17">assign_group_ids_to_rawdf() (retire.explore.explore.Explore method)</a>, <a href="explore.html#id31">[1]</a>, <a href="explore.html#retire.explore.explore.Explore.assign_group_ids_to_rawdf">[2]</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="B" class="genindex-section">
+  <h2>B</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="explore.html#retire.explore.utils.build_group_sankey">build_group_sankey() (in module retire.explore.utils)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="explore.html#retire.explore.utils.build_index_mappings">build_index_mappings() (in module retire.explore.utils)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="C" class="genindex-section">
+  <h2>C</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="explore.html#retire.explore.utils.compute_retirement_by_node">compute_retirement_by_node() (in module retire.explore.utils)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="explore.html#retire.explore.utils.create_color_mapping">create_color_mapping() (in module retire.explore.utils)</a>
 </li>
     </ul></td>
   </tr></table>
@@ -347,15 +359,17 @@
 </li>
         <li><a href="explore.html#id16">generate_THEMAGrah_labels() (retire.explore.explore.Explore method)</a>, <a href="explore.html#id30">[1]</a>, <a href="explore.html#retire.explore.explore.Explore.generate_THEMAGrah_labels">[2]</a>
 </li>
-        <li><a href="retire.html#id5">get_group_report() (retire.retire.Retire method)</a>, <a href="retire.html#retire.retire.Retire.get_group_report">[1]</a>
+        <li><a href="retire.html#id5">get_group_report() (retire.retire.Retire method)</a>, <a href="retire.html#id7">[1]</a>, <a href="retire.html#retire.retire.Retire.get_group_report">[2]</a>
 </li>
-        <li><a href="retire.html#id4">get_plant_level_analysis() (retire.retire.Retire method)</a>, <a href="retire.html#retire.retire.Retire.get_plant_level_analysis">[1]</a>
+        <li><a href="explore.html#retire.explore.utils.get_key_nodes">get_key_nodes() (in module retire.explore.utils)</a>
 </li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="retire.html#id4">get_plant_level_analysis() (retire.retire.Retire method)</a>, <a href="retire.html#retire.retire.Retire.get_plant_level_analysis">[1]</a>
+</li>
         <li><a href="explore.html#id15">get_shortest_distances_to_targets() (retire.explore.explore.Explore method)</a>, <a href="explore.html#id29">[1]</a>, <a href="explore.html#retire.explore.explore.Explore.get_shortest_distances_to_targets">[2]</a>
 </li>
-        <li><a href="retire.html#id6">get_target_explanations() (retire.retire.Retire method)</a>, <a href="retire.html#retire.retire.Retire.get_target_explanations">[1]</a>
+        <li><a href="retire.html#id6">get_target_explanations() (retire.retire.Retire method)</a>, <a href="retire.html#id8">[1]</a>, <a href="retire.html#retire.retire.Retire.get_target_explanations">[2]</a>
 </li>
         <li><a href="explore.html#id14">get_target_nodes() (retire.explore.explore.Explore method)</a>, <a href="explore.html#id28">[1]</a>, <a href="explore.html#retire.explore.explore.Explore.get_target_nodes">[2]</a>
 </li>
@@ -397,9 +411,25 @@
 </li>
           <li><a href="explore.html#module-retire.explore.explore">retire.explore.explore</a>
 </li>
+          <li><a href="explore.html#module-retire.explore.utils">retire.explore.utils</a>
+</li>
           <li><a href="retire.html#module-retire.retire">retire.retire</a>
 </li>
         </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="P" class="genindex-section">
+  <h2>P</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="explore.html#retire.explore.utils.prepare_bar_annotations">prepare_bar_annotations() (in module retire.explore.utils)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="explore.html#retire.explore.utils.process_group_sankey_df">process_group_sankey_df() (in module retire.explore.utils)</a>
+</li>
     </ul></td>
   </tr></table>
 </section>
@@ -414,6 +444,8 @@
           <li><a href="retire.html#id1">(retire.retire.Retire attribute)</a>, <a href="retire.html#retire.retire.Retire.raw_df">[1]</a>
 </li>
         </ul></li>
+        <li><a href="explore.html#retire.explore.utils.reduce_opacity">reduce_opacity() (in module retire.explore.utils)</a>
+</li>
         <li><a href="retire.html#id0">Retire (class in retire.retire)</a>, <a href="retire.html#retire.retire.Retire">[1]</a>
 </li>
         <li>
@@ -430,6 +462,13 @@
 
         <ul>
           <li><a href="explore.html#module-retire.explore.explore">module</a>
+</li>
+        </ul></li>
+        <li>
+    retire.explore.utils
+
+        <ul>
+          <li><a href="explore.html#module-retire.explore.utils">module</a>
 </li>
         </ul></li>
         <li>

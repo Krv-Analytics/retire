@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Data Sources" href="data_sources.html" /><link rel="prev" title="Step 2: Loading Data" href="usage_guide.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Retire Module" href="retire.html" /><link rel="prev" title="Visualization Methods" href="visualization_methods.html" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
-        <title>Configuration Options - retire 0.1.0</title>
+        <title>Configuration Guide - retire 0.1.0</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=25af2a20" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=8dab3a3b" />
@@ -202,18 +202,12 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <p class="caption" role="heading"><span class="caption-text">User Guide:</span></p>
+  <p class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html">Step 2: Loading Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html#step-3-initializing-the-explorer">Step 3: Initializing the Explorer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html#step-4-basic-graph-visualization">Step 4: Basic Graph Visualization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html#step-5-component-level-analysis">Step 5: Component-Level Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html#step-6-advanced-visualizations">Step 6: Advanced Visualizations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html#step-7-accessing-results-and-analysis">Step 7: Accessing Results and Analysis</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Configuration Options</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#using-custom-configurations">Using Custom Configurations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage_guide.html">Usage Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_sources.html">Data Sources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="visualization_methods.html">Visualization Methods</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Configuration Guide</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference:</span></p>
 <ul>
@@ -223,22 +217,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Development:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="development/data.html">Data Sources</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/data.html#implementation-details">Implementation Details</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/data.html#development-guidelines">Development Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/data.html#example-extension">Example Extension</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/explorer.html">Core Visualization Methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/explorer.html#helper-methods">Helper Methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/explorer.html#development-guidelines">Development Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/explorer.html#example-extension">Example Extension</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/testing.html">Test Structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/testing.html#writing-tests">Writing Tests</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/testing.html#example-test">Example Test</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Additional Resources:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/your-org/retire">GitHub Repository</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://doi.org/your-paper-doi">Nature Energy Paper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development/testing.html">Development &amp; Testing</a></li>
 </ul>
 
 </div>
@@ -279,150 +258,12 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Configuration Guide</span>
-
-RETIRE uses YAML configuration files to customize its behavior and analysis parameters. This document explains the structure and options available in the configuration files.
-
-<span class="gu">## Configuration Structure</span>
-
-The configuration file is divided into several sections:
-
-<span class="k">1.</span> <span class="gs">**datasets**</span>: Paths to the data files used by RETIRE.
-<span class="k">2.</span> <span class="gs">**visualizations**</span>: Settings for controlling the appearance of plots and charts.
-<span class="k">3.</span> <span class="gs">**analysis**</span>: Parameters that control how analysis is performed.
-
-<span class="gu">## Example Configuration</span>
-
-Below is an annotated example of a RETIRE configuration file:
-
-```yaml
-<span class="gh"># Dataset paths (optional, defaults will be used if not specified)</span>
-datasets:
-  raw_data: &quot;resources/us_coal_plants_dataset.csv&quot;
-  clean_data: &quot;resources/clean_scaled_us_coalplant_dataset.csv&quot;
-  projection: &quot;resources/projected_us_coalplant_dataset.csv&quot;
-  graph_nodes: &quot;resources/graph/graphnode_df.csv&quot;
-  graph_edges: &quot;resources/graph/graphedge_df.csv&quot;
-
-<span class="gh"># Visualization preferences</span>
-visualizations:
-  # Default color scheme
-  colors:
-    retiring: &quot;rgb(33,102,172)&quot;
-    high_proximity: &quot;rgb(146,197,222)&quot;
-    mid_proximity: &quot;rgb(230, 230, 230)&quot;
-    low_proximity: &quot;rgb(244,165,130)&quot;
-    far_from_retirement: &quot;rgb(178,24,43)&quot;
-  
-  # Graph display settings
-  graph:
-    node_size_factor: 10
-    edge_alpha: 0.5
-    colormap: &quot;coolwarm&quot;
-    show_labels: false
-  
-  # Map display settings
-  map:
-    size_variable: &quot;Total Nameplate Capacity (MW)&quot;
-    size_max: 13
-    scope: &quot;usa&quot;
-
-<span class="gh"># Analysis parameters</span>
-analysis:
-  # Proximity thresholds for categorization
-  proximity_bins:
-<span class="w">    </span><span class="k">-</span><span class="w"> </span>-Infinity
-<span class="w">    </span><span class="k">-</span><span class="w"> </span>0
-<span class="w">    </span><span class="k">-</span><span class="w"> </span>0.33
-<span class="w">    </span><span class="k">-</span><span class="w"> </span>0.67
-<span class="w">    </span><span class="k">-</span><span class="w"> </span>Infinity
-  
-  # Key features for heatmap visualization
-  heatmap_features:
-    economics:
-<span class="w">      </span><span class="k">-</span><span class="w"> </span>&quot;Total Nameplate Capacity (MW)&quot;
-<span class="w">      </span><span class="k">-</span><span class="w"> </span>&quot;Heat Rate (mmBtu/MWh)&quot;
-<span class="w">      </span><span class="k">-</span><span class="w"> </span>&quot;Percent difference&quot;
-    demographics:
-<span class="w">      </span><span class="k">-</span><span class="w"> </span>&quot;Population density (per square mile)&quot;
-<span class="w">      </span><span class="k">-</span><span class="w"> </span>&quot;Estimated percentage who somewhat/strongly oppose setting strict limits on existing coal-fire power plants&quot;
-    environmental:
-<span class="w">      </span><span class="k">-</span><span class="w"> </span>&quot;SO2 (tons)&quot;
-<span class="w">      </span><span class="k">-</span><span class="w"> </span>&quot;NOx (tons)&quot;
-<span class="w">      </span><span class="k">-</span><span class="w"> </span>&quot;CO2 (tons)&quot;
-</pre></div>
-</div>
-<section id="configuration-options">
-<h1>Configuration Options<a class="headerlink" href="#configuration-options" title="Link to this heading">¶</a></h1>
-<section id="datasets-section">
-<h2>Datasets Section<a class="headerlink" href="#datasets-section" title="Link to this heading">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">datasets</span></code> section specifies the paths to data files:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">raw_data</span></code>: Path to the original coal plant dataset CSV.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">clean_data</span></code>: Path to the cleaned and scaled dataset CSV.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">projection</span></code>: Path to the UMAP projection CSV.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">graph_nodes</span></code>: Path to the graph nodes CSV.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">graph_edges</span></code>: Path to the graph edges CSV.</p></li>
-</ul>
-</section>
-<section id="visualizations-section">
-<h2>Visualizations Section<a class="headerlink" href="#visualizations-section" title="Link to this heading">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">visualizations</span></code> section controls the appearance of charts and plots:</p>
-<section id="colors">
-<h3>Colors<a class="headerlink" href="#colors" title="Link to this heading">¶</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">colors</span></code> subsection defines the color scheme for retirement categories:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">retiring</span></code>: Color for plants marked as fully retiring.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">high_proximity</span></code>: Color for plants with high proximity to retirement.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">mid_proximity</span></code>: Color for plants with medium proximity to retirement.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">low_proximity</span></code>: Color for plants with low proximity to retirement.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">far_from_retirement</span></code>: Color for plants unlikely to retire soon.</p></li>
-</ul>
-</section>
-<section id="graph">
-<h3>Graph<a class="headerlink" href="#graph" title="Link to this heading">¶</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">graph</span></code> subsection controls graph visualization settings:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">node_size_factor</span></code>: Multiplier for node size based on membership count.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">edge_alpha</span></code>: Transparency of graph edges (0.0-1.0).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">colormap</span></code>: Matplotlib colormap name for node coloring.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">show_labels</span></code>: Boolean to control whether node labels are shown.</p></li>
-</ul>
-</section>
-<section id="map">
-<h3>Map<a class="headerlink" href="#map" title="Link to this heading">¶</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">map</span></code> subsection controls geospatial visualization settings:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">size_variable</span></code>: Column name to use for point sizing on maps.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">size_max</span></code>: Maximum size for points on the map.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">scope</span></code>: Geographic scope for the map (e.g., “usa”, “world”).</p></li>
-</ul>
-</section>
-</section>
-<section id="analysis-section">
-<h2>Analysis Section<a class="headerlink" href="#analysis-section" title="Link to this heading">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">analysis</span></code> section controls how analysis is performed:</p>
-<section id="proximity-bins">
-<h3>Proximity Bins<a class="headerlink" href="#proximity-bins" title="Link to this heading">¶</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">proximity_bins</span></code> list defines the thresholds used to categorize plants by retirement proximity:</p>
-<ul class="simple">
-<li><p>Values represent cutoffs for distances in the graph.</p></li>
-<li><p>Must include <code class="docutils literal notranslate"><span class="pre">-Infinity</span></code> as the first value and <code class="docutils literal notranslate"><span class="pre">Infinity</span></code> as the last value.</p></li>
-</ul>
-</section>
-<section id="heatmap-features">
-<h3>Heatmap Features<a class="headerlink" href="#heatmap-features" title="Link to this heading">¶</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">heatmap_features</span></code> section organizes features into categories for heatmap visualization:</p>
-<ul class="simple">
-<li><p>Each category (e.g., <code class="docutils literal notranslate"><span class="pre">economics</span></code>, <code class="docutils literal notranslate"><span class="pre">demographics</span></code>, <code class="docutils literal notranslate"><span class="pre">environmental</span></code>) contains a list of column names.</p></li>
-<li><p>These categories are used for grouping and displaying boxed sections in heatmaps.</p></li>
-</ul>
-</section>
-</section>
-</section>
-<section id="using-custom-configurations">
-<h1>Using Custom Configurations<a class="headerlink" href="#using-custom-configurations" title="Link to this heading">¶</a></h1>
-<p>To use a custom configuration file with RETIRE:</p>
+          <section id="configuration-guide">
+<h1>Configuration Guide<a class="headerlink" href="#configuration-guide" title="Link to this heading">¶</a></h1>
+<p>RETIRE uses YAML configuration files to customize visualization and analysis parameters.</p>
+<section id="basic-usage">
+<h2>Basic Usage<a class="headerlink" href="#basic-usage" title="Link to this heading">¶</a></h2>
+<p>To use a custom configuration file:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">retire.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_config</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">retire.explore</span><span class="w"> </span><span class="kn">import</span> <span class="n">Explore</span>
 
@@ -433,9 +274,58 @@ analysis:
 <span class="n">explorer</span> <span class="o">=</span> <span class="n">Explore</span><span class="p">(</span><span class="n">G</span><span class="o">=</span><span class="n">G</span><span class="p">,</span> <span class="n">raw_df</span><span class="o">=</span><span class="n">raw_df</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</section>
+<section id="configuration-structure">
+<h2>Configuration Structure<a class="headerlink" href="#configuration-structure" title="Link to this heading">¶</a></h2>
+<p>The configuration file has three main sections:</p>
+<section id="visualizations">
+<h3>Visualizations<a class="headerlink" href="#visualizations" title="Link to this heading">¶</a></h3>
+<p>Control the appearance of plots and charts:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">visualizations</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">colors</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">retiring</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;rgb(33,102,172)&quot;</span>
+<span class="w">    </span><span class="nt">high_proximity</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;rgb(146,197,222)&quot;</span>
+<span class="w">    </span><span class="nt">mid_proximity</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;rgb(230,</span><span class="nv"> </span><span class="s">230,</span><span class="nv"> </span><span class="s">230)&quot;</span>
+<span class="w">    </span><span class="nt">low_proximity</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;rgb(244,165,130)&quot;</span>
+<span class="w">    </span><span class="nt">far_from_retirement</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;rgb(178,24,43)&quot;</span>
+<span class="w">  </span>
+<span class="w">  </span><span class="nt">graph</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">node_size_factor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="w">    </span><span class="nt">edge_alpha</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.5</span>
+<span class="w">    </span><span class="nt">colormap</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;coolwarm&quot;</span>
+<span class="w">    </span><span class="nt">show_labels</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">  </span>
+<span class="w">  </span><span class="nt">map</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">size_variable</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Total</span><span class="nv"> </span><span class="s">Nameplate</span><span class="nv"> </span><span class="s">Capacity</span><span class="nv"> </span><span class="s">(MW)&quot;</span>
+<span class="w">    </span><span class="nt">size_max</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">13</span>
+<span class="w">    </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;usa&quot;</span>
 </pre></div>
 </div>
+</section>
+<section id="analysis-parameters">
+<h3>Analysis Parameters<a class="headerlink" href="#analysis-parameters" title="Link to this heading">¶</a></h3>
+<p>Control categorization and analysis:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">analysis</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">proximity_bins</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-Infinity</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.33</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.67</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Infinity</span>
+</pre></div>
+</div>
+</section>
+<section id="datasets-optional">
+<h3>Datasets (Optional)<a class="headerlink" href="#datasets-optional" title="Link to this heading">¶</a></h3>
+<p>Override default data file paths if needed:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">datasets</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">raw_data</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;custom/path/to/data.csv&quot;</span>
+<span class="w">  </span><span class="nt">clean_data</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;custom/path/to/clean_data.csv&quot;</span>
+<span class="w">  </span><span class="c1"># ... other dataset paths</span>
+</pre></div>
+</div>
+</section>
+</section>
 </section>
 
         </article>
@@ -443,23 +333,23 @@ analysis:
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="data_sources.html">
+          <a class="next-page" href="retire.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Data Sources</div>
+                <div class="title">Retire Module</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="usage_guide.html">
+          <a class="prev-page" href="visualization_methods.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Step 2: Loading Data</div>
+                <div class="title">Visualization Methods</div>
                 
               </div>
             </a>
@@ -493,22 +383,16 @@ analysis:
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Configuration Options</a><ul>
-<li><a class="reference internal" href="#datasets-section">Datasets Section</a></li>
-<li><a class="reference internal" href="#visualizations-section">Visualizations Section</a><ul>
-<li><a class="reference internal" href="#colors">Colors</a></li>
-<li><a class="reference internal" href="#graph">Graph</a></li>
-<li><a class="reference internal" href="#map">Map</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#analysis-section">Analysis Section</a><ul>
-<li><a class="reference internal" href="#proximity-bins">Proximity Bins</a></li>
-<li><a class="reference internal" href="#heatmap-features">Heatmap Features</a></li>
+<li><a class="reference internal" href="#">Configuration Guide</a><ul>
+<li><a class="reference internal" href="#basic-usage">Basic Usage</a></li>
+<li><a class="reference internal" href="#configuration-structure">Configuration Structure</a><ul>
+<li><a class="reference internal" href="#visualizations">Visualizations</a></li>
+<li><a class="reference internal" href="#analysis-parameters">Analysis Parameters</a></li>
+<li><a class="reference internal" href="#datasets-optional">Datasets (Optional)</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#using-custom-configurations">Using Custom Configurations</a></li>
 </ul>
 
           </div>

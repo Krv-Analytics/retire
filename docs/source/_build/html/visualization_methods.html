@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Retire Module" href="retire.html" /><link rel="prev" title="Data Sources" href="data_sources.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Configuration Guide" href="configuration.html" /><link rel="prev" title="Data Sources" href="data_sources.html" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
         <title>Visualization Methods - retire 0.1.0</title>
@@ -184,7 +184,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -202,13 +202,12 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <p class="caption" role="heading"><span class="caption-text">User Guide:</span></p>
+  <p class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration Options</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configuration.html#using-custom-configurations">Using Custom Configurations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage_guide.html">Usage Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_sources.html">Data Sources</a></li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Visualization Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration Guide</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference:</span></p>
 <ul>
@@ -218,22 +217,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Development:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="development/data.html">Data Sources</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/data.html#implementation-details">Implementation Details</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/data.html#development-guidelines">Development Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/data.html#example-extension">Example Extension</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/explorer.html">Core Visualization Methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/explorer.html#helper-methods">Helper Methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/explorer.html#development-guidelines">Development Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/explorer.html#example-extension">Example Extension</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/testing.html">Test Structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/testing.html#writing-tests">Writing Tests</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/testing.html#example-test">Example Test</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Additional Resources:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/your-org/retire">GitHub Repository</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://doi.org/your-paper-doi">Nature Energy Paper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development/testing.html">Development &amp; Testing</a></li>
 </ul>
 
 </div>
@@ -268,7 +252,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -276,86 +260,72 @@
         <article role="main" id="furo-main-content">
           <section id="visualization-methods">
 <h1>Visualization Methods<a class="headerlink" href="#visualization-methods" title="Link to this heading">¶</a></h1>
-<hr class="docutils" />
-<p>Method Description Configuration Options
-———————————————————————————–|
-| | |
-drawGraph | Visualize a THEMA-generated | - col: Column for |
-| NetworkX graph with optional node | node coloring |
-| coloring based on attributes or | - pos: Node positions|
-| community structure | - color_method: |
-| | ‘average’ or |
-| | ‘community’ |</p>
-<hr class="docutils" />
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                   |                                    |                      |
-</pre></div>
-</div>
-<p>drawComponent | Draws a specific connected | - component: Index of|
-| component of the graph with | the component |
-| customizable node coloring | - col: Column for |
-| and appearance | node coloring |
-| | - color_method: Same |
-| | as drawGraph |</p>
-<hr class="docutils" />
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                   |                                    |                      |
-</pre></div>
-</div>
-<p>drawPathDistance | Visualizes shortest path | - component: Index |
-| distances from all nodes to a | of the component |
-| set of target nodes within a | - targets: Dict of |
-| specified connected component | target node IDs |
-| | - distances_dict: |
-| | Node distances |</p>
-<hr class="docutils" />
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                   |                                    |                      |
-</pre></div>
-</div>
-<p>drawHeatMap | Generates a heatmap visualization | - config: Dict with |
-| of grouped and normalized data | aggregations, |
-| with annotated values and | derived columns, |
-| category boxes | renaming, and |
-| | categories |</p>
-<hr class="docutils" />
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                   |                                    |                      |
-</pre></div>
-</div>
-<p>drawDotPlot | Creates a dot plot visualizing | - clean_df: Cleaned |
-| feature values across groups, | DataFrame |
-| with dot color representing | - config: Dict with |
-| normalized values and dot size | features and |
-| representing standard deviation | display options |</p>
-<hr class="docutils" />
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                   |                                    |                      |
-</pre></div>
-</div>
-<p>drawBar | Generates stacked bar chart | - title: Optional |
-| showing plant counts by proximity | chart title |
-| group | |</p>
-<hr class="docutils" />
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                   |                                    |                      |
-</pre></div>
-</div>
-<p>drawSankey | Creates a Sankey diagram showing | - title: Optional |
-| flow between groups and | diagram title |
-| retirement categories | |</p>
-<hr class="docutils" />
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                   |                                    |                      |
-</pre></div>
-</div>
-<p>drawMap | Visualizes coal plants on a US | None |
-| map with color-coding based on | |
-| retirement status | |</p>
-<hr class="docutils" />
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                   |                                    |                      |
-</pre></div>
-</div>
-<p>drawComponentsMap | Shows multiple maps of US coal | None |
-| plants, faceted by component | |
-| groups | |</p>
-<hr class="docutils" />
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">Explore</span></code> class provides comprehensive visualization capabilities for analyzing coal plant data and network structures:</p>
+<section id="graph-visualizations">
+<h2>Graph Visualizations<a class="headerlink" href="#graph-visualizations" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">drawGraph()</span></code></strong>: Visualize the complete THEMA-generated NetworkX graph</p>
+<ul>
+<li><p>Key parameters: <code class="docutils literal notranslate"><span class="pre">col</span></code> (coloring column), <code class="docutils literal notranslate"><span class="pre">color_method</span></code> (‘average’ or ‘community’)</p></li>
+</ul>
+</li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">drawComponent()</span></code></strong>: Focus on a specific connected component</p>
+<ul>
+<li><p>Key parameters: <code class="docutils literal notranslate"><span class="pre">component</span></code> (component index), <code class="docutils literal notranslate"><span class="pre">col</span></code> (coloring column)</p></li>
+</ul>
+</li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">drawPathDistance()</span></code></strong>: Show shortest path distances to target nodes</p>
+<ul>
+<li><p>Key parameters: <code class="docutils literal notranslate"><span class="pre">component</span></code>, <code class="docutils literal notranslate"><span class="pre">targets</span></code> (target node dict), <code class="docutils literal notranslate"><span class="pre">distances_dict</span></code></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="statistical-visualizations">
+<h2>Statistical Visualizations<a class="headerlink" href="#statistical-visualizations" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">drawHeatMap()</span></code></strong>: Generate heatmap of grouped/normalized data with category boxes</p>
+<ul>
+<li><p>Key parameters: <code class="docutils literal notranslate"><span class="pre">config</span></code> (aggregations, derived columns, categories)</p></li>
+</ul>
+</li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">drawDotPlot()</span></code></strong>: Create dot plot with color representing normalized values, size representing standard deviation</p>
+<ul>
+<li><p>Key parameters: <code class="docutils literal notranslate"><span class="pre">clean_df</span></code>, <code class="docutils literal notranslate"><span class="pre">config</span></code> (features and display options)</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="flow-and-distribution-charts">
+<h2>Flow and Distribution Charts<a class="headerlink" href="#flow-and-distribution-charts" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">drawBar()</span></code></strong>: Stacked bar chart showing plant counts by proximity group</p>
+<ul>
+<li><p>Key parameters: <code class="docutils literal notranslate"><span class="pre">title</span></code> (optional chart title)</p></li>
+</ul>
+</li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">drawSankey()</span></code></strong>: Sankey diagram showing flow between groups and retirement categories</p>
+<ul>
+<li><p>Key parameters: <code class="docutils literal notranslate"><span class="pre">title</span></code> (optional diagram title)</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="geospatial-visualizations">
+<h2>Geospatial Visualizations<a class="headerlink" href="#geospatial-visualizations" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">drawMap()</span></code></strong>: Visualize coal plants on US map with retirement status color-coding</p>
+<ul>
+<li><p>No required parameters</p></li>
+</ul>
+</li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">drawComponentsMap()</span></code></strong>: Multiple US maps faceted by component groups</p>
+<ul>
+<li><p>No required parameters</p></li>
+</ul>
+</li>
+</ul>
+</section>
 </section>
 
         </article>
@@ -363,12 +333,12 @@ drawGraph | Visualize a THEMA-generated | - col: Column for |
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="retire.html">
+          <a class="next-page" href="configuration.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Retire Module</div>
+                <div class="title">Configuration Guide</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -401,8 +371,30 @@ drawGraph | Visualize a THEMA-generated | - col: Column for |
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Visualization Methods</a><ul>
+<li><a class="reference internal" href="#graph-visualizations">Graph Visualizations</a></li>
+<li><a class="reference internal" href="#statistical-visualizations">Statistical Visualizations</a></li>
+<li><a class="reference internal" href="#flow-and-distribution-charts">Flow and Distribution Charts</a></li>
+<li><a class="reference internal" href="#geospatial-visualizations">Geospatial Visualizations</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

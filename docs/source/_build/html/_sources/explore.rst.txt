@@ -16,6 +16,14 @@ Main Classes
    :special-members: __init__
    :exclude-members: __weakref__
 
+Utility Functions
+----------------
+
+.. automodule:: retire.explore.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Visualization Methods
 ---------------------
 

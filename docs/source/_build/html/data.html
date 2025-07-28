@@ -202,18 +202,12 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <p class="caption" role="heading"><span class="caption-text">User Guide:</span></p>
+  <p class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html">Step 2: Loading Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html#step-3-initializing-the-explorer">Step 3: Initializing the Explorer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html#step-4-basic-graph-visualization">Step 4: Basic Graph Visualization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html#step-5-component-level-analysis">Step 5: Component-Level Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html#step-6-advanced-visualizations">Step 6: Advanced Visualizations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html#step-7-accessing-results-and-analysis">Step 7: Accessing Results and Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration Options</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configuration.html#using-custom-configurations">Using Custom Configurations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage_guide.html">Usage Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_sources.html">Data Sources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="visualization_methods.html">Visualization Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration Guide</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference:</span></p>
 <ul class="current">
@@ -223,22 +217,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Development:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="development/data.html">Data Sources</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/data.html#implementation-details">Implementation Details</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/data.html#development-guidelines">Development Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/data.html#example-extension">Example Extension</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/explorer.html">Core Visualization Methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/explorer.html#helper-methods">Helper Methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/explorer.html#development-guidelines">Development Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/explorer.html#example-extension">Example Extension</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/testing.html">Test Structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/testing.html#writing-tests">Writing Tests</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/testing.html#example-test">Example Test</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Additional Resources:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/your-org/retire">GitHub Repository</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://doi.org/your-paper-doi">Nature Energy Paper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development/testing.html">Development &amp; Testing</a></li>
 </ul>
 
 </div>
@@ -343,10 +322,10 @@ pd.errors.ParserError: If the CSV file cannot be parsed.</p>
 </dl>
 </dd></dl>
 
-<section id="available-functions">
-<h2>Available Functions<a class="headerlink" href="#available-functions" title="Link to this heading">¶</a></h2>
-<section id="dataset-loading">
-<h3>Dataset Loading<a class="headerlink" href="#dataset-loading" title="Link to this heading">¶</a></h3>
+<section id="data-loading-functions">
+<h2>Data Loading Functions<a class="headerlink" href="#data-loading-functions" title="Link to this heading">¶</a></h2>
+<section id="coal-plant-datasets">
+<h3>Coal Plant Datasets<a class="headerlink" href="#coal-plant-datasets" title="Link to this heading">¶</a></h3>
 <dl class="py function">
 <dt class="sig sig-object py" id="id0">
 <span class="sig-prename descclassname"><span class="pre">retire.data.data.</span></span><span class="sig-name descname"><span class="pre">load_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/data/data.html#load_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Link to this definition">¶</a></dt>
@@ -396,8 +375,8 @@ pd.errors.ParserError: If the CSV file cannot be parsed.</p>
 </dd></dl>
 
 </section>
-<section id="network-loading">
-<h3>Network Loading<a class="headerlink" href="#network-loading" title="Link to this heading">¶</a></h3>
+<section id="graph-and-network-data">
+<h3>Graph and Network Data<a class="headerlink" href="#graph-and-network-data" title="Link to this heading">¶</a></h3>
 <dl class="py function">
 <dt class="sig sig-object py" id="id4">
 <span class="sig-prename descclassname"><span class="pre">retire.data.data.</span></span><span class="sig-name descname"><span class="pre">load_graph</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/data/data.html#load_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id4" title="Link to this definition">¶</a></dt>
@@ -412,6 +391,10 @@ NetworkX graph, adding nodes and edges along with their associated attributes.</
 </dd></dl>
 
 </section>
+</section>
+<section id="data-utilities">
+<h2>Data Utilities<a class="headerlink" href="#data-utilities" title="Link to this heading">¶</a></h2>
+<p>These functions help with processing and managing the datasets:</p>
 </section>
 </section>
 
@@ -476,20 +459,21 @@ NetworkX graph, adding nodes and edges along with their associated attributes.</
 <li><a class="reference internal" href="#retire.data.data.load_projection"><code class="docutils literal notranslate"><span class="pre">load_projection()</span></code></a></li>
 <li><a class="reference internal" href="#retire.data.data.load_graph"><code class="docutils literal notranslate"><span class="pre">load_graph()</span></code></a></li>
 <li><a class="reference internal" href="#retire.data.data.load_generator_level_dataset"><code class="docutils literal notranslate"><span class="pre">load_generator_level_dataset()</span></code></a></li>
-<li><a class="reference internal" href="#available-functions">Available Functions</a><ul>
-<li><a class="reference internal" href="#dataset-loading">Dataset Loading</a><ul>
+<li><a class="reference internal" href="#data-loading-functions">Data Loading Functions</a><ul>
+<li><a class="reference internal" href="#coal-plant-datasets">Coal Plant Datasets</a><ul>
 <li><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">load_dataset()</span></code></a></li>
 <li><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">load_clean_dataset()</span></code></a></li>
 <li><a class="reference internal" href="#id2"><code class="docutils literal notranslate"><span class="pre">load_projection()</span></code></a></li>
 <li><a class="reference internal" href="#id3"><code class="docutils literal notranslate"><span class="pre">load_generator_level_dataset()</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#network-loading">Network Loading</a><ul>
+<li><a class="reference internal" href="#graph-and-network-data">Graph and Network Data</a><ul>
 <li><a class="reference internal" href="#id4"><code class="docutils literal notranslate"><span class="pre">load_graph()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li><a class="reference internal" href="#data-utilities">Data Utilities</a></li>
 </ul>
 </li>
 </ul>

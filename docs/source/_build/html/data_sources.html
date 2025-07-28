@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Visualization Methods" href="visualization_methods.html" /><link rel="prev" title="Configuration Options" href="configuration.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Visualization Methods" href="visualization_methods.html" /><link rel="prev" title="Usage Guide" href="usage_guide.html" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
         <title>Data Sources - retire 0.1.0</title>
@@ -184,7 +184,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -202,18 +202,12 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <p class="caption" role="heading"><span class="caption-text">User Guide:</span></p>
+  <p class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html">Step 2: Loading Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html#step-3-initializing-the-explorer">Step 3: Initializing the Explorer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html#step-4-basic-graph-visualization">Step 4: Basic Graph Visualization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html#step-5-component-level-analysis">Step 5: Component-Level Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html#step-6-advanced-visualizations">Step 6: Advanced Visualizations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html#step-7-accessing-results-and-analysis">Step 7: Accessing Results and Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration Options</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configuration.html#using-custom-configurations">Using Custom Configurations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage_guide.html">Usage Guide</a></li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Data Sources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="visualization_methods.html">Visualization Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration Guide</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference:</span></p>
 <ul>
@@ -223,22 +217,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Development:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="development/data.html">Data Sources</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/data.html#implementation-details">Implementation Details</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/data.html#development-guidelines">Development Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/data.html#example-extension">Example Extension</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/explorer.html">Core Visualization Methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/explorer.html#helper-methods">Helper Methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/explorer.html#development-guidelines">Development Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/explorer.html#example-extension">Example Extension</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/testing.html">Test Structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/testing.html#writing-tests">Writing Tests</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development/testing.html#example-test">Example Test</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Additional Resources:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/your-org/retire">GitHub Repository</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://doi.org/your-paper-doi">Nature Energy Paper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development/testing.html">Development &amp; Testing</a></li>
 </ul>
 
 </div>
@@ -273,7 +252,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -281,50 +260,34 @@
         <article role="main" id="furo-main-content">
           <section id="data-sources">
 <h1>Data Sources<a class="headerlink" href="#data-sources" title="Link to this heading">¶</a></h1>
-<hr class="docutils" />
-<section id="dataset-description-access-function-raw-coal-data-original-us-coal-plants-dataset-with-load-dataset-plant-level-and-generator-level-information">
-<h2>Dataset              Description                                 Access Function
-———————————————————————————–|
-|                                            |                    |
-Raw Coal Data    | Original US coal plants dataset with       | load_dataset()     |
-| plant-level and generator-level            |                    |
-| information                                |                    |<a class="headerlink" href="#dataset-description-access-function-raw-coal-data-original-us-coal-plants-dataset-with-load-dataset-plant-level-and-generator-level-information" title="Link to this heading">¶</a></h2>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>             |                                            |                    |
-</pre></div>
-</div>
-</section>
-<section id="cleaned-dataset-scaled-encoded-and-imputed-version-load-clean-dataset-of-the-dataset-suitable-for-machine-learning-and-statistical-analysis">
-<h2>Cleaned Dataset  | Scaled, encoded, and imputed version       | load_clean_dataset()|
-| of the dataset suitable for machine        |                    |
-| learning and statistical analysis          |                    |<a class="headerlink" href="#cleaned-dataset-scaled-encoded-and-imputed-version-load-clean-dataset-of-the-dataset-suitable-for-machine-learning-and-statistical-analysis" title="Link to this heading">¶</a></h2>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>             |                                            |                    |
-</pre></div>
-</div>
-</section>
-<section id="umap-projection-low-dimensional-embedding-of-the-load-projection-cleaned-data-generated-using-umap-for-visualization-and-clustering">
-<h2>UMAP Projection  | Low-dimensional embedding of the           | load_projection()  |
-| cleaned data generated using UMAP          |                    |
-| for visualization and clustering           |                    |<a class="headerlink" href="#umap-projection-low-dimensional-embedding-of-the-load-projection-cleaned-data-generated-using-umap-for-visualization-and-clustering" title="Link to this heading">¶</a></h2>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>             |                                            |                    |
-</pre></div>
-</div>
-</section>
-<section id="thema-graph-a-multiresolution-discrete-graph-object-load-graph-constructed-from-the-data-for-community-detection-and-network-analysis">
-<h2>THEMA Graph      | A multiresolution, discrete graph object   | load_graph()       |
-| constructed from the data for              |                    |
-| community detection and network analysis   |                    |<a class="headerlink" href="#thema-graph-a-multiresolution-discrete-graph-object-load-graph-constructed-from-the-data-for-community-detection-and-network-analysis" title="Link to this heading">¶</a></h2>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>             |                                            |                    |
-</pre></div>
-</div>
-</section>
-<section id="generator-level-more-detailed-dataset-with-load-generator-dataset-generator-specific-information-for-level-dataset-coal-plants">
-<h2>Generator Level  | More detailed dataset with                 | load_generator_    |
-Dataset          | generator-specific information for         | level_dataset()    |
-| coal plants                                |                    |<a class="headerlink" href="#generator-level-more-detailed-dataset-with-load-generator-dataset-generator-specific-information-for-level-dataset-coal-plants" title="Link to this heading">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-</section>
+<p>The RETIRE package provides access to several processed datasets:</p>
+<ul class="simple">
+<li><p><strong>Raw Coal Data</strong>: Original US coal plants dataset with plant-level and generator-level information</p>
+<ul>
+<li><p>Access via: <code class="docutils literal notranslate"><span class="pre">load_dataset()</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>Cleaned Dataset</strong>: Scaled, encoded, and imputed version suitable for machine learning and statistical analysis</p>
+<ul>
+<li><p>Access via: <code class="docutils literal notranslate"><span class="pre">load_clean_dataset()</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>UMAP Projection</strong>: Low-dimensional embedding generated using UMAP for visualization and clustering</p>
+<ul>
+<li><p>Access via: <code class="docutils literal notranslate"><span class="pre">load_projection()</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>THEMA Graph</strong>: Multiresolution, discrete graph object for community detection and network analysis</p>
+<ul>
+<li><p>Access via: <code class="docutils literal notranslate"><span class="pre">load_graph()</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>Generator Level Dataset</strong>: Detailed dataset with generator-specific information for coal plants</p>
+<ul>
+<li><p>Access via: <code class="docutils literal notranslate"><span class="pre">load_generator_level_dataset()</span></code></p></li>
+</ul>
+</li>
+</ul>
 </section>
 
         </article>
@@ -341,14 +304,14 @@ Dataset          | generator-specific information for         | level_dataset() 
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="configuration.html">
+          <a class="prev-page" href="usage_guide.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Configuration Options</div>
+                <div class="title">Usage Guide</div>
                 
               </div>
             </a>
@@ -370,44 +333,8 @@ Dataset          | generator-specific information for         | level_dataset() 
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            On this page
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">Data Sources</a><ul>
-<li><a class="reference internal" href="#dataset-description-access-function-raw-coal-data-original-us-coal-plants-dataset-with-load-dataset-plant-level-and-generator-level-information">Dataset              Description                                 Access Function
-———————————————————————————–|
-|                                            |                    |
-Raw Coal Data    | Original US coal plants dataset with       | load_dataset()     |
-| plant-level and generator-level            |                    |
-| information                                |                    |</a></li>
-<li><a class="reference internal" href="#cleaned-dataset-scaled-encoded-and-imputed-version-load-clean-dataset-of-the-dataset-suitable-for-machine-learning-and-statistical-analysis">Cleaned Dataset  | Scaled, encoded, and imputed version       | load_clean_dataset()|
-| of the dataset suitable for machine        |                    |
-| learning and statistical analysis          |                    |</a></li>
-<li><a class="reference internal" href="#umap-projection-low-dimensional-embedding-of-the-load-projection-cleaned-data-generated-using-umap-for-visualization-and-clustering">UMAP Projection  | Low-dimensional embedding of the           | load_projection()  |
-| cleaned data generated using UMAP          |                    |
-| for visualization and clustering           |                    |</a></li>
-<li><a class="reference internal" href="#thema-graph-a-multiresolution-discrete-graph-object-load-graph-constructed-from-the-data-for-community-detection-and-network-analysis">THEMA Graph      | A multiresolution, discrete graph object   | load_graph()       |
-| constructed from the data for              |                    |
-| community detection and network analysis   |                    |</a></li>
-<li><a class="reference internal" href="#generator-level-more-detailed-dataset-with-load-generator-dataset-generator-specific-information-for-level-dataset-coal-plants">Generator Level  | More detailed dataset with                 | load_generator_    |
-Dataset          | generator-specific information for         | level_dataset()    |
-| coal plants                                |                    |</a></li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>
