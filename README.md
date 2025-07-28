@@ -101,10 +101,9 @@ If you use this package in your research, please cite:
 ```bibtex
 @article{retire2025,
   title={Strategies to Accelerate US Coal Power Phaseout Using Contextual Retirement Vulnerabilities},
-  author={Your Name and Co-authors},
+  author={Sidney Gathrid*, Jeremy Wayland*, Stuart Wayland,Ranjit Deshmukh,Grace Wu},
   journal={Nature Energy},
   year={2025},
-  doi={10.1038/your-doi}
 }
 ```
 
