@@ -1,33 +1,73 @@
 [project]
 name = "retire"
 version = "0.1.0"
-description = "A data driven approach to strategizing the retirement of US Coal Plants."
+description = "A data-driven approach to strategizing US coal plant retirement using network analysis and contextual vulnerabilities."
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [
+    {name = "Jeremy Wayland", email = "jeremy@krv.ai"},
+    {name = "Stuart Wayland", email = "stu@krv.ai"},
+    {name = "Sidney Gathrid", email = "sidney@krv.ai"},
+]
+keywords = ["coal", "energy", "retirement", "network-analysis", "policy", "visualization"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10", 
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "Topic :: Scientific/Engineering :: Visualization",
+]
 dependencies = [
-    "ipykernel>=6.29.5",
-    "langchain-ollama>=0.3.3",
-    "matplotlib>=3.10.3",
-    "nbformat>=5.10.4",
-    "networkx>=3.5",
-    "numpy>=1.24.2",
-    "pandas>=2.3.0",
-    "plotly>=6.2.0",
-    "scikit-learn>=1.7.0",
-    "seaborn>=0.13.2",
-    "tqdm>=4.67.1",
-    "seaborn>=0.13.2",
-    "plotly>=6.2.0",
+    "matplotlib>=3.5.0",
+    "networkx>=2.8",
+    "numpy>=1.21.0",
+    "pandas>=1.5.0",
+    "plotly>=5.0.0",
+    "scikit-learn>=1.1.0",
+    "seaborn>=0.11.0",
 ]
 
-[tool.setuptools.package-data]
-coalapi = ["resources/*.csv"]
+[project.urls]
+Homepage = "https://github.com/Krv-Analytics/retire"
+Documentation = "https://retire.readthedocs.io"
+Repository = "git@github.com:Krv-Analytics/retire.git"
+"Bug Tracker" = "https://github.com/Krv-Analytics/retire/issues"
 
-[dependency-groups]
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."] 
+include = ["retire*"]
+
+[tool.setuptools.package-data]
+retire = ["resources/*.csv", "resources/graph/*.csv", "resources/results/*.csv"]
+
+[project.optional-dependencies]
 dev = [
-    "furo>=2025.7.19",
-    "myst-parser>=4.0.1",
-    "sphinx>=8.2.3",
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=22.0.0",
+    "flake8>=5.0.0",
+    "mypy>=1.0.0",
+]
+docs = [
+    "sphinx>=5.0.0",
+    "furo>=2022.6.21",
+    "myst-parser>=0.18.0",
+    "sphinx-autodoc-typehints>=1.19.0",
+]
+notebooks = [
+    "jupyter>=1.0.0",
+    "ipykernel>=6.0.0",
+    "nbformat>=5.0.0",
 ]
 
 [tool.setuptools]
