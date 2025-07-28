@@ -4,17 +4,17 @@ version = "0.1.0"
 description = "A data-driven approach to strategizing US coal plant retirement using network analysis and contextual vulnerabilities."
 readme = "README.md"
 requires-python = ">=3.9"
-license = {text = "MIT"}
+license = {text = "BSD-3-Clause"}
 authors = [
     {name = "Jeremy Wayland", email = "jeremy@krv.ai"},
     {name = "Stuart Wayland", email = "stu@krv.ai"},
-    {name = "Sidney Gathrid", email = "sidney@krv.ai"},
+    {name = "Sidney Gathrid", email = "sidney@krv.ai"}
 ]
 keywords = ["coal", "energy", "retirement", "network-analysis", "policy", "visualization"]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Science/Research",
-    "License :: OSI Approved :: MIT License",
+    "License :: OSI Approved :: BSD License",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10", 
@@ -34,10 +34,7 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/Krv-Analytics/retire"
-Documentation = "https://retire.readthedocs.io"
-Repository = "git@github.com:Krv-Analytics/retire.git"
-"Bug Tracker" = "https://github.com/Krv-Analytics/retire/issues"
+Homepage = "https://github.com/Krv-Analytics/retire/"
 
 [build-system]
 requires = ["setuptools>=64", "wheel"]
