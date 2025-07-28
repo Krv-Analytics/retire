@@ -11,7 +11,9 @@ dependencies = [
     "networkx>=3.5",
     "numpy>=1.24.2",
     "pandas>=2.3.0",
+    "plotly>=6.2.0",
     "scikit-learn>=1.7.0",
+    "seaborn>=0.13.2",
     "tqdm>=4.67.1",
 ]
 
