@@ -190,22 +190,55 @@ class Explore:
         figsize=(10, 4),
     ):
         """
-        Visualizes the shortest path distances from all nodes to a set of target nodes within a specified connected component of the graph.
+        Visualize shortest path distances to target nodes in a network component.
 
-        Parameters:
-            component (int): Index of the connected component to visualize.
-            targets (Dict[str, float]): Dictionary of target node identifiers (keys) and their associated values.
-            distances_dict (Dict[str, float]): Dictionary mapping node identifiers to their shortest path distance to the nearest target node.
-            title (str, optional): Title for the plot. Defaults to "".
-            seed (int, optional): Seed for the spring layout randomization. Defaults to 5.
-            show_colorbar (bool, optional): Whether to display a colorbar indicating distance values. Defaults to True.
-            size_by_degree (bool, optional): If True, node sizes are scaled by their degree; otherwise, a fixed size is used. Defaults to True.
-            scaled_legend (bool, optional): If True, color normalization uses a fixed range [0, vmax]; otherwise, uses the min and max of distances_dict. Defaults to False.
-            vmax (float, optional): Maximum value for color normalization when scaled_legend is True. Defaults to 2.5.
-            figsize (tuple, optional): Size of the figure in inches (width, height). Defaults to (10, 4).
+        Creates a network visualization showing the shortest path distances from all
+        nodes to a set of target nodes within a specified connected component. Nodes
+        are colored by their distance to the nearest target, with target nodes
+        specially highlighted.
 
-        Returns:
-            tuple: (fig, ax) where fig is the matplotlib Figure object and ax is the Axes object.
+        Parameters
+        ----------
+        component : int
+            Index of the connected component to visualize (0-based).
+        targets : Dict[str, float]
+            Dictionary of target node identifiers (keys) and their associated values.
+            Target nodes are highlighted with 'T' labels.
+        distances_dict : Dict[str, float]
+            Dictionary mapping node identifiers to their shortest path distance
+            to the nearest target node.
+        title : str, default=""
+            Title for the plot.
+        seed : int, default=5
+            Random seed for spring layout positioning to ensure reproducible layouts.
+        show_colorbar : bool, default=True
+            Whether to display a colorbar indicating distance values.
+        size_by_degree : bool, default=True
+            If True, node sizes are scaled by their degree; otherwise uses fixed size.
+        scaled_legend : bool, default=False
+            If True, color normalization uses fixed range [0, vmax]; otherwise
+            uses min and max of distances_dict.
+        vmax : float, default=2.5
+            Maximum value for color normalization when scaled_legend is True.
+        figsize : tuple, default=(10, 4)
+            Figure size in inches (width, height).
+
+        Returns
+        -------
+        fig : matplotlib.figure.Figure
+            The created matplotlib figure.
+        ax : matplotlib.axes.Axes
+            The created matplotlib axes.
+
+        Examples
+        --------
+        >>> # Visualize distances to high-retirement nodes in component 0
+        >>> targets = explore.get_target_nodes(0, threshold=0.6)
+        >>> distances = explore.get_shortest_distances_to_targets(0, targets)
+        >>> fig, ax = explore.drawPathDistance(
+        ...     component=0, targets=targets, distances_dict=distances,
+        ...     title="Distance to High-Retirement Nodes"
+        ... )
         """
         comp_obj = nx.connected_components(self.G)
         components = [self.G.subgraph(c).copy() for c in comp_obj]
@@ -703,6 +736,29 @@ class Explore:
         return fig, None
 
     def drawMap(self):
+        """
+        Create an interactive geographic map of US coal plants.
+
+        Generates a Plotly scatter_geo map showing all coal plants in the dataset
+        with markers colored by retirement status and sized by nameplate capacity.
+        Includes detailed hover information about plant characteristics, retirement
+        plans, and contextual factors.
+
+        Returns
+        -------
+        fig : plotly.graph_objects.Figure
+            Interactive Plotly figure with geographic scatter plot.
+        ax : None
+            Always None, maintained for API consistency with matplotlib methods.
+
+        Examples
+        --------
+        >>> from retire import Retire, Explore
+        >>> retire_obj = Retire()
+        >>> explore = Explore(retire_obj.graph, retire_obj.raw_df)
+        >>> fig, _ = explore.drawMap()
+        >>> fig.show()  # Display interactive map in browser/notebook
+        """
         temp_map = self.raw_df.copy()
         temp_map["Retirement Date"] = pd.to_numeric(
             temp_map["Retirement Date"], errors="coerce"
