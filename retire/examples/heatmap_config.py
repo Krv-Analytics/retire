@@ -6,25 +6,26 @@ that display grouped and normalized coal plant data with annotated values
 and category boxes for different types of metrics.
 """
 
+"""
+Configuration dictionary for heatmap visualizations.
+
+Contains aggregation rules, column renaming, derived column calculations,
+and category grouping for creating informative heatmaps of coal plant
+characteristics across different groups.
+
+Dictionary Keys
+--------------
+aggregations : dict
+    Mapping of column names to aggregation functions for grouping data.
+renaming : dict
+    Mapping of original column names to display-friendly labels.
+derived_columns : list of dict
+    Specifications for creating new columns from existing data.
+categories : dict
+    Grouping of columns into categories for visual organization.
+"""
+
 heatmap_config = {
-    """
-    Configuration dictionary for heatmap visualizations.
-    
-    Contains aggregation rules, column renaming, derived column calculations,
-    and category grouping for creating informative heatmaps of coal plant
-    characteristics across different groups.
-    
-    Dictionary Keys
-    ---------------
-    aggregations : dict
-        Mapping of column names to aggregation functions for grouping data.
-    renaming : dict
-        Mapping of original column names to display-friendly labels.
-    derived_columns : list of dict
-        Specifications for creating new columns from existing data.
-    categories : dict
-        Grouping of columns into categories for visual organization.
-    """
     "aggregations": {
         "ORISPL": "count",
         "Total Nameplate Capacity (MW)": "sum",
@@ -81,7 +82,9 @@ heatmap_config = {
         },
         {
             "name": "Average Generation (GWh/yr)",
-            "formula": lambda df: df["Summed Generator annual net generation (MWh)"]
+            "formula": lambda df: df[
+                "Summed Generator annual net generation (MWh)"
+            ]
             / 1000,
             "input": "group",
         },
