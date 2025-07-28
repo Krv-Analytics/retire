@@ -1,0 +1,58 @@
+```yaml
+# Example configuration file for RETIRE analysis
+
+# Dataset paths (optional, defaults will be used if not specified)
+datasets:
+  raw_data: "resources/us_coal_plants_dataset.csv"
+  clean_data: "resources/clean_scaled_us_coalplant_dataset.csv"
+  projection: "resources/projected_us_coalplant_dataset.csv"
+  graph_nodes: "resources/graph/graphnode_df.csv"
+  graph_edges: "resources/graph/graphedge_df.csv"
+
+# Visualization preferences
+visualizations:
+  # Default color scheme
+  colors:
+    retiring: "rgb(33,102,172)"
+    high_proximity: "rgb(146,197,222)"
+    mid_proximity: "rgb(230, 230, 230)"
+    low_proximity: "rgb(244,165,130)"
+    far_from_retirement: "rgb(178,24,43)"
+  
+  # Graph display settings
+  graph:
+    node_size_factor: 10
+    edge_alpha: 0.5
+    colormap: "coolwarm"
+    show_labels: false
+  
+  # Map display settings
+  map:
+    size_variable: "Total Nameplate Capacity (MW)"
+    size_max: 13
+    scope: "usa"
+
+# Analysis parameters
+analysis:
+  # Proximity thresholds for categorization
+  proximity_bins:
+    - -Infinity
+    - 0
+    - 0.33
+    - 0.67
+    - Infinity
+  
+  # Key features for heatmap visualization
+  heatmap_features:
+    economics:
+      - "Total Nameplate Capacity (MW)"
+      - "Heat Rate (mmBtu/MWh)"
+      - "Percent difference"
+    demographics:
+      - "Population density (per square mile)"
+      - "Estimated percentage who somewhat/strongly oppose setting strict limits on existing coal-fire power plants"
+    environmental:
+      - "SO2 (tons)"
+      - "NOx (tons)"
+      - "CO2 (tons)"
+```

@@ -16,10 +16,19 @@ dependencies = [
     "scikit-learn>=1.7.0",
     "seaborn>=0.13.2",
     "tqdm>=4.67.1",
+    "seaborn>=0.13.2",
+    "plotly>=6.2.0",
 ]
 
 [tool.setuptools.package-data]
 coalapi = ["resources/*.csv"]
+
+[dependency-groups]
+dev = [
+    "furo>=2025.7.19",
+    "myst-parser>=4.0.1",
+    "sphinx>=8.2.3",
+]
 
 [tool.setuptools]
 include-package-data = true
