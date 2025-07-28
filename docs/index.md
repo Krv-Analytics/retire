@@ -58,4 +58,4 @@ If you use this package in your research, please cite:
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the BSD 3-Clause License.

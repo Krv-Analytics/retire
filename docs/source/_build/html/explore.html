@@ -384,22 +384,47 @@ If None, no coloring is applied.</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="retire.explore.explore.Explore.drawPathDistance">
 <span class="sig-name descname"><span class="pre">drawPathDistance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">component</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.13)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distances_dict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.13)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_colorbar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size_by_degree</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scaled_legend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(10,</span> <span class="pre">4)</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/explore/explore.html#Explore.drawPathDistance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#retire.explore.explore.Explore.drawPathDistance" title="Link to this definition">¶</a></dt>
-<dd><p>Visualizes the shortest path distances from all nodes to a set of target nodes within a specified connected component of the graph.</p>
-<dl class="simple">
-<dt>Parameters:</dt><dd><p>component (int): Index of the connected component to visualize.
-targets (Dict[str, float]): Dictionary of target node identifiers (keys) and their associated values.
-distances_dict (Dict[str, float]): Dictionary mapping node identifiers to their shortest path distance to the nearest target node.
-title (str, optional): Title for the plot. Defaults to “”.
-seed (int, optional): Seed for the spring layout randomization. Defaults to 5.
-show_colorbar (bool, optional): Whether to display a colorbar indicating distance values. Defaults to True.
-size_by_degree (bool, optional): If True, node sizes are scaled by their degree; otherwise, a fixed size is used. Defaults to True.
-scaled_legend (bool, optional): If True, color normalization uses a fixed range [0, vmax]; otherwise, uses the min and max of distances_dict. Defaults to False.
-vmax (float, optional): Maximum value for color normalization when scaled_legend is True. Defaults to 2.5.
-figsize (tuple, optional): Size of the figure in inches (width, height). Defaults to (10, 4).</p>
+<dd><p>Visualize shortest path distances to target nodes in a network component.</p>
+<p>Creates a network visualization showing the shortest path distances from all
+nodes to a set of target nodes within a specified connected component. Nodes
+are colored by their distance to the nearest target, with target nodes
+specially highlighted.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>component</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – Index of the connected component to visualize (0-based).</p></li>
+<li><p><strong>targets</strong> (<em>Dict</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a><em>]</em>) – Dictionary of target node identifiers (keys) and their associated values.
+Target nodes are highlighted with ‘T’ labels.</p></li>
+<li><p><strong>distances_dict</strong> (<em>Dict</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a><em>]</em>) – Dictionary mapping node identifiers to their shortest path distance
+to the nearest target node.</p></li>
+<li><p><strong>title</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a><em>, </em><em>default=&quot;&quot;</em>) – Title for the plot.</p></li>
+<li><p><strong>seed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a><em>, </em><em>default=5</em>) – Random seed for spring layout positioning to ensure reproducible layouts.</p></li>
+<li><p><strong>show_colorbar</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a><em>, </em><em>default=True</em>) – Whether to display a colorbar indicating distance values.</p></li>
+<li><p><strong>size_by_degree</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a><em>, </em><em>default=True</em>) – If True, node sizes are scaled by their degree; otherwise uses fixed size.</p></li>
+<li><p><strong>scaled_legend</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a><em>, </em><em>default=False</em>) – If True, color normalization uses fixed range [0, vmax]; otherwise
+uses min and max of distances_dict.</p></li>
+<li><p><strong>vmax</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a><em>, </em><em>default=2.5</em>) – Maximum value for color normalization when scaled_legend is True.</p></li>
+<li><p><strong>figsize</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.13)"><em>tuple</em></a><em>, </em><em>default=</em><em>(</em><em>10</em><em>, </em><em>4</em><em>)</em>) – Figure size in inches (width, height).</p></li>
+</ul>
 </dd>
-<dt>Returns:</dt><dd><p>tuple: (fig, ax) where fig is the matplotlib Figure object and ax is the Axes object.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>fig</strong> (<em>matplotlib.figure.Figure</em>) – The created matplotlib figure.</p></li>
+<li><p><strong>ax</strong> (<em>matplotlib.axes.Axes</em>) – The created matplotlib axes.</p></li>
+</ul>
+</p>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Visualize distances to high-retirement nodes in component 0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">targets</span> <span class="o">=</span> <span class="n">explore</span><span class="o">.</span><span class="n">get_target_nodes</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">distances</span> <span class="o">=</span> <span class="n">explore</span><span class="o">.</span><span class="n">get_shortest_distances_to_targets</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">targets</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">explore</span><span class="o">.</span><span class="n">drawPathDistance</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">component</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">targets</span><span class="o">=</span><span class="n">targets</span><span class="p">,</span> <span class="n">distances_dict</span><span class="o">=</span><span class="n">distances</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Distance to High-Retirement Nodes&quot;</span>
+<span class="gp">... </span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -524,7 +549,29 @@ figsize (tuple, optional): Size of the figure in inches (width, height). Default
 <dl class="py method">
 <dt class="sig sig-object py" id="retire.explore.explore.Explore.drawMap">
 <span class="sig-name descname"><span class="pre">drawMap</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/explore/explore.html#Explore.drawMap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#retire.explore.explore.Explore.drawMap" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Create an interactive geographic map of US coal plants.</p>
+<p>Generates a Plotly scatter_geo map showing all coal plants in the dataset
+with markers colored by retirement status and sized by nameplate capacity.
+Includes detailed hover information about plant characteristics, retirement
+plans, and contextual factors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><strong>fig</strong> (<em>plotly.graph_objects.Figure</em>) – Interactive Plotly figure with geographic scatter plot.</p></li>
+<li><p><strong>ax</strong> (<em>None</em>) – Always None, maintained for API consistency with matplotlib methods.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">retire</span><span class="w"> </span><span class="kn">import</span> <span class="n">Retire</span><span class="p">,</span> <span class="n">Explore</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">retire_obj</span> <span class="o">=</span> <span class="n">Retire</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">explore</span> <span class="o">=</span> <span class="n">Explore</span><span class="p">(</span><span class="n">retire_obj</span><span class="o">.</span><span class="n">graph</span><span class="p">,</span> <span class="n">retire_obj</span><span class="o">.</span><span class="n">raw_df</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">explore</span><span class="o">.</span><span class="n">drawMap</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  <span class="c1"># Display interactive map in browser/notebook</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="retire.explore.explore.Explore.drawComponentsMap">
@@ -773,22 +820,47 @@ If None, no coloring is applied.</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="id6">
 <span class="sig-name descname"><span class="pre">drawPathDistance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">component</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.13)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distances_dict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.13)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_colorbar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size_by_degree</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scaled_legend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(10,</span> <span class="pre">4)</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/explore/explore.html#Explore.drawPathDistance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id6" title="Link to this definition">¶</a></dt>
-<dd><p>Visualizes the shortest path distances from all nodes to a set of target nodes within a specified connected component of the graph.</p>
-<dl class="simple">
-<dt>Parameters:</dt><dd><p>component (int): Index of the connected component to visualize.
-targets (Dict[str, float]): Dictionary of target node identifiers (keys) and their associated values.
-distances_dict (Dict[str, float]): Dictionary mapping node identifiers to their shortest path distance to the nearest target node.
-title (str, optional): Title for the plot. Defaults to “”.
-seed (int, optional): Seed for the spring layout randomization. Defaults to 5.
-show_colorbar (bool, optional): Whether to display a colorbar indicating distance values. Defaults to True.
-size_by_degree (bool, optional): If True, node sizes are scaled by their degree; otherwise, a fixed size is used. Defaults to True.
-scaled_legend (bool, optional): If True, color normalization uses a fixed range [0, vmax]; otherwise, uses the min and max of distances_dict. Defaults to False.
-vmax (float, optional): Maximum value for color normalization when scaled_legend is True. Defaults to 2.5.
-figsize (tuple, optional): Size of the figure in inches (width, height). Defaults to (10, 4).</p>
+<dd><p>Visualize shortest path distances to target nodes in a network component.</p>
+<p>Creates a network visualization showing the shortest path distances from all
+nodes to a set of target nodes within a specified connected component. Nodes
+are colored by their distance to the nearest target, with target nodes
+specially highlighted.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>component</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – Index of the connected component to visualize (0-based).</p></li>
+<li><p><strong>targets</strong> (<em>Dict</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a><em>]</em>) – Dictionary of target node identifiers (keys) and their associated values.
+Target nodes are highlighted with ‘T’ labels.</p></li>
+<li><p><strong>distances_dict</strong> (<em>Dict</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a><em>]</em>) – Dictionary mapping node identifiers to their shortest path distance
+to the nearest target node.</p></li>
+<li><p><strong>title</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a><em>, </em><em>default=&quot;&quot;</em>) – Title for the plot.</p></li>
+<li><p><strong>seed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a><em>, </em><em>default=5</em>) – Random seed for spring layout positioning to ensure reproducible layouts.</p></li>
+<li><p><strong>show_colorbar</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a><em>, </em><em>default=True</em>) – Whether to display a colorbar indicating distance values.</p></li>
+<li><p><strong>size_by_degree</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a><em>, </em><em>default=True</em>) – If True, node sizes are scaled by their degree; otherwise uses fixed size.</p></li>
+<li><p><strong>scaled_legend</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a><em>, </em><em>default=False</em>) – If True, color normalization uses fixed range [0, vmax]; otherwise
+uses min and max of distances_dict.</p></li>
+<li><p><strong>vmax</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a><em>, </em><em>default=2.5</em>) – Maximum value for color normalization when scaled_legend is True.</p></li>
+<li><p><strong>figsize</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.13)"><em>tuple</em></a><em>, </em><em>default=</em><em>(</em><em>10</em><em>, </em><em>4</em><em>)</em>) – Figure size in inches (width, height).</p></li>
+</ul>
 </dd>
-<dt>Returns:</dt><dd><p>tuple: (fig, ax) where fig is the matplotlib Figure object and ax is the Axes object.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>fig</strong> (<em>matplotlib.figure.Figure</em>) – The created matplotlib figure.</p></li>
+<li><p><strong>ax</strong> (<em>matplotlib.axes.Axes</em>) – The created matplotlib axes.</p></li>
+</ul>
+</p>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Visualize distances to high-retirement nodes in component 0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">targets</span> <span class="o">=</span> <span class="n">explore</span><span class="o">.</span><span class="n">get_target_nodes</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">distances</span> <span class="o">=</span> <span class="n">explore</span><span class="o">.</span><span class="n">get_shortest_distances_to_targets</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">targets</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">explore</span><span class="o">.</span><span class="n">drawPathDistance</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">component</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">targets</span><span class="o">=</span><span class="n">targets</span><span class="p">,</span> <span class="n">distances_dict</span><span class="o">=</span><span class="n">distances</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Distance to High-Retirement Nodes&quot;</span>
+<span class="gp">... </span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -913,7 +985,29 @@ figsize (tuple, optional): Size of the figure in inches (width, height). Default
 <dl class="py method">
 <dt class="sig sig-object py" id="id11">
 <span class="sig-name descname"><span class="pre">drawMap</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/explore/explore.html#Explore.drawMap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id11" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Create an interactive geographic map of US coal plants.</p>
+<p>Generates a Plotly scatter_geo map showing all coal plants in the dataset
+with markers colored by retirement status and sized by nameplate capacity.
+Includes detailed hover information about plant characteristics, retirement
+plans, and contextual factors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><strong>fig</strong> (<em>plotly.graph_objects.Figure</em>) – Interactive Plotly figure with geographic scatter plot.</p></li>
+<li><p><strong>ax</strong> (<em>None</em>) – Always None, maintained for API consistency with matplotlib methods.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">retire</span><span class="w"> </span><span class="kn">import</span> <span class="n">Retire</span><span class="p">,</span> <span class="n">Explore</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">retire_obj</span> <span class="o">=</span> <span class="n">Retire</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">explore</span> <span class="o">=</span> <span class="n">Explore</span><span class="p">(</span><span class="n">retire_obj</span><span class="o">.</span><span class="n">graph</span><span class="p">,</span> <span class="n">retire_obj</span><span class="o">.</span><span class="n">raw_df</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">explore</span><span class="o">.</span><span class="n">drawMap</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  <span class="c1"># Display interactive map in browser/notebook</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="id12">
@@ -1092,9 +1186,10 @@ from the associated plants (via membership indices).</p>
 <h2>Visualization Methods<a class="headerlink" href="#visualization-methods" title="Link to this heading">¶</a></h2>
 <section id="network-visualizations">
 <h3>Network Visualizations<a class="headerlink" href="#network-visualizations" title="Link to this heading">¶</a></h3>
+<p>Methods for visualizing the THEMA graph structure and component relationships:</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="id19">
-<span class="sig-prename descclassname"><span class="pre">Explore.</span></span><span class="sig-name descname"><span class="pre">drawGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">col</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.13)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.13)"><span class="pre">tuple</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(8,</span> <span class="pre">6)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_colorbar</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color_method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'average'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_node_labels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/explore/explore.html#Explore.drawGraph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id19" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">Explore.</span></span><span class="sig-name descname"><span class="pre">drawGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">col</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.13)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.13)"><span class="pre">tuple</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(8,</span> <span class="pre">6)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_colorbar</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color_method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'average'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_node_labels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/explore/explore.html#Explore.drawGraph"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Visualize a THEMA-generated NetworkX graph with optional node coloring.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1120,8 +1215,8 @@ If None, no coloring is applied.</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id20">
-<span class="sig-prename descclassname"><span class="pre">Explore.</span></span><span class="sig-name descname"><span class="pre">drawComponent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">component</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'ret_STATUS'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.13)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.13)"><span class="pre">tuple</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(8,</span> <span class="pre">6)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_colorbar</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color_method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'average'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_node_labels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/explore/explore.html#Explore.drawComponent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id20" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">Explore.</span></span><span class="sig-name descname"><span class="pre">drawComponent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">component</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'ret_STATUS'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.13)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><span class="pre">ndarray</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.13)"><span class="pre">tuple</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(8,</span> <span class="pre">6)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_colorbar</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color_method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'average'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_node_labels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/explore/explore.html#Explore.drawComponent"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Draws a specific connected component of the graph.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1147,32 +1242,58 @@ If None, no coloring is applied.</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id21">
-<span class="sig-prename descclassname"><span class="pre">Explore.</span></span><span class="sig-name descname"><span class="pre">drawPathDistance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">component</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.13)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distances_dict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.13)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_colorbar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size_by_degree</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scaled_legend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(10,</span> <span class="pre">4)</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/explore/explore.html#Explore.drawPathDistance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id21" title="Link to this definition">¶</a></dt>
-<dd><p>Visualizes the shortest path distances from all nodes to a set of target nodes within a specified connected component of the graph.</p>
-<dl class="simple">
-<dt>Parameters:</dt><dd><p>component (int): Index of the connected component to visualize.
-targets (Dict[str, float]): Dictionary of target node identifiers (keys) and their associated values.
-distances_dict (Dict[str, float]): Dictionary mapping node identifiers to their shortest path distance to the nearest target node.
-title (str, optional): Title for the plot. Defaults to “”.
-seed (int, optional): Seed for the spring layout randomization. Defaults to 5.
-show_colorbar (bool, optional): Whether to display a colorbar indicating distance values. Defaults to True.
-size_by_degree (bool, optional): If True, node sizes are scaled by their degree; otherwise, a fixed size is used. Defaults to True.
-scaled_legend (bool, optional): If True, color normalization uses a fixed range [0, vmax]; otherwise, uses the min and max of distances_dict. Defaults to False.
-vmax (float, optional): Maximum value for color normalization when scaled_legend is True. Defaults to 2.5.
-figsize (tuple, optional): Size of the figure in inches (width, height). Defaults to (10, 4).</p>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">Explore.</span></span><span class="sig-name descname"><span class="pre">drawPathDistance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">component</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.13)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distances_dict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.13)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_colorbar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size_by_degree</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scaled_legend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(10,</span> <span class="pre">4)</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/explore/explore.html#Explore.drawPathDistance"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Visualize shortest path distances to target nodes in a network component.</p>
+<p>Creates a network visualization showing the shortest path distances from all
+nodes to a set of target nodes within a specified connected component. Nodes
+are colored by their distance to the nearest target, with target nodes
+specially highlighted.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>component</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – Index of the connected component to visualize (0-based).</p></li>
+<li><p><strong>targets</strong> (<em>Dict</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a><em>]</em>) – Dictionary of target node identifiers (keys) and their associated values.
+Target nodes are highlighted with ‘T’ labels.</p></li>
+<li><p><strong>distances_dict</strong> (<em>Dict</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a><em>]</em>) – Dictionary mapping node identifiers to their shortest path distance
+to the nearest target node.</p></li>
+<li><p><strong>title</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a><em>, </em><em>default=&quot;&quot;</em>) – Title for the plot.</p></li>
+<li><p><strong>seed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a><em>, </em><em>default=5</em>) – Random seed for spring layout positioning to ensure reproducible layouts.</p></li>
+<li><p><strong>show_colorbar</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a><em>, </em><em>default=True</em>) – Whether to display a colorbar indicating distance values.</p></li>
+<li><p><strong>size_by_degree</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a><em>, </em><em>default=True</em>) – If True, node sizes are scaled by their degree; otherwise uses fixed size.</p></li>
+<li><p><strong>scaled_legend</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a><em>, </em><em>default=False</em>) – If True, color normalization uses fixed range [0, vmax]; otherwise
+uses min and max of distances_dict.</p></li>
+<li><p><strong>vmax</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a><em>, </em><em>default=2.5</em>) – Maximum value for color normalization when scaled_legend is True.</p></li>
+<li><p><strong>figsize</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.13)"><em>tuple</em></a><em>, </em><em>default=</em><em>(</em><em>10</em><em>, </em><em>4</em><em>)</em>) – Figure size in inches (width, height).</p></li>
+</ul>
 </dd>
-<dt>Returns:</dt><dd><p>tuple: (fig, ax) where fig is the matplotlib Figure object and ax is the Axes object.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>fig</strong> (<em>matplotlib.figure.Figure</em>) – The created matplotlib figure.</p></li>
+<li><p><strong>ax</strong> (<em>matplotlib.axes.Axes</em>) – The created matplotlib axes.</p></li>
+</ul>
+</p>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Visualize distances to high-retirement nodes in component 0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">targets</span> <span class="o">=</span> <span class="n">explore</span><span class="o">.</span><span class="n">get_target_nodes</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">distances</span> <span class="o">=</span> <span class="n">explore</span><span class="o">.</span><span class="n">get_shortest_distances_to_targets</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">targets</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">explore</span><span class="o">.</span><span class="n">drawPathDistance</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">component</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">targets</span><span class="o">=</span><span class="n">targets</span><span class="p">,</span> <span class="n">distances_dict</span><span class="o">=</span><span class="n">distances</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Distance to High-Retirement Nodes&quot;</span>
+<span class="gp">... </span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </section>
 <section id="statistical-visualizations">
 <h3>Statistical Visualizations<a class="headerlink" href="#statistical-visualizations" title="Link to this heading">¶</a></h3>
+<p>Methods for creating statistical visualizations of coal plant data:</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="id22">
-<span class="sig-prename descclassname"><span class="pre">Explore.</span></span><span class="sig-name descname"><span class="pre">drawHeatMap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.13)"><span class="pre">Dict</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/explore/explore.html#Explore.drawHeatMap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id22" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">Explore.</span></span><span class="sig-name descname"><span class="pre">drawHeatMap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.13)"><span class="pre">Dict</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/explore/explore.html#Explore.drawHeatMap"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Generates and displays a heatmap visualization of grouped and normalized data with annotated values and category boxes.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1228,8 +1349,8 @@ figsize (tuple, optional): Size of the figure in inches (width, height). Default
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id23">
-<span class="sig-prename descclassname"><span class="pre">Explore.</span></span><span class="sig-name descname"><span class="pre">drawDotPlot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clean_df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connected_lines</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/explore/explore.html#Explore.drawDotPlot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id23" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">Explore.</span></span><span class="sig-name descname"><span class="pre">drawDotPlot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clean_df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connected_lines</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/explore/explore.html#Explore.drawDotPlot"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Draws a dot plot visualizing feature values across groups, with dot color representing normalized values and dot size representing standard deviation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1266,9 +1387,13 @@ figsize (tuple, optional): Size of the figure in inches (width, height). Default
 </ul>
 </dd></dl>
 
+</section>
+<section id="flow-and-distribution-charts">
+<h3>Flow and Distribution Charts<a class="headerlink" href="#flow-and-distribution-charts" title="Link to this heading">¶</a></h3>
+<p>Methods for visualizing distributions and flows between categories:</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="id24">
-<span class="sig-prename descclassname"><span class="pre">Explore.</span></span><span class="sig-name descname"><span class="pre">drawBar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/explore/explore.html#Explore.drawBar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id24" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">Explore.</span></span><span class="sig-name descname"><span class="pre">drawBar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/explore/explore.html#Explore.drawBar"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Generate stacked bar chart showing plant counts by proximity group.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1285,30 +1410,56 @@ figsize (tuple, optional): Size of the figure in inches (width, height). Default
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id25">
-<span class="sig-prename descclassname"><span class="pre">Explore.</span></span><span class="sig-name descname"><span class="pre">drawSankey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/explore/explore.html#Explore.drawSankey"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id25" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">Explore.</span></span><span class="sig-name descname"><span class="pre">drawSankey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/explore/explore.html#Explore.drawSankey"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd></dd></dl>
 
 </section>
 <section id="geographic-visualizations">
 <h3>Geographic Visualizations<a class="headerlink" href="#geographic-visualizations" title="Link to this heading">¶</a></h3>
+<p>Methods for visualizing coal plants on geographic maps:</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="id26">
-<span class="sig-prename descclassname"><span class="pre">Explore.</span></span><span class="sig-name descname"><span class="pre">drawMap</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/explore/explore.html#Explore.drawMap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id26" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">Explore.</span></span><span class="sig-name descname"><span class="pre">drawMap</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/explore/explore.html#Explore.drawMap"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Create an interactive geographic map of US coal plants.</p>
+<p>Generates a Plotly scatter_geo map showing all coal plants in the dataset
+with markers colored by retirement status and sized by nameplate capacity.
+Includes detailed hover information about plant characteristics, retirement
+plans, and contextual factors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><strong>fig</strong> (<em>plotly.graph_objects.Figure</em>) – Interactive Plotly figure with geographic scatter plot.</p></li>
+<li><p><strong>ax</strong> (<em>None</em>) – Always None, maintained for API consistency with matplotlib methods.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">retire</span><span class="w"> </span><span class="kn">import</span> <span class="n">Retire</span><span class="p">,</span> <span class="n">Explore</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">retire_obj</span> <span class="o">=</span> <span class="n">Retire</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">explore</span> <span class="o">=</span> <span class="n">Explore</span><span class="p">(</span><span class="n">retire_obj</span><span class="o">.</span><span class="n">graph</span><span class="p">,</span> <span class="n">retire_obj</span><span class="o">.</span><span class="n">raw_df</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">explore</span><span class="o">.</span><span class="n">drawMap</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  <span class="c1"># Display interactive map in browser/notebook</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id27">
-<span class="sig-prename descclassname"><span class="pre">Explore.</span></span><span class="sig-name descname"><span class="pre">drawComponentsMap</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/explore/explore.html#Explore.drawComponentsMap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id27" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">Explore.</span></span><span class="sig-name descname"><span class="pre">drawComponentsMap</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/explore/explore.html#Explore.drawComponentsMap"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd></dd></dl>
 
 </section>
 </section>
 <section id="analysis-methods">
 <h2>Analysis Methods<a class="headerlink" href="#analysis-methods" title="Link to this heading">¶</a></h2>
+<section id="graph-analysis">
+<h3>Graph Analysis<a class="headerlink" href="#graph-analysis" title="Link to this heading">¶</a></h3>
+<p>Methods for analyzing the network structure and identifying patterns:</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="id28">
-<span class="sig-prename descclassname"><span class="pre">Explore.</span></span><span class="sig-name descname"><span class="pre">get_target_nodes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">component</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Percent</span> <span class="pre">Capacity</span> <span class="pre">Retiring'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/explore/explore.html#Explore.get_target_nodes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id28" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">Explore.</span></span><span class="sig-name descname"><span class="pre">get_target_nodes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">component</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Percent</span> <span class="pre">Capacity</span> <span class="pre">Retiring'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/explore/explore.html#Explore.get_target_nodes"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Identify and return nodes within a specified connected component whose average attribute value exceeds a given threshold.</p>
 <dl class="simple">
 <dt>Parameters:</dt><dd><p>component (int): Index of the connected component to analyze.
@@ -1326,8 +1477,8 @@ threshold (float, optional): Minimum average attribute value required for a node
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id29">
-<span class="sig-prename descclassname"><span class="pre">Explore.</span></span><span class="sig-name descname"><span class="pre">get_shortest_distances_to_targets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">component</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/explore/explore.html#Explore.get_shortest_distances_to_targets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id29" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">Explore.</span></span><span class="sig-name descname"><span class="pre">get_shortest_distances_to_targets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">component</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/explore/explore.html#Explore.get_shortest_distances_to_targets"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Compute the shortest distances from each node in a connected component to the nearest target node.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1347,9 +1498,13 @@ If a node is not connected to any target, its distance will be set to float(‘i
 </dl>
 </dd></dl>
 
+</section>
+<section id="data-processing">
+<h3>Data Processing<a class="headerlink" href="#data-processing" title="Link to this heading">¶</a></h3>
+<p>Methods for processing and enriching the underlying datasets:</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="id30">
-<span class="sig-prename descclassname"><span class="pre">Explore.</span></span><span class="sig-name descname"><span class="pre">generate_THEMAGrah_labels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://networkx.org/documentation/stable/reference/classes/graph.html#networkx.Graph" title="(in NetworkX v3.5)"><span class="pre">Graph</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'ret_STATUS'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color_method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'average'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/explore/explore.html#Explore.generate_THEMAGrah_labels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id30" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">Explore.</span></span><span class="sig-name descname"><span class="pre">generate_THEMAGrah_labels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://networkx.org/documentation/stable/reference/classes/graph.html#networkx.Graph" title="(in NetworkX v3.5)"><span class="pre">Graph</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'ret_STATUS'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color_method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'average'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/explore/explore.html#Explore.generate_THEMAGrah_labels"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Assign colors to nodes based on either:
 - The average value of <cite>col</cite> for data points in each node (color_method=”average”), or
 - Community membership via label propagation (color_method=”community”).</p>
@@ -1365,8 +1520,8 @@ If a node is not connected to any target, its distance will be set to float(‘i
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id31">
-<span class="sig-prename descclassname"><span class="pre">Explore.</span></span><span class="sig-name descname"><span class="pre">assign_group_ids_to_rawdf</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/explore/explore.html#Explore.assign_group_ids_to_rawdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id31" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">Explore.</span></span><span class="sig-name descname"><span class="pre">assign_group_ids_to_rawdf</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/explore/explore.html#Explore.assign_group_ids_to_rawdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Annotate the raw DataFrame with a ‘Group’ column indicating the connected component (group) each plant belongs to.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -1379,8 +1534,8 @@ If a node is not connected to any target, its distance will be set to float(‘i
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id32">
-<span class="sig-prename descclassname"><span class="pre">Explore.</span></span><span class="sig-name descname"><span class="pre">assign_group_ids_to_cleandf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/explore/explore.html#Explore.assign_group_ids_to_cleandf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id32" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">Explore.</span></span><span class="sig-name descname"><span class="pre">assign_group_ids_to_cleandf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/explore/explore.html#Explore.assign_group_ids_to_cleandf"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Annotate the raw DataFrame with a ‘Group’ column indicating the connected component (group) each plant belongs to.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -1392,6 +1547,7 @@ If a node is not connected to any target, its distance will be set to float(‘i
 </dl>
 </dd></dl>
 
+</section>
 </section>
 </section>
 
@@ -1508,32 +1664,15 @@ If a node is not connected to any target, its distance will be set to float(‘i
 </ul>
 </li>
 <li><a class="reference internal" href="#visualization-methods">Visualization Methods</a><ul>
-<li><a class="reference internal" href="#network-visualizations">Network Visualizations</a><ul>
-<li><a class="reference internal" href="#id19"><code class="docutils literal notranslate"><span class="pre">Explore.drawGraph()</span></code></a></li>
-<li><a class="reference internal" href="#id20"><code class="docutils literal notranslate"><span class="pre">Explore.drawComponent()</span></code></a></li>
-<li><a class="reference internal" href="#id21"><code class="docutils literal notranslate"><span class="pre">Explore.drawPathDistance()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#statistical-visualizations">Statistical Visualizations</a><ul>
-<li><a class="reference internal" href="#id22"><code class="docutils literal notranslate"><span class="pre">Explore.drawHeatMap()</span></code></a></li>
-<li><a class="reference internal" href="#id23"><code class="docutils literal notranslate"><span class="pre">Explore.drawDotPlot()</span></code></a></li>
-<li><a class="reference internal" href="#id24"><code class="docutils literal notranslate"><span class="pre">Explore.drawBar()</span></code></a></li>
-<li><a class="reference internal" href="#id25"><code class="docutils literal notranslate"><span class="pre">Explore.drawSankey()</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#geographic-visualizations">Geographic Visualizations</a><ul>
-<li><a class="reference internal" href="#id26"><code class="docutils literal notranslate"><span class="pre">Explore.drawMap()</span></code></a></li>
-<li><a class="reference internal" href="#id27"><code class="docutils literal notranslate"><span class="pre">Explore.drawComponentsMap()</span></code></a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#network-visualizations">Network Visualizations</a></li>
+<li><a class="reference internal" href="#statistical-visualizations">Statistical Visualizations</a></li>
+<li><a class="reference internal" href="#flow-and-distribution-charts">Flow and Distribution Charts</a></li>
+<li><a class="reference internal" href="#geographic-visualizations">Geographic Visualizations</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#analysis-methods">Analysis Methods</a><ul>
-<li><a class="reference internal" href="#id28"><code class="docutils literal notranslate"><span class="pre">Explore.get_target_nodes()</span></code></a></li>
-<li><a class="reference internal" href="#id29"><code class="docutils literal notranslate"><span class="pre">Explore.get_shortest_distances_to_targets()</span></code></a></li>
-<li><a class="reference internal" href="#id30"><code class="docutils literal notranslate"><span class="pre">Explore.generate_THEMAGrah_labels()</span></code></a></li>
-<li><a class="reference internal" href="#id31"><code class="docutils literal notranslate"><span class="pre">Explore.assign_group_ids_to_rawdf()</span></code></a></li>
-<li><a class="reference internal" href="#id32"><code class="docutils literal notranslate"><span class="pre">Explore.assign_group_ids_to_cleandf()</span></code></a></li>
+<li><a class="reference internal" href="#graph-analysis">Graph Analysis</a></li>
+<li><a class="reference internal" href="#data-processing">Data Processing</a></li>
 </ul>
 </li>
 </ul>

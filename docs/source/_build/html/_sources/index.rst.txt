@@ -7,8 +7,8 @@ Welcome to the documentation for the ``retire`` package, a comprehensive tool fo
    :target: https://www.python.org/downloads/
    :alt: Python Version
 
-.. image:: https://img.shields.io/badge/License-MIT-green.svg
-   :target: https://opensource.org/licenses/MIT
+.. image:: https://img.shields.io/badge/License-BSD_3--Clause-blue.svg
+   :target: https://opensource.org/licenses/BSD-3-Clause
    :alt: License
 
 Overview

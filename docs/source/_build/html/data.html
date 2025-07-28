@@ -264,62 +264,163 @@
 <dl class="py function" id="module-retire.data.data">
 <dt class="sig sig-object py" id="retire.data.data.load_dataset">
 <span class="sig-prename descclassname"><span class="pre">retire.data.data.</span></span><span class="sig-name descname"><span class="pre">load_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/data/data.html#load_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#retire.data.data.load_dataset" title="Link to this definition">¶</a></dt>
-<dd><p>Loads the US coal plants dataset from a CSV file.</p>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>pandas.DataFrame: A DataFrame containing the data from ‘us_coal_plants_dataset.csv’.</p>
+<dd><p>Load the US coal plants dataset from the package resources.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Complete US coal plants dataset containing plant characteristics,
+retirement status, contextual vulnerabilities, and associated metadata.
+Includes columns for plant location, capacity, age, retirement planning,
+economic factors, and environmental considerations.</p>
 </dd>
-<dt>Raises:</dt><dd><p>FileNotFoundError: If the dataset file does not exist at the specified path.
-pd.errors.EmptyDataError: If the CSV file is empty.
-pd.errors.ParserError: If the CSV file cannot be parsed.</p>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.3.1)">pandas.DataFrame</a></p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#FileNotFoundError" title="(in Python v3.13)"><strong>FileNotFoundError</strong></a> – If the dataset file does not exist at the specified path.</p></li>
+<li><p><strong>pd.errors.EmptyDataError</strong> – If the CSV file is empty.</p></li>
+<li><p><strong>pd.errors.ParserError</strong> – If the CSV file cannot be parsed.</p></li>
+</ul>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">retire.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_dataset</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="go">(914, 45)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+<span class="go">[&#39;Plant Name&#39;, &#39;ORISPL&#39;, &#39;State&#39;, &#39;County&#39;, &#39;LAT&#39;]</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="retire.data.data.load_clean_dataset">
 <span class="sig-prename descclassname"><span class="pre">retire.data.data.</span></span><span class="sig-name descname"><span class="pre">load_clean_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/data/data.html#load_clean_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#retire.data.data.load_clean_dataset" title="Link to this definition">¶</a></dt>
-<dd><p>Loads the cleaned and scaled US coal plant dataset from a CSV file.</p>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>pandas.DataFrame: A DataFrame containing the cleaned and scaled US coal plant data.</p>
+<dd><p>Load the cleaned and scaled US coal plant dataset.</p>
+<p>This dataset has undergone preprocessing including missing value imputation,
+feature scaling, and normalization for use in machine learning models and
+statistical analysis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Cleaned and scaled coal plant dataset with standardized numerical
+features and processed categorical variables. All features are
+normalized to facilitate clustering and similarity analysis.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.3.1)">pandas.DataFrame</a></p>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">retire.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_clean_dataset</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">clean_df</span> <span class="o">=</span> <span class="n">load_clean_dataset</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">clean_df</span><span class="o">.</span><span class="n">dtypes</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+<span class="go">float64    42</span>
+<span class="go">int64       3</span>
+<span class="go">dtype: int64</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="retire.data.data.load_projection">
 <span class="sig-prename descclassname"><span class="pre">retire.data.data.</span></span><span class="sig-name descname"><span class="pre">load_projection</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/data/data.html#load_projection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#retire.data.data.load_projection" title="Link to this definition">¶</a></dt>
-<dd><p>Loads the projected US coal plant dataset from a CSV file.</p>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>pandas.DataFrame: A DataFrame containing the projected US coal plant data.</p>
+<dd><p>Load the projected US coal plant dataset with future scenario modeling.</p>
+<p>This dataset contains projections and forecasts for coal plant operations
+under various policy and economic scenarios, including retirement timing
+predictions and capacity factor estimates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Projected coal plant dataset with scenario-based forecasts for
+retirement timing, capacity utilization, and economic viability
+under different policy environments.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.3.1)">pandas.DataFrame</a></p>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">retire.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_projection</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">proj_df</span> <span class="o">=</span> <span class="n">load_projection</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">scenario_cols</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">proj_df</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="s1">&#39;scenario&#39;</span> <span class="ow">in</span> <span class="n">col</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Available scenarios: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">scenario_cols</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="retire.data.data.load_graph">
 <span class="sig-prename descclassname"><span class="pre">retire.data.data.</span></span><span class="sig-name descname"><span class="pre">load_graph</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/data/data.html#load_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#retire.data.data.load_graph" title="Link to this definition">¶</a></dt>
-<dd><p>Loads a graph from CSV files containing node and edge data.</p>
-<p>This function reads node and edge information from CSV files located in the
-‘resources/graph’ directory within the ‘retire.data’ package. It constructs a
-NetworkX graph, adding nodes and edges along with their associated attributes.</p>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>networkx.Graph: A graph object with nodes and edges populated from the CSV files.</p>
+<dd><p>Load the coal plant network graph from package resources.</p>
+<p>Constructs a NetworkX graph representing relationships between coal plant
+clusters based on similarity metrics and contextual factors. Nodes represent
+plant clusters, and edges represent similarity relationships weighted by
+various plant characteristics.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Network graph with nodes representing coal plant clusters and edges
+representing similarity relationships. Node attributes include:
+- membership: list of plant indices belonging to the cluster
+- cluster_id: unique identifier for the cluster
+Edge attributes include:
+- weight: similarity strength between clusters</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://networkx.org/documentation/stable/reference/classes/graph.html#networkx.Graph" title="(in NetworkX v3.5)">networkx.Graph</a></p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#FileNotFoundError" title="(in Python v3.13)"><strong>FileNotFoundError</strong></a> – If the graph node or edge CSV files do not exist.</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.13)"><strong>ValueError</strong></a> – If the membership field cannot be parsed as a list.</p></li>
+</ul>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">retire.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_graph</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span> <span class="o">=</span> <span class="n">load_graph</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Graph has </span><span class="si">{</span><span class="n">G</span><span class="o">.</span><span class="n">number_of_nodes</span><span class="p">()</span><span class="si">}</span><span class="s2"> nodes and </span><span class="si">{</span><span class="n">G</span><span class="o">.</span><span class="n">number_of_edges</span><span class="p">()</span><span class="si">}</span><span class="s2"> edges&quot;</span><span class="p">)</span>
+<span class="go">Graph has 314 nodes and 1247 edges</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Check node attributes</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">node_attrs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Node attributes: </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="n">node_attrs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="retire.data.data.load_generator_level_dataset">
 <span class="sig-prename descclassname"><span class="pre">retire.data.data.</span></span><span class="sig-name descname"><span class="pre">load_generator_level_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/data/data.html#load_generator_level_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#retire.data.data.load_generator_level_dataset" title="Link to this definition">¶</a></dt>
-<dd><p>Loads the generator-level US coal plants dataset from a CSV file.</p>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>pandas.DataFrame: A DataFrame containing the generator-level data from ‘us_coal_plants_dataset_gen.csv’.</p>
+<dd><p>Load the generator-level US coal plants dataset.</p>
+<p>Provides detailed information at the individual generator unit level,
+including technical specifications, operational history, and retirement
+planning for each coal-fired generating unit in the US fleet.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Generator-level dataset with detailed technical and operational
+information for individual coal-fired generating units. Includes
+capacity, age, efficiency metrics, emissions data, and retirement
+status for each generator.</p>
 </dd>
-<dt>Raises:</dt><dd><p>FileNotFoundError: If the dataset file does not exist at the specified path.
-pd.errors.EmptyDataError: If the CSV file is empty.
-pd.errors.ParserError: If the CSV file cannot be parsed.</p>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.3.1)">pandas.DataFrame</a></p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#FileNotFoundError" title="(in Python v3.13)"><strong>FileNotFoundError</strong></a> – If the dataset file does not exist at the specified path.</p></li>
+<li><p><strong>pd.errors.EmptyDataError</strong> – If the CSV file is empty.</p></li>
+<li><p><strong>pd.errors.ParserError</strong> – If the CSV file cannot be parsed.</p></li>
+</ul>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">retire.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_generator_level_dataset</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gen_df</span> <span class="o">=</span> <span class="n">load_generator_level_dataset</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total generators: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">gen_df</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Group by plant to see generator counts per plant</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gens_per_plant</span> <span class="o">=</span> <span class="n">gen_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;ORISPL&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Average generators per plant: </span><span class="si">{</span><span class="n">gens_per_plant</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <section id="data-loading-functions">
@@ -329,49 +430,124 @@ pd.errors.ParserError: If the CSV file cannot be parsed.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="id0">
 <span class="sig-prename descclassname"><span class="pre">retire.data.data.</span></span><span class="sig-name descname"><span class="pre">load_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/data/data.html#load_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Link to this definition">¶</a></dt>
-<dd><p>Loads the US coal plants dataset from a CSV file.</p>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>pandas.DataFrame: A DataFrame containing the data from ‘us_coal_plants_dataset.csv’.</p>
+<dd><p>Load the US coal plants dataset from the package resources.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Complete US coal plants dataset containing plant characteristics,
+retirement status, contextual vulnerabilities, and associated metadata.
+Includes columns for plant location, capacity, age, retirement planning,
+economic factors, and environmental considerations.</p>
 </dd>
-<dt>Raises:</dt><dd><p>FileNotFoundError: If the dataset file does not exist at the specified path.
-pd.errors.EmptyDataError: If the CSV file is empty.
-pd.errors.ParserError: If the CSV file cannot be parsed.</p>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.3.1)">pandas.DataFrame</a></p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#FileNotFoundError" title="(in Python v3.13)"><strong>FileNotFoundError</strong></a> – If the dataset file does not exist at the specified path.</p></li>
+<li><p><strong>pd.errors.EmptyDataError</strong> – If the CSV file is empty.</p></li>
+<li><p><strong>pd.errors.ParserError</strong> – If the CSV file cannot be parsed.</p></li>
+</ul>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">retire.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_dataset</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="go">(914, 45)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+<span class="go">[&#39;Plant Name&#39;, &#39;ORISPL&#39;, &#39;State&#39;, &#39;County&#39;, &#39;LAT&#39;]</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="id1">
 <span class="sig-prename descclassname"><span class="pre">retire.data.data.</span></span><span class="sig-name descname"><span class="pre">load_clean_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/data/data.html#load_clean_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id1" title="Link to this definition">¶</a></dt>
-<dd><p>Loads the cleaned and scaled US coal plant dataset from a CSV file.</p>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>pandas.DataFrame: A DataFrame containing the cleaned and scaled US coal plant data.</p>
+<dd><p>Load the cleaned and scaled US coal plant dataset.</p>
+<p>This dataset has undergone preprocessing including missing value imputation,
+feature scaling, and normalization for use in machine learning models and
+statistical analysis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Cleaned and scaled coal plant dataset with standardized numerical
+features and processed categorical variables. All features are
+normalized to facilitate clustering and similarity analysis.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.3.1)">pandas.DataFrame</a></p>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">retire.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_clean_dataset</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">clean_df</span> <span class="o">=</span> <span class="n">load_clean_dataset</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">clean_df</span><span class="o">.</span><span class="n">dtypes</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+<span class="go">float64    42</span>
+<span class="go">int64       3</span>
+<span class="go">dtype: int64</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="id2">
 <span class="sig-prename descclassname"><span class="pre">retire.data.data.</span></span><span class="sig-name descname"><span class="pre">load_projection</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/data/data.html#load_projection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id2" title="Link to this definition">¶</a></dt>
-<dd><p>Loads the projected US coal plant dataset from a CSV file.</p>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>pandas.DataFrame: A DataFrame containing the projected US coal plant data.</p>
+<dd><p>Load the projected US coal plant dataset with future scenario modeling.</p>
+<p>This dataset contains projections and forecasts for coal plant operations
+under various policy and economic scenarios, including retirement timing
+predictions and capacity factor estimates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Projected coal plant dataset with scenario-based forecasts for
+retirement timing, capacity utilization, and economic viability
+under different policy environments.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.3.1)">pandas.DataFrame</a></p>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">retire.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_projection</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">proj_df</span> <span class="o">=</span> <span class="n">load_projection</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">scenario_cols</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">proj_df</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="s1">&#39;scenario&#39;</span> <span class="ow">in</span> <span class="n">col</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Available scenarios: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">scenario_cols</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="id3">
 <span class="sig-prename descclassname"><span class="pre">retire.data.data.</span></span><span class="sig-name descname"><span class="pre">load_generator_level_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/data/data.html#load_generator_level_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id3" title="Link to this definition">¶</a></dt>
-<dd><p>Loads the generator-level US coal plants dataset from a CSV file.</p>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>pandas.DataFrame: A DataFrame containing the generator-level data from ‘us_coal_plants_dataset_gen.csv’.</p>
+<dd><p>Load the generator-level US coal plants dataset.</p>
+<p>Provides detailed information at the individual generator unit level,
+including technical specifications, operational history, and retirement
+planning for each coal-fired generating unit in the US fleet.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Generator-level dataset with detailed technical and operational
+information for individual coal-fired generating units. Includes
+capacity, age, efficiency metrics, emissions data, and retirement
+status for each generator.</p>
 </dd>
-<dt>Raises:</dt><dd><p>FileNotFoundError: If the dataset file does not exist at the specified path.
-pd.errors.EmptyDataError: If the CSV file is empty.
-pd.errors.ParserError: If the CSV file cannot be parsed.</p>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.3.1)">pandas.DataFrame</a></p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#FileNotFoundError" title="(in Python v3.13)"><strong>FileNotFoundError</strong></a> – If the dataset file does not exist at the specified path.</p></li>
+<li><p><strong>pd.errors.EmptyDataError</strong> – If the CSV file is empty.</p></li>
+<li><p><strong>pd.errors.ParserError</strong> – If the CSV file cannot be parsed.</p></li>
+</ul>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">retire.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_generator_level_dataset</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gen_df</span> <span class="o">=</span> <span class="n">load_generator_level_dataset</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total generators: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">gen_df</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Group by plant to see generator counts per plant</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gens_per_plant</span> <span class="o">=</span> <span class="n">gen_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;ORISPL&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Average generators per plant: </span><span class="si">{</span><span class="n">gens_per_plant</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </section>
@@ -380,14 +556,40 @@ pd.errors.ParserError: If the CSV file cannot be parsed.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="id4">
 <span class="sig-prename descclassname"><span class="pre">retire.data.data.</span></span><span class="sig-name descname"><span class="pre">load_graph</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/retire/data/data.html#load_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id4" title="Link to this definition">¶</a></dt>
-<dd><p>Loads a graph from CSV files containing node and edge data.</p>
-<p>This function reads node and edge information from CSV files located in the
-‘resources/graph’ directory within the ‘retire.data’ package. It constructs a
-NetworkX graph, adding nodes and edges along with their associated attributes.</p>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>networkx.Graph: A graph object with nodes and edges populated from the CSV files.</p>
+<dd><p>Load the coal plant network graph from package resources.</p>
+<p>Constructs a NetworkX graph representing relationships between coal plant
+clusters based on similarity metrics and contextual factors. Nodes represent
+plant clusters, and edges represent similarity relationships weighted by
+various plant characteristics.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Network graph with nodes representing coal plant clusters and edges
+representing similarity relationships. Node attributes include:
+- membership: list of plant indices belonging to the cluster
+- cluster_id: unique identifier for the cluster
+Edge attributes include:
+- weight: similarity strength between clusters</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://networkx.org/documentation/stable/reference/classes/graph.html#networkx.Graph" title="(in NetworkX v3.5)">networkx.Graph</a></p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#FileNotFoundError" title="(in Python v3.13)"><strong>FileNotFoundError</strong></a> – If the graph node or edge CSV files do not exist.</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.13)"><strong>ValueError</strong></a> – If the membership field cannot be parsed as a list.</p></li>
+</ul>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">retire.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_graph</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span> <span class="o">=</span> <span class="n">load_graph</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Graph has </span><span class="si">{</span><span class="n">G</span><span class="o">.</span><span class="n">number_of_nodes</span><span class="p">()</span><span class="si">}</span><span class="s2"> nodes and </span><span class="si">{</span><span class="n">G</span><span class="o">.</span><span class="n">number_of_edges</span><span class="p">()</span><span class="si">}</span><span class="s2"> edges&quot;</span><span class="p">)</span>
+<span class="go">Graph has 314 nodes and 1247 edges</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Check node attributes</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">node_attrs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Node attributes: </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="n">node_attrs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </section>

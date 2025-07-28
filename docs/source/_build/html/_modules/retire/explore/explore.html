@@ -201,18 +201,12 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <p class="caption" role="heading"><span class="caption-text">User Guide:</span></p>
+  <p class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../usage_guide.html">Step 2: Loading Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../usage_guide.html#step-3-initializing-the-explorer">Step 3: Initializing the Explorer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../usage_guide.html#step-4-basic-graph-visualization">Step 4: Basic Graph Visualization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../usage_guide.html#step-5-component-level-analysis">Step 5: Component-Level Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../usage_guide.html#step-6-advanced-visualizations">Step 6: Advanced Visualizations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../usage_guide.html#step-7-accessing-results-and-analysis">Step 7: Accessing Results and Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../configuration.html">Configuration Options</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../configuration.html#using-custom-configurations">Using Custom Configurations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage_guide.html">Usage Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../data_sources.html">Data Sources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../visualization_methods.html">Visualization Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../configuration.html">Configuration Guide</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference:</span></p>
 <ul>
@@ -222,22 +216,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Development:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../development/data.html">Data Sources</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../development/data.html#implementation-details">Implementation Details</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../development/data.html#development-guidelines">Development Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../development/data.html#example-extension">Example Extension</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../development/explorer.html">Core Visualization Methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../development/explorer.html#helper-methods">Helper Methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../development/explorer.html#development-guidelines">Development Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../development/explorer.html#example-extension">Example Extension</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../development/testing.html">Test Structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../development/testing.html#writing-tests">Writing Tests</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../development/testing.html#example-test">Example Test</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Additional Resources:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/your-org/retire">GitHub Repository</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://doi.org/your-paper-doi">Nature Energy Paper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../development/testing.html">Development &amp; Testing</a></li>
 </ul>
 
 </div>
@@ -478,22 +457,55 @@
         <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Visualizes the shortest path distances from all nodes to a set of target nodes within a specified connected component of the graph.</span>
+<span class="sd">        Visualize shortest path distances to target nodes in a network component.</span>
 
-<span class="sd">        Parameters:</span>
-<span class="sd">            component (int): Index of the connected component to visualize.</span>
-<span class="sd">            targets (Dict[str, float]): Dictionary of target node identifiers (keys) and their associated values.</span>
-<span class="sd">            distances_dict (Dict[str, float]): Dictionary mapping node identifiers to their shortest path distance to the nearest target node.</span>
-<span class="sd">            title (str, optional): Title for the plot. Defaults to &quot;&quot;.</span>
-<span class="sd">            seed (int, optional): Seed for the spring layout randomization. Defaults to 5.</span>
-<span class="sd">            show_colorbar (bool, optional): Whether to display a colorbar indicating distance values. Defaults to True.</span>
-<span class="sd">            size_by_degree (bool, optional): If True, node sizes are scaled by their degree; otherwise, a fixed size is used. Defaults to True.</span>
-<span class="sd">            scaled_legend (bool, optional): If True, color normalization uses a fixed range [0, vmax]; otherwise, uses the min and max of distances_dict. Defaults to False.</span>
-<span class="sd">            vmax (float, optional): Maximum value for color normalization when scaled_legend is True. Defaults to 2.5.</span>
-<span class="sd">            figsize (tuple, optional): Size of the figure in inches (width, height). Defaults to (10, 4).</span>
+<span class="sd">        Creates a network visualization showing the shortest path distances from all</span>
+<span class="sd">        nodes to a set of target nodes within a specified connected component. Nodes</span>
+<span class="sd">        are colored by their distance to the nearest target, with target nodes</span>
+<span class="sd">        specially highlighted.</span>
 
-<span class="sd">        Returns:</span>
-<span class="sd">            tuple: (fig, ax) where fig is the matplotlib Figure object and ax is the Axes object.</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        component : int</span>
+<span class="sd">            Index of the connected component to visualize (0-based).</span>
+<span class="sd">        targets : Dict[str, float]</span>
+<span class="sd">            Dictionary of target node identifiers (keys) and their associated values.</span>
+<span class="sd">            Target nodes are highlighted with &#39;T&#39; labels.</span>
+<span class="sd">        distances_dict : Dict[str, float]</span>
+<span class="sd">            Dictionary mapping node identifiers to their shortest path distance</span>
+<span class="sd">            to the nearest target node.</span>
+<span class="sd">        title : str, default=&quot;&quot;</span>
+<span class="sd">            Title for the plot.</span>
+<span class="sd">        seed : int, default=5</span>
+<span class="sd">            Random seed for spring layout positioning to ensure reproducible layouts.</span>
+<span class="sd">        show_colorbar : bool, default=True</span>
+<span class="sd">            Whether to display a colorbar indicating distance values.</span>
+<span class="sd">        size_by_degree : bool, default=True</span>
+<span class="sd">            If True, node sizes are scaled by their degree; otherwise uses fixed size.</span>
+<span class="sd">        scaled_legend : bool, default=False</span>
+<span class="sd">            If True, color normalization uses fixed range [0, vmax]; otherwise</span>
+<span class="sd">            uses min and max of distances_dict.</span>
+<span class="sd">        vmax : float, default=2.5</span>
+<span class="sd">            Maximum value for color normalization when scaled_legend is True.</span>
+<span class="sd">        figsize : tuple, default=(10, 4)</span>
+<span class="sd">            Figure size in inches (width, height).</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        fig : matplotlib.figure.Figure</span>
+<span class="sd">            The created matplotlib figure.</span>
+<span class="sd">        ax : matplotlib.axes.Axes</span>
+<span class="sd">            The created matplotlib axes.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; # Visualize distances to high-retirement nodes in component 0</span>
+<span class="sd">        &gt;&gt;&gt; targets = explore.get_target_nodes(0, threshold=0.6)</span>
+<span class="sd">        &gt;&gt;&gt; distances = explore.get_shortest_distances_to_targets(0, targets)</span>
+<span class="sd">        &gt;&gt;&gt; fig, ax = explore.drawPathDistance(</span>
+<span class="sd">        ...     component=0, targets=targets, distances_dict=distances,</span>
+<span class="sd">        ...     title=&quot;Distance to High-Retirement Nodes&quot;</span>
+<span class="sd">        ... )</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">comp_obj</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">connected_components</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">G</span><span class="p">)</span>
         <span class="n">components</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">G</span><span class="o">.</span><span class="n">subgraph</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">comp_obj</span><span class="p">]</span>
@@ -1006,6 +1018,29 @@
 <div class="viewcode-block" id="Explore.drawMap">
 <a class="viewcode-back" href="../../../explore.html#retire.explore.explore.Explore.drawMap">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">drawMap</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create an interactive geographic map of US coal plants.</span>
+
+<span class="sd">        Generates a Plotly scatter_geo map showing all coal plants in the dataset</span>
+<span class="sd">        with markers colored by retirement status and sized by nameplate capacity.</span>
+<span class="sd">        Includes detailed hover information about plant characteristics, retirement</span>
+<span class="sd">        plans, and contextual factors.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        fig : plotly.graph_objects.Figure</span>
+<span class="sd">            Interactive Plotly figure with geographic scatter plot.</span>
+<span class="sd">        ax : None</span>
+<span class="sd">            Always None, maintained for API consistency with matplotlib methods.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; from retire import Retire, Explore</span>
+<span class="sd">        &gt;&gt;&gt; retire_obj = Retire()</span>
+<span class="sd">        &gt;&gt;&gt; explore = Explore(retire_obj.graph, retire_obj.raw_df)</span>
+<span class="sd">        &gt;&gt;&gt; fig, _ = explore.drawMap()</span>
+<span class="sd">        &gt;&gt;&gt; fig.show()  # Display interactive map in browser/notebook</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">temp_map</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">raw_df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
         <span class="n">temp_map</span><span class="p">[</span><span class="s2">&quot;Retirement Date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span>
             <span class="n">temp_map</span><span class="p">[</span><span class="s2">&quot;Retirement Date&quot;</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;coerce&quot;</span>

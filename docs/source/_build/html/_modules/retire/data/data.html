@@ -201,16 +201,12 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <p class="caption" role="heading"><span class="caption-text">User Guide:</span></p>
+  <p class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../usage_guide.html">Step 2: Loading Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../usage_guide.html#step-3-initializing-the-explorer">Step 3: Initializing the Explorer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../usage_guide.html#step-4-basic-graph-visualization">Step 4: Basic Graph Visualization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../usage_guide.html#step-5-component-level-analysis">Step 5: Component-Level Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../usage_guide.html#step-6-advanced-visualizations">Step 6: Advanced Visualizations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../usage_guide.html#step-7-accessing-results-and-analysis">Step 7: Accessing Results and Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../configuration.html">Configuration Options</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../configuration.html#using-custom-configurations">Using Custom Configurations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage_guide.html">Usage Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_sources.html">Data Sources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../visualization_methods.html">Visualization Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../configuration.html">Configuration Guide</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference:</span></p>
 <ul>
@@ -220,22 +216,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Development:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../development/data.html">Data Sources</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../development/data.html#implementation-details">Implementation Details</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../development/data.html#development-guidelines">Development Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../development/data.html#example-extension">Example Extension</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../development/explorer.html">Core Visualization Methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../development/explorer.html#helper-methods">Helper Methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../development/explorer.html#development-guidelines">Development Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../development/explorer.html#example-extension">Example Extension</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../development/testing.html">Test Structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../development/testing.html#writing-tests">Writing Tests</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../development/testing.html#example-test">Example Test</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Additional Resources:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/your-org/retire">GitHub Repository</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://doi.org/your-paper-doi">Nature Energy Paper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../development/testing.html">Development &amp; Testing</a></li>
 </ul>
 
 </div>
@@ -283,15 +264,33 @@
 <a class="viewcode-back" href="../../../data.html#retire.data.data.load_dataset">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">load_dataset</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Loads the US coal plants dataset from a CSV file.</span>
+<span class="sd">    Load the US coal plants dataset from the package resources.</span>
 
-<span class="sd">    Returns:</span>
-<span class="sd">        pandas.DataFrame: A DataFrame containing the data from &#39;us_coal_plants_dataset.csv&#39;.</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    pandas.DataFrame</span>
+<span class="sd">        Complete US coal plants dataset containing plant characteristics,</span>
+<span class="sd">        retirement status, contextual vulnerabilities, and associated metadata.</span>
+<span class="sd">        Includes columns for plant location, capacity, age, retirement planning,</span>
+<span class="sd">        economic factors, and environmental considerations.</span>
 
-<span class="sd">    Raises:</span>
-<span class="sd">        FileNotFoundError: If the dataset file does not exist at the specified path.</span>
-<span class="sd">        pd.errors.EmptyDataError: If the CSV file is empty.</span>
-<span class="sd">        pd.errors.ParserError: If the CSV file cannot be parsed.</span>
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    FileNotFoundError</span>
+<span class="sd">        If the dataset file does not exist at the specified path.</span>
+<span class="sd">    pd.errors.EmptyDataError</span>
+<span class="sd">        If the CSV file is empty.</span>
+<span class="sd">    pd.errors.ParserError</span>
+<span class="sd">        If the CSV file cannot be parsed.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from retire.data import load_dataset</span>
+<span class="sd">    &gt;&gt;&gt; df = load_dataset()</span>
+<span class="sd">    &gt;&gt;&gt; print(df.shape)</span>
+<span class="sd">    (914, 45)</span>
+<span class="sd">    &gt;&gt;&gt; print(df.columns[:5].tolist())</span>
+<span class="sd">    [&#39;Plant Name&#39;, &#39;ORISPL&#39;, &#39;State&#39;, &#39;County&#39;, &#39;LAT&#39;]</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">path</span> <span class="o">=</span> <span class="n">files</span><span class="p">(</span><span class="s2">&quot;retire&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s2">&quot;resources/us_coal_plants_dataset.csv&quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">)</span></div>
@@ -302,11 +301,27 @@
 <a class="viewcode-back" href="../../../data.html#retire.data.data.load_clean_dataset">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">load_clean_dataset</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Loads the cleaned and scaled US coal plant dataset from a CSV file.</span>
+<span class="sd">    Load the cleaned and scaled US coal plant dataset.</span>
 
-<span class="sd">    Returns:</span>
-<span class="sd">        pandas.DataFrame: A DataFrame containing the cleaned and scaled US coal plant data.</span>
+<span class="sd">    This dataset has undergone preprocessing including missing value imputation,</span>
+<span class="sd">    feature scaling, and normalization for use in machine learning models and</span>
+<span class="sd">    statistical analysis.</span>
 
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    pandas.DataFrame</span>
+<span class="sd">        Cleaned and scaled coal plant dataset with standardized numerical</span>
+<span class="sd">        features and processed categorical variables. All features are</span>
+<span class="sd">        normalized to facilitate clustering and similarity analysis.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from retire.data import load_clean_dataset</span>
+<span class="sd">    &gt;&gt;&gt; clean_df = load_clean_dataset()</span>
+<span class="sd">    &gt;&gt;&gt; print(clean_df.dtypes.value_counts())</span>
+<span class="sd">    float64    42</span>
+<span class="sd">    int64       3</span>
+<span class="sd">    dtype: int64</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">path</span> <span class="o">=</span> <span class="n">files</span><span class="p">(</span><span class="s2">&quot;retire&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s2">&quot;resources/clean_scaled_us_coalplant_dataset.csv&quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">)</span></div>
@@ -317,11 +332,25 @@
 <a class="viewcode-back" href="../../../data.html#retire.data.data.load_projection">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">load_projection</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Loads the projected US coal plant dataset from a CSV file.</span>
+<span class="sd">    Load the projected US coal plant dataset with future scenario modeling.</span>
 
-<span class="sd">    Returns:</span>
-<span class="sd">        pandas.DataFrame: A DataFrame containing the projected US coal plant data.</span>
+<span class="sd">    This dataset contains projections and forecasts for coal plant operations</span>
+<span class="sd">    under various policy and economic scenarios, including retirement timing</span>
+<span class="sd">    predictions and capacity factor estimates.</span>
 
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    pandas.DataFrame</span>
+<span class="sd">        Projected coal plant dataset with scenario-based forecasts for</span>
+<span class="sd">        retirement timing, capacity utilization, and economic viability</span>
+<span class="sd">        under different policy environments.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from retire.data import load_projection</span>
+<span class="sd">    &gt;&gt;&gt; proj_df = load_projection()</span>
+<span class="sd">    &gt;&gt;&gt; scenario_cols = [col for col in proj_df.columns if &#39;scenario&#39; in col.lower()]</span>
+<span class="sd">    &gt;&gt;&gt; print(f&quot;Available scenarios: {len(scenario_cols)}&quot;)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">path</span> <span class="o">=</span> <span class="n">files</span><span class="p">(</span><span class="s2">&quot;retire&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s2">&quot;resources/projected_us_coalplant_dataset.csv&quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">)</span></div>
@@ -332,14 +361,39 @@
 <a class="viewcode-back" href="../../../data.html#retire.data.data.load_graph">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">load_graph</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Loads a graph from CSV files containing node and edge data.</span>
+<span class="sd">    Load the coal plant network graph from package resources.</span>
 
-<span class="sd">    This function reads node and edge information from CSV files located in the</span>
-<span class="sd">    &#39;resources/graph&#39; directory within the &#39;retire.data&#39; package. It constructs a</span>
-<span class="sd">    NetworkX graph, adding nodes and edges along with their associated attributes.</span>
+<span class="sd">    Constructs a NetworkX graph representing relationships between coal plant</span>
+<span class="sd">    clusters based on similarity metrics and contextual factors. Nodes represent</span>
+<span class="sd">    plant clusters, and edges represent similarity relationships weighted by</span>
+<span class="sd">    various plant characteristics.</span>
 
-<span class="sd">    Returns:</span>
-<span class="sd">        networkx.Graph: A graph object with nodes and edges populated from the CSV files.</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    networkx.Graph</span>
+<span class="sd">        Network graph with nodes representing coal plant clusters and edges</span>
+<span class="sd">        representing similarity relationships. Node attributes include:</span>
+<span class="sd">        - membership: list of plant indices belonging to the cluster</span>
+<span class="sd">        - cluster_id: unique identifier for the cluster</span>
+<span class="sd">        Edge attributes include:</span>
+<span class="sd">        - weight: similarity strength between clusters</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    FileNotFoundError</span>
+<span class="sd">        If the graph node or edge CSV files do not exist.</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        If the membership field cannot be parsed as a list.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from retire.data import load_graph</span>
+<span class="sd">    &gt;&gt;&gt; G = load_graph()</span>
+<span class="sd">    &gt;&gt;&gt; print(f&quot;Graph has {G.number_of_nodes()} nodes and {G.number_of_edges()} edges&quot;)</span>
+<span class="sd">    Graph has 314 nodes and 1247 edges</span>
+<span class="sd">    &gt;&gt;&gt; # Check node attributes</span>
+<span class="sd">    &gt;&gt;&gt; node_attrs = list(G.nodes(data=True))[0]</span>
+<span class="sd">    &gt;&gt;&gt; print(f&quot;Node attributes: {list(node_attrs[1].keys())}&quot;)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">node_path</span> <span class="o">=</span> <span class="n">files</span><span class="p">(</span><span class="s2">&quot;retire&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s2">&quot;resources/graph/graphnode_df.csv&quot;</span><span class="p">)</span>
@@ -382,15 +436,37 @@
 <a class="viewcode-back" href="../../../data.html#retire.data.data.load_generator_level_dataset">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">load_generator_level_dataset</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Loads the generator-level US coal plants dataset from a CSV file.</span>
+<span class="sd">    Load the generator-level US coal plants dataset.</span>
 
-<span class="sd">    Returns:</span>
-<span class="sd">        pandas.DataFrame: A DataFrame containing the generator-level data from &#39;us_coal_plants_dataset_gen.csv&#39;.</span>
+<span class="sd">    Provides detailed information at the individual generator unit level,</span>
+<span class="sd">    including technical specifications, operational history, and retirement</span>
+<span class="sd">    planning for each coal-fired generating unit in the US fleet.</span>
 
-<span class="sd">    Raises:</span>
-<span class="sd">        FileNotFoundError: If the dataset file does not exist at the specified path.</span>
-<span class="sd">        pd.errors.EmptyDataError: If the CSV file is empty.</span>
-<span class="sd">        pd.errors.ParserError: If the CSV file cannot be parsed.</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    pandas.DataFrame</span>
+<span class="sd">        Generator-level dataset with detailed technical and operational</span>
+<span class="sd">        information for individual coal-fired generating units. Includes</span>
+<span class="sd">        capacity, age, efficiency metrics, emissions data, and retirement</span>
+<span class="sd">        status for each generator.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    FileNotFoundError</span>
+<span class="sd">        If the dataset file does not exist at the specified path.</span>
+<span class="sd">    pd.errors.EmptyDataError</span>
+<span class="sd">        If the CSV file is empty.</span>
+<span class="sd">    pd.errors.ParserError</span>
+<span class="sd">        If the CSV file cannot be parsed.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from retire.data import load_generator_level_dataset</span>
+<span class="sd">    &gt;&gt;&gt; gen_df = load_generator_level_dataset()</span>
+<span class="sd">    &gt;&gt;&gt; print(f&quot;Total generators: {len(gen_df)}&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; # Group by plant to see generator counts per plant</span>
+<span class="sd">    &gt;&gt;&gt; gens_per_plant = gen_df.groupby(&#39;ORISPL&#39;).size()</span>
+<span class="sd">    &gt;&gt;&gt; print(f&quot;Average generators per plant: {gens_per_plant.mean():.1f}&quot;)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">path</span> <span class="o">=</span> <span class="n">files</span><span class="p">(</span><span class="s2">&quot;retire&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s2">&quot;resources/generator_level_dataset.csv&quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">)</span></div>
