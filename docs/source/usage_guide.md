@@ -1,4 +1,4 @@
-```markdown
+````markdown
 # Usage Guide
 
 Welcome to the **RETIRE** usage tutorial! This guide will walk you through the process of using RETIRE to analyze coal plant data, explore network structures, and visualize retirement patterns. Follow the steps below to get started.
@@ -10,10 +10,36 @@ First, install the RETIRE package using pip:
 ```python
 pip install retire
 ```
+````
+
+## Quick Start
 
 ### Step 2: Loading Data
 
 RETIRE provides several data loading functions to access the core datasets:
+
+### Data Sources
+
+RETIRE provides access to several datasets:
+
+- **Raw Coal Data**: Original US coal plants dataset with plant-level and generator-level information
+
+  - Access via: `load_dataset()`
+
+- **Cleaned Dataset**: Scaled, encoded, and imputed version of the dataset suitable for machine learning and statistical analysis
+
+  - Access via: `load_clean_dataset()`
+
+- **UMAP Projection**: Low-dimensional embedding of the cleaned data generated using UMAP for visualization and clustering
+
+  - Access via: `load_projection()`
+
+- **THEMA Graph**: A multiresolution, discrete graph object constructed from the data for community detection and network analysis
+
+  - Access via: `load_graph()`
+
+- **Generator Level Dataset**: More detailed dataset with generator-specific information for coal plants
+  - Access via: `load_generator_level_dataset()`
 
 ```python
 from retire.data import load_dataset, load_clean_dataset, load_projection, load_graph
@@ -47,8 +73,8 @@ Visualize the THEMA graph with coal plant attributes:
 
 ```python
 # Visualize the graph colored by retirement status
-fig, ax = explorer.drawGraph(col="ret_STATUS", 
-                             show_colorbar=True, 
+fig, ax = explorer.drawGraph(col="ret_STATUS",
+                             show_colorbar=True,
                              color_method="average")
 ```
 
@@ -58,9 +84,9 @@ Focus on specific connected components for detailed analysis:
 
 ```python
 # Visualize component 3 colored by plant age
-fig, ax = explorer.drawComponent(component=3, 
-                                 col="Age", 
-                                 show_colorbar=True, 
+fig, ax = explorer.drawComponent(component=3,
+                                 col="Age",
+                                 show_colorbar=True,
                                  title="Group 3 by Age")
 ```
 
@@ -99,4 +125,7 @@ explanations = retire_obj.get_target_explanations()
 ```
 
 With these steps, you can effectively use RETIRE to analyze coal plant data, explore retirement patterns, and reproduce the analyses from our research paper.
+
+```
+
 ```

@@ -184,7 +184,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -204,12 +204,7 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">User Guide:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html">Step 2: Loading Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html#step-3-initializing-the-explorer">Step 3: Initializing the Explorer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html#step-4-basic-graph-visualization">Step 4: Basic Graph Visualization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html#step-5-component-level-analysis">Step 5: Component-Level Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html#step-6-advanced-visualizations">Step 6: Advanced Visualizations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html#step-7-accessing-results-and-analysis">Step 7: Accessing Results and Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage_guide.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration Options</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configuration.html#using-custom-configurations">Using Custom Configurations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_sources.html">Data Sources</a></li>
@@ -273,7 +268,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -282,94 +277,85 @@
           <section id="visualization-methods">
 <h1>Visualization Methods<a class="headerlink" href="#visualization-methods" title="Link to this heading">¶</a></h1>
 <hr class="docutils" />
-<section id="method-description-configuration-options-drawgraph-visualize-a-thema-generated-col-column-for-networkx-graph-with-optional-node-node-coloring-coloring-based-on-attributes-or-pos-node-positions-community-structure-color-method-average-or-community">
-<h2>Method                    Description                         Configuration Options
+<p>Method Description Configuration Options
 ———————————————————————————–|
-|                                    |                      |
-drawGraph              | Visualize a THEMA-generated       | - col: Column for    |
-| NetworkX graph with optional node  |   node coloring      |
-| coloring based on attributes or    | - pos: Node positions|
-| community structure                | - color_method:      |
-|                                    |   ‘average’ or       |
-|                                    |   ‘community’        |<a class="headerlink" href="#method-description-configuration-options-drawgraph-visualize-a-thema-generated-col-column-for-networkx-graph-with-optional-node-node-coloring-coloring-based-on-attributes-or-pos-node-positions-community-structure-color-method-average-or-community" title="Link to this heading">¶</a></h2>
+| | |
+drawGraph | Visualize a THEMA-generated | - col: Column for |
+| NetworkX graph with optional node | node coloring |
+| coloring based on attributes or | - pos: Node positions|
+| community structure | - color_method: |
+| | ‘average’ or |
+| | ‘community’ |</p>
+<hr class="docutils" />
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                   |                                    |                      |
 </pre></div>
 </div>
-</section>
-<section id="drawcomponent-draws-a-specific-connected-component-index-of-component-of-the-graph-with-the-component-customizable-node-coloring-col-column-for-and-appearance-node-coloring-color-method-same-as-drawgraph">
-<h2>drawComponent          | Draws a specific connected        | - component: Index of|
-| component of the graph with        |   the component      |
-| customizable node coloring         | - col: Column for    |
-| and appearance                     |   node coloring      |
-|                                    | - color_method: Same |
-|                                    |   as drawGraph       |<a class="headerlink" href="#drawcomponent-draws-a-specific-connected-component-index-of-component-of-the-graph-with-the-component-customizable-node-coloring-col-column-for-and-appearance-node-coloring-color-method-same-as-drawgraph" title="Link to this heading">¶</a></h2>
+<p>drawComponent | Draws a specific connected | - component: Index of|
+| component of the graph with | the component |
+| customizable node coloring | - col: Column for |
+| and appearance | node coloring |
+| | - color_method: Same |
+| | as drawGraph |</p>
+<hr class="docutils" />
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                   |                                    |                      |
 </pre></div>
 </div>
-</section>
-<section id="drawpathdistance-visualizes-shortest-path-component-index-distances-from-all-nodes-to-a-of-the-component-set-of-target-nodes-within-a-targets-dict-of-specified-connected-component-target-node-ids-distances-dict-node-distances">
-<h2>drawPathDistance       | Visualizes shortest path          | - component: Index   |
-| distances from all nodes to a      |   of the component   |
-| set of target nodes within a       | - targets: Dict of   |
-| specified connected component      |   target node IDs    |
-|                                    | - distances_dict:    |
-|                                    |   Node distances     |<a class="headerlink" href="#drawpathdistance-visualizes-shortest-path-component-index-distances-from-all-nodes-to-a-of-the-component-set-of-target-nodes-within-a-targets-dict-of-specified-connected-component-target-node-ids-distances-dict-node-distances" title="Link to this heading">¶</a></h2>
+<p>drawPathDistance | Visualizes shortest path | - component: Index |
+| distances from all nodes to a | of the component |
+| set of target nodes within a | - targets: Dict of |
+| specified connected component | target node IDs |
+| | - distances_dict: |
+| | Node distances |</p>
+<hr class="docutils" />
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                   |                                    |                      |
 </pre></div>
 </div>
-</section>
-<section id="drawheatmap-generates-a-heatmap-visualization-config-dict-with-of-grouped-and-normalized-data-aggregations-with-annotated-values-and-derived-columns-category-boxes-renaming-and-categories">
-<h2>drawHeatMap            | Generates a heatmap visualization | - config: Dict with  |
-| of grouped and normalized data     |   aggregations,      |
-| with annotated values and          |   derived columns,   |
-| category boxes                     |   renaming, and      |
-|                                    |   categories         |<a class="headerlink" href="#drawheatmap-generates-a-heatmap-visualization-config-dict-with-of-grouped-and-normalized-data-aggregations-with-annotated-values-and-derived-columns-category-boxes-renaming-and-categories" title="Link to this heading">¶</a></h2>
+<p>drawHeatMap | Generates a heatmap visualization | - config: Dict with |
+| of grouped and normalized data | aggregations, |
+| with annotated values and | derived columns, |
+| category boxes | renaming, and |
+| | categories |</p>
+<hr class="docutils" />
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                   |                                    |                      |
 </pre></div>
 </div>
-</section>
-<section id="drawdotplot-creates-a-dot-plot-visualizing-clean-df-cleaned-feature-values-across-groups-dataframe-with-dot-color-representing-config-dict-with-normalized-values-and-dot-size-features-and-representing-standard-deviation-display-options">
-<h2>drawDotPlot            | Creates a dot plot visualizing    | - clean_df: Cleaned  |
-| feature values across groups,      |   DataFrame          |
-| with dot color representing        | - config: Dict with  |
-| normalized values and dot size     |   features and       |
-| representing standard deviation    |   display options    |<a class="headerlink" href="#drawdotplot-creates-a-dot-plot-visualizing-clean-df-cleaned-feature-values-across-groups-dataframe-with-dot-color-representing-config-dict-with-normalized-values-and-dot-size-features-and-representing-standard-deviation-display-options" title="Link to this heading">¶</a></h2>
+<p>drawDotPlot | Creates a dot plot visualizing | - clean_df: Cleaned |
+| feature values across groups, | DataFrame |
+| with dot color representing | - config: Dict with |
+| normalized values and dot size | features and |
+| representing standard deviation | display options |</p>
+<hr class="docutils" />
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                   |                                    |                      |
 </pre></div>
 </div>
-</section>
-<section id="drawbar-generates-stacked-bar-chart-title-optional-showing-plant-counts-by-proximity-chart-title-group">
-<h2>drawBar                | Generates stacked bar chart       | - title: Optional    |
-| showing plant counts by proximity  |   chart title        |
-| group                              |                      |<a class="headerlink" href="#drawbar-generates-stacked-bar-chart-title-optional-showing-plant-counts-by-proximity-chart-title-group" title="Link to this heading">¶</a></h2>
+<p>drawBar | Generates stacked bar chart | - title: Optional |
+| showing plant counts by proximity | chart title |
+| group | |</p>
+<hr class="docutils" />
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                   |                                    |                      |
 </pre></div>
 </div>
-</section>
-<section id="drawsankey-creates-a-sankey-diagram-showing-title-optional-flow-between-groups-and-diagram-title-retirement-categories">
-<h2>drawSankey             | Creates a Sankey diagram showing  | - title: Optional    |
-| flow between groups and            |   diagram title      |
-| retirement categories              |                      |<a class="headerlink" href="#drawsankey-creates-a-sankey-diagram-showing-title-optional-flow-between-groups-and-diagram-title-retirement-categories" title="Link to this heading">¶</a></h2>
+<p>drawSankey | Creates a Sankey diagram showing | - title: Optional |
+| flow between groups and | diagram title |
+| retirement categories | |</p>
+<hr class="docutils" />
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                   |                                    |                      |
 </pre></div>
 </div>
-</section>
-<section id="drawmap-visualizes-coal-plants-on-a-us-none-map-with-color-coding-based-on-retirement-status">
-<h2>drawMap                | Visualizes coal plants on a US    | None                 |
-| map with color-coding based on     |                      |
-| retirement status                  |                      |<a class="headerlink" href="#drawmap-visualizes-coal-plants-on-a-us-none-map-with-color-coding-based-on-retirement-status" title="Link to this heading">¶</a></h2>
+<p>drawMap | Visualizes coal plants on a US | None |
+| map with color-coding based on | |
+| retirement status | |</p>
+<hr class="docutils" />
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                   |                                    |                      |
 </pre></div>
 </div>
-</section>
-<section id="drawcomponentsmap-shows-multiple-maps-of-us-coal-none-plants-faceted-by-component-groups">
-<h2>drawComponentsMap      | Shows multiple maps of US coal    | None                 |
-| plants, faceted by component       |                      |
-| groups                             |                      |<a class="headerlink" href="#drawcomponentsmap-shows-multiple-maps-of-us-coal-none-plants-faceted-by-component-groups" title="Link to this heading">¶</a></h2>
+<p>drawComponentsMap | Shows multiple maps of US coal | None |
+| plants, faceted by component | |
+| groups | |</p>
+<hr class="docutils" />
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-</section>
 </section>
 
         </article>
@@ -415,69 +401,8 @@ drawGraph              | Visualize a THEMA-generated       | - col: Column for  
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            On this page
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">Visualization Methods</a><ul>
-<li><a class="reference internal" href="#method-description-configuration-options-drawgraph-visualize-a-thema-generated-col-column-for-networkx-graph-with-optional-node-node-coloring-coloring-based-on-attributes-or-pos-node-positions-community-structure-color-method-average-or-community">Method                    Description                         Configuration Options
-———————————————————————————–|
-|                                    |                      |
-drawGraph              | Visualize a THEMA-generated       | - col: Column for    |
-| NetworkX graph with optional node  |   node coloring      |
-| coloring based on attributes or    | - pos: Node positions|
-| community structure                | - color_method:      |
-|                                    |   ‘average’ or       |
-|                                    |   ‘community’        |</a></li>
-<li><a class="reference internal" href="#drawcomponent-draws-a-specific-connected-component-index-of-component-of-the-graph-with-the-component-customizable-node-coloring-col-column-for-and-appearance-node-coloring-color-method-same-as-drawgraph">drawComponent          | Draws a specific connected        | - component: Index of|
-| component of the graph with        |   the component      |
-| customizable node coloring         | - col: Column for    |
-| and appearance                     |   node coloring      |
-|                                    | - color_method: Same |
-|                                    |   as drawGraph       |</a></li>
-<li><a class="reference internal" href="#drawpathdistance-visualizes-shortest-path-component-index-distances-from-all-nodes-to-a-of-the-component-set-of-target-nodes-within-a-targets-dict-of-specified-connected-component-target-node-ids-distances-dict-node-distances">drawPathDistance       | Visualizes shortest path          | - component: Index   |
-| distances from all nodes to a      |   of the component   |
-| set of target nodes within a       | - targets: Dict of   |
-| specified connected component      |   target node IDs    |
-|                                    | - distances_dict:    |
-|                                    |   Node distances     |</a></li>
-<li><a class="reference internal" href="#drawheatmap-generates-a-heatmap-visualization-config-dict-with-of-grouped-and-normalized-data-aggregations-with-annotated-values-and-derived-columns-category-boxes-renaming-and-categories">drawHeatMap            | Generates a heatmap visualization | - config: Dict with  |
-| of grouped and normalized data     |   aggregations,      |
-| with annotated values and          |   derived columns,   |
-| category boxes                     |   renaming, and      |
-|                                    |   categories         |</a></li>
-<li><a class="reference internal" href="#drawdotplot-creates-a-dot-plot-visualizing-clean-df-cleaned-feature-values-across-groups-dataframe-with-dot-color-representing-config-dict-with-normalized-values-and-dot-size-features-and-representing-standard-deviation-display-options">drawDotPlot            | Creates a dot plot visualizing    | - clean_df: Cleaned  |
-| feature values across groups,      |   DataFrame          |
-| with dot color representing        | - config: Dict with  |
-| normalized values and dot size     |   features and       |
-| representing standard deviation    |   display options    |</a></li>
-<li><a class="reference internal" href="#drawbar-generates-stacked-bar-chart-title-optional-showing-plant-counts-by-proximity-chart-title-group">drawBar                | Generates stacked bar chart       | - title: Optional    |
-| showing plant counts by proximity  |   chart title        |
-| group                              |                      |</a></li>
-<li><a class="reference internal" href="#drawsankey-creates-a-sankey-diagram-showing-title-optional-flow-between-groups-and-diagram-title-retirement-categories">drawSankey             | Creates a Sankey diagram showing  | - title: Optional    |
-| flow between groups and            |   diagram title      |
-| retirement categories              |                      |</a></li>
-<li><a class="reference internal" href="#drawmap-visualizes-coal-plants-on-a-us-none-map-with-color-coding-based-on-retirement-status">drawMap                | Visualizes coal plants on a US    | None                 |
-| map with color-coding based on     |                      |
-| retirement status                  |                      |</a></li>
-<li><a class="reference internal" href="#drawcomponentsmap-shows-multiple-maps-of-us-coal-none-plants-faceted-by-component-groups">drawComponentsMap      | Shows multiple maps of US coal    | None                 |
-| plants, faceted by component       |                      |
-| groups                             |                      |</a></li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>

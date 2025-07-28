@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Step 2: Loading Data" href="usage_guide.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Quick Start" href="usage_guide.html" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
         <title>retire 0.1.0</title>
@@ -204,12 +204,7 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">User Guide:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html">Step 2: Loading Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html#step-3-initializing-the-explorer">Step 3: Initializing the Explorer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html#step-4-basic-graph-visualization">Step 4: Basic Graph Visualization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html#step-5-component-level-analysis">Step 5: Component-Level Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html#step-6-advanced-visualizations">Step 6: Advanced Visualizations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html#step-7-accessing-results-and-analysis">Step 7: Accessing Results and Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage_guide.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration Options</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configuration.html#using-custom-configurations">Using Custom Configurations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_sources.html">Data Sources</a></li>
@@ -319,12 +314,16 @@
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">User Guide:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html">Step 2: Loading Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html#step-3-initializing-the-explorer">Step 3: Initializing the Explorer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html#step-4-basic-graph-visualization">Step 4: Basic Graph Visualization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html#step-5-component-level-analysis">Step 5: Component-Level Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html#step-6-advanced-visualizations">Step 6: Advanced Visualizations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage_guide.html#step-7-accessing-results-and-analysis">Step 7: Accessing Results and Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage_guide.html">Quick Start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage_guide.html#step-2-loading-data">Step 2: Loading Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage_guide.html#data-sources">Data Sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage_guide.html#step-3-initializing-the-explorer">Step 3: Initializing the Explorer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage_guide.html#step-4-basic-graph-visualization">Step 4: Basic Graph Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage_guide.html#step-5-component-level-analysis">Step 5: Component-Level Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage_guide.html#step-6-advanced-visualizations">Step 6: Advanced Visualizations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage_guide.html#step-7-accessing-results-and-analysis">Step 7: Accessing Results and Analysis</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration Options</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="configuration.html#datasets-section">Datasets Section</a></li>
 <li class="toctree-l2"><a class="reference internal" href="configuration.html#visualizations-section">Visualizations Section</a></li>
@@ -353,52 +352,7 @@ Dataset          | generator-specific information for         | level_dataset() 
 | coal plants                                |                    |</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="visualization_methods.html">Visualization Methods</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="visualization_methods.html#method-description-configuration-options-drawgraph-visualize-a-thema-generated-col-column-for-networkx-graph-with-optional-node-node-coloring-coloring-based-on-attributes-or-pos-node-positions-community-structure-color-method-average-or-community">Method                    Description                         Configuration Options
-———————————————————————————–|
-|                                    |                      |
-drawGraph              | Visualize a THEMA-generated       | - col: Column for    |
-| NetworkX graph with optional node  |   node coloring      |
-| coloring based on attributes or    | - pos: Node positions|
-| community structure                | - color_method:      |
-|                                    |   ‘average’ or       |
-|                                    |   ‘community’        |</a></li>
-<li class="toctree-l2"><a class="reference internal" href="visualization_methods.html#drawcomponent-draws-a-specific-connected-component-index-of-component-of-the-graph-with-the-component-customizable-node-coloring-col-column-for-and-appearance-node-coloring-color-method-same-as-drawgraph">drawComponent          | Draws a specific connected        | - component: Index of|
-| component of the graph with        |   the component      |
-| customizable node coloring         | - col: Column for    |
-| and appearance                     |   node coloring      |
-|                                    | - color_method: Same |
-|                                    |   as drawGraph       |</a></li>
-<li class="toctree-l2"><a class="reference internal" href="visualization_methods.html#drawpathdistance-visualizes-shortest-path-component-index-distances-from-all-nodes-to-a-of-the-component-set-of-target-nodes-within-a-targets-dict-of-specified-connected-component-target-node-ids-distances-dict-node-distances">drawPathDistance       | Visualizes shortest path          | - component: Index   |
-| distances from all nodes to a      |   of the component   |
-| set of target nodes within a       | - targets: Dict of   |
-| specified connected component      |   target node IDs    |
-|                                    | - distances_dict:    |
-|                                    |   Node distances     |</a></li>
-<li class="toctree-l2"><a class="reference internal" href="visualization_methods.html#drawheatmap-generates-a-heatmap-visualization-config-dict-with-of-grouped-and-normalized-data-aggregations-with-annotated-values-and-derived-columns-category-boxes-renaming-and-categories">drawHeatMap            | Generates a heatmap visualization | - config: Dict with  |
-| of grouped and normalized data     |   aggregations,      |
-| with annotated values and          |   derived columns,   |
-| category boxes                     |   renaming, and      |
-|                                    |   categories         |</a></li>
-<li class="toctree-l2"><a class="reference internal" href="visualization_methods.html#drawdotplot-creates-a-dot-plot-visualizing-clean-df-cleaned-feature-values-across-groups-dataframe-with-dot-color-representing-config-dict-with-normalized-values-and-dot-size-features-and-representing-standard-deviation-display-options">drawDotPlot            | Creates a dot plot visualizing    | - clean_df: Cleaned  |
-| feature values across groups,      |   DataFrame          |
-| with dot color representing        | - config: Dict with  |
-| normalized values and dot size     |   features and       |
-| representing standard deviation    |   display options    |</a></li>
-<li class="toctree-l2"><a class="reference internal" href="visualization_methods.html#drawbar-generates-stacked-bar-chart-title-optional-showing-plant-counts-by-proximity-chart-title-group">drawBar                | Generates stacked bar chart       | - title: Optional    |
-| showing plant counts by proximity  |   chart title        |
-| group                              |                      |</a></li>
-<li class="toctree-l2"><a class="reference internal" href="visualization_methods.html#drawsankey-creates-a-sankey-diagram-showing-title-optional-flow-between-groups-and-diagram-title-retirement-categories">drawSankey             | Creates a Sankey diagram showing  | - title: Optional    |
-| flow between groups and            |   diagram title      |
-| retirement categories              |                      |</a></li>
-<li class="toctree-l2"><a class="reference internal" href="visualization_methods.html#drawmap-visualizes-coal-plants-on-a-us-none-map-with-color-coding-based-on-retirement-status">drawMap                | Visualizes coal plants on a US    | None                 |
-| map with color-coding based on     |                      |
-| retirement status                  |                      |</a></li>
-<li class="toctree-l2"><a class="reference internal" href="visualization_methods.html#drawcomponentsmap-shows-multiple-maps-of-us-coal-none-plants-faceted-by-component-groups">drawComponentsMap      | Shows multiple maps of US coal    | None                 |
-| plants, faceted by component       |                      |
-| groups                             |                      |</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="visualization_methods.html">Visualization Methods</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
@@ -468,7 +422,7 @@ drawGraph              | Visualize a THEMA-generated       | - col: Column for  
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Step 2: Loading Data</div>
+                <div class="title">Quick Start</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
