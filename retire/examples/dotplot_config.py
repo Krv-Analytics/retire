@@ -8,29 +8,30 @@ representing normalized values and dot size representing standard deviation.
 
 import pandas as pd
 
+"""
+Configuration dictionary for dot plot visualizations.
+
+Contains feature selection, labeling, normalization settings, and
+visual customization options for exploring coal plant characteristics
+across different groups.
+
+Dictionary Keys
+---------------
+features : list of str
+    Column names from the dataset to include in the visualization.
+feature_labels : dict
+    Mapping of column names to more readable display labels.
+normalize_feature : callable
+    Function to normalize feature values between 0 and 1.
+normalize : str
+    Normalization method ('per_feature' for feature-wise normalization).
+color_map : str
+    Matplotlib colormap name for dot coloring.
+dot_size_range : tuple
+    (min_size, max_size) range for dot sizes based on standard deviation.
+"""
+
 dotplot_config = {
-    """
-    Configuration dictionary for dot plot visualizations.
-    
-    Contains feature selection, labeling, normalization settings, and
-    visual customization options for exploring coal plant characteristics
-    across different groups.
-    
-    Dictionary Keys
-    ---------------
-    features : list of str
-        Column names from the dataset to include in the visualization.
-    feature_labels : dict
-        Mapping of column names to more readable display labels.
-    normalize_feature : callable
-        Function to normalize feature values between 0 and 1.
-    normalize : str
-        Normalization method ('per_feature' for feature-wise normalization).
-    color_map : str
-        Matplotlib colormap name for dot coloring.
-    dot_size_range : tuple
-        (min_size, max_size) range for dot sizes based on standard deviation.
-    """
     "features": [
         "Total Nameplate Capacity (MW)",
         "Summed Generator annual net generation (MWh)",
