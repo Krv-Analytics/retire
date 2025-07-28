@@ -1,7 +1,7 @@
 # Retire: Coal Plant Retirement Analysis
 
 [![Python Version](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 [![Development Status](https://img.shields.io/badge/status-v0%20WIP-orange.svg)](https://github.com/your-org/retire)
 
 > **⚠️ Work in Progress**: This is a v0 release. Features and APIs may change.
@@ -92,7 +92,7 @@ This is a v0 WIP release. When contributing:
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the BSD 3-Clause License - see the [LICENSE.md](LICENSE.md) file for details.
 
 ## Citation
 
