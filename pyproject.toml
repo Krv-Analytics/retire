@@ -56,7 +56,6 @@ dev = [
     "flake8>=5.0.0",
     "mypy>=1.0.0",
     "tqdm>=4.67.1",
-    "benson @ git+https://github.com/Krv-Analytics/Benson.git",
 ]
 docs = [
     "sphinx>=5.0.0",
@@ -75,7 +74,4 @@ notebooks = [
 
 [tool.setuptools]
 include-package-data = true
-
-[tool.uv.sources]
-dect = { git = "https://github.com/aidos-lab/dect.git" }
 
