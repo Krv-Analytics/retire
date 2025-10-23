@@ -3,13 +3,45 @@ Retire: Coal Plant Retirement Analysis
 
 Welcome to the documentation for the ``retire`` package, a comprehensive tool for analyzing coal plant retirement strategies based on research published in *Nature Energy*.
 
-.. image:: https://img.shields.io/badge/python-3.12+-blue.svg
-   :target: https://www.python.org/downloads/
-   :alt: Python Version
+.. image:: https://img.shields.io/github/contributors/Krv-Analytics/retire?style=flat-square
+   :target: https://github.com/Krv-Analytics/retire/graphs/contributors
+   :alt: Contributors
 
-.. image:: https://img.shields.io/badge/License-BSD_3--Clause-blue.svg
-   :target: https://opensource.org/licenses/BSD-3-Clause
-   :alt: License
+.. image:: https://img.shields.io/badge/License-BSD%203--Clause-blue?style=flat-square
+   :target: LICENSE.md
+   :alt: License: BSD 3-Clause
+
+.. image:: https://img.shields.io/badge/python-3.10%2B-blue?style=flat-square&logo=python
+   :target: https://www.python.org/
+   :alt: Python 3.10+
+
+.. image:: https://img.shields.io/pypi/v/retire-coal?style=flat-square
+   :target: https://pypi.org/project/retire-coal/
+   :alt: PyPI version
+
+.. image:: https://img.shields.io/badge/docs-available-green?style=flat-square
+   :target: docs/
+   :alt: Documentation
+
+.. image:: https://img.shields.io/badge/web-krv.ai-black?style=flat-square&logo=vercel
+   :target: https://krv.ai
+   :alt: Website
+
+.. image:: https://img.shields.io/badge/LinkedIn-Krv%20Analytics-blue?style=flat-square&logo=linkedin
+   :target: https://www.linkedin.com/company/krv-analytics
+   :alt: LinkedIn
+
+.. image:: https://img.shields.io/badge/Email-team@krv.ai-fe2b27?style=flat-square&logo=gmail
+   :target: mailto:team@krv.ai
+   :alt: Email
+
+.. image:: https://img.shields.io/badge/Nature%20Energy-Manuscript-darkgreen?style=flat-square&logo=bookstack
+   :target: https://www.nature.com/articles/s41560-025-01871-0
+   :alt: Nature Energy Manuscript
+
+.. image:: https://img.shields.io/badge/Nature%20Energy-Research%20Briefing-darkgreen?style=flat-square&logo=bookstack
+   :target: https://www.nature.com/articles/s41560-025-01872-z
+   :alt: Nature Energy Research Briefing
 
 Overview
 --------
